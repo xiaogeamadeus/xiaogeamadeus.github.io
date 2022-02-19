@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-19T04:11:38.505Z</updated>
+  <updated>2022-02-19T04:19:26.198Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,13 +21,21 @@
     <link href="http://example.com/2022/02/19/The-Road-to-Kyoto-University/"/>
     <id>http://example.com/2022/02/19/The-Road-to-Kyoto-University/</id>
     <published>2022-02-19T04:10:59.000Z</published>
-    <updated>2022-02-19T04:11:38.505Z</updated>
+    <updated>2022-02-19T04:19:26.198Z</updated>
+    
+    <content type="html"><![CDATA[<p>在人生最动荡不安的一段时间，我独身一人来到疫情下的东京，最终合格了第一志愿的京都大学。趁着热忱与记忆尚未模糊，决定先将我的备考历程写下，希望能够给正在准备中的你提供微不足道的帮助。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在人生最动荡不安的一段时间，我独身一人来到疫情下的东京，最终合格了第一志愿的京都大学。趁着热忱与记忆尚未模糊，决定先将我的备考历程写下，希望能够给正在准备中的你提供微不足道的帮助。&lt;/p&gt;
+</summary>
+      
     
     
     
     
-    
-    <category term="University" scheme="http://example.com/tags/University/"/>
+    <category term="KyotoU" scheme="http://example.com/tags/KyotoU/"/>
     
   </entry>
   
