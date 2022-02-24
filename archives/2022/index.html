@@ -172,7 +172,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">3 posts in total.</p>
+  <p class="h4">1 posts in total.</p>
   <hr>
   
   
@@ -180,21 +180,9 @@
       
       <p class="h5">2022</p>
     
-    <a href="/2022/02/24/Road-to-Kyoto-University/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Road to Kyoto University</span>
-      <time style="float: right;">02-24</time>
-    </a>
-  
-    
     <a href="/2022/02/24/AtCoder-Kyopro-90-Questions/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">AtCoder Kyopro 90 Questions</span>
       <time style="float: right;">02-24</time>
-    </a>
-  
-    
-    <a href="/2022/02/19/The-Road-to-Kyoto-University/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">The Road to Kyoto University</span>
-      <time style="float: right;">02-19</time>
     </a>
   
 </div>
@@ -364,5 +352,20 @@
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
