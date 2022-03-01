@@ -16,23 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Prefaceこのブログをご覧いただきありがとうございます！ 現在、ソフトウェアエンジニアのサマーインターン（2022）を探しています。 Now I’m looking for summer internships (2022) of software developer engineer(SDE) in Japan or remote. If you would like to offer me">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない… Map と Collection のまとめ（自分用）一种优化查询时间的常用方法 ——Map。 预处理线性，查询时间为对数。 Map：成对的元素，每个元素由键与值构成。 &lt;index, value&gt; Collection：孤立的元素，只包含元素的值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Map &amp; Collection">
+<meta property="og:url" content="http://example.com/2022/03/01/Map-Collection/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="Prefaceこのブログをご覧いただきありがとうございます！ 現在、ソフトウェアエンジニアのサマーインターン（2022）を探しています。 Now I’m looking for summer internships (2022) of software developer engineer(SDE) in Japan or remote. If you would like to offer me">
+<meta property="og:description" content="この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない… Map と Collection のまとめ（自分用）一种优化查询时间的常用方法 ——Map。 预处理线性，查询时间为对数。 Map：成对的元素，每个元素由键与值构成。 &lt;index, value&gt; Collection：孤立的元素，只包含元素的值。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/about/soccer.jpg">
-<meta property="og:image" content="http://example.com/img/about/MUN.JPG">
-<meta property="article:published_time" content="2022-02-24T11:46:46.000Z">
-<meta property="article:modified_time" content="2022-02-26T05:08:32.526Z">
+<meta property="article:published_time" content="2022-03-01T07:53:50.000Z">
+<meta property="article:modified_time" content="2022-03-01T08:14:20.554Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/about/soccer.jpg">
   
   
-  <title>About - WANG Tianchen</title>
+  <title>Map &amp; Collection - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -80,7 +78,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -164,14 +162,56 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/bg/kyotoyuki.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="About">
+            <span class="h2" id="subtitle" title="Map &amp; Collection">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-01 16:53" pubdate>
+        March 1, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      523 Words
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 Minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        Views: <span id="busuanzi_value_page_pv"></span> 
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -184,137 +224,96 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/img/xiaoxun.png" srcset="/img/loading.gif" lazyload
-                   class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">WANG TIANCHEN</div>
-    <div class="about-intro">SDE, Master Student at Kyoto U</div>
-    <div class="about-icons">
-      
-        
-        
-        
-        <a href=https://github.com/xiaogeamadeus class="
-           hint--bottom hint--rounded"
-           aria-label=GitHub
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href=https://www.linkedin.com/in/tianchen-wang-898b93219/ class="
-           hint--bottom hint--rounded"
-           aria-label=Linkedin
-           target="_blank"
-        >
-          <i class="iconfont icon-linkedin-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href=https://mobile.twitter.com/XiaoGe07 class="
-           hint--bottom hint--rounded"
-           aria-label=Twitter
-           target="_blank"
-        >
-          <i class="iconfont icon-twitter-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href=https://www.zhihu.com/people/wang-tian-chen-95 class="
-           hint--bottom hint--rounded"
-           aria-label=Zhihu
-           target="_blank"
-        >
-          <i class="iconfont icon-zhihu-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/wechat.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
-      
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Map &amp; Collection</h1>
+            
+              <p class="note note-info">
+                
+                  Last renew: March 1, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>　この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない…</p>
+<h1 id="Map-と-Collection-のまとめ（自分用）"><a href="#Map-と-Collection-のまとめ（自分用）" class="headerlink" title="Map と Collection のまとめ（自分用）"></a>Map と Collection のまとめ（自分用）</h1><p>一种优化查询时间的常用方法 ——Map。</p>
+<p>预处理线性，查询时间为对数。</p>
+<p>Map：成对的元素，每个元素由键与值构成。</p>
+<p><code>&lt;index, value&gt;</code></p>
+<p>Collection：孤立的元素，只包含元素的值。</p>
+<p><code>&lt;value&gt;</code></p>
+<p><strong>注意： Map中的值可以重复，但键不允许重复。</strong></p>
+<p>常用的Map集合：HashMap/ LinkedHashMap</p>
+<h4 id="HashMap-方法"><a href="#HashMap-方法" class="headerlink" title="HashMap 方法"></a>HashMap 方法</h4><p>HashMap&lt;k, v&gt; 采用哈希表结构存储数据，元素的存取顺序不能保证是一致的</p>
+<h4 id="LinkedHashMap-方法"><a href="#LinkedHashMap-方法" class="headerlink" title="LinkedHashMap 方法"></a>LinkedHashMap 方法</h4><p>LinkedHashMap&lt;k, v&gt; 采用哈希表+链表结构存储数据，可以保证元素的存取顺序一致</p>
+<h2 id="Map结构的API"><a href="#Map结构的API" class="headerlink" title="Map结构的API"></a>Map结构的API</h2><p>get(Object k)：返回指定键所映射的值</p>
+<p>put(key k, value v)：将值与映射中的键关联</p>
+<p>remove(Object k)：如果存在一个键为k的映射关系，将其删除</p>
+<p>clear()：删除Map中所有键/值对</p>
+<h2 id="Map集合遍历键找值方式"><a href="#Map集合遍历键找值方式" class="headerlink" title="Map集合遍历键找值方式"></a>Map集合遍历键找值方式</h2><h2 id="Map集合遍历键值对方式"><a href="#Map集合遍历键值对方式" class="headerlink" title="Map集合遍历键值对方式"></a>Map集合遍历键值对方式</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Programming/">Programming</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/26/AWS-Solutions-Architect-Associate-C02/">
+                        <span class="hidden-mobile">AWS Solutions Architect Associate C02</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p><strong>このブログをご覧いただきありがとうございます！</strong></p>
-<p><strong>現在、ソフトウェアエンジニアのサマーインターン（2022）を探しています。</strong></p>
-<p><strong>Now I’m looking for summer internships (2022) of software developer engineer(SDE) in Japan or remote.</strong></p>
-<p><strong>If you would like to offer me some opportunities, please feel free to cantact me at anytimes.</strong> </p>
-<p>Mail Address: <a href="mailto:wang.tianchen333@gmail.com">wang.tianchen333@gmail.com</a></p>
-<p>This blog included some interesting projects and articles.</p>
-<p>Created by Hexo + GihubPages.</p>
-<h2 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h2><p>　中国出身、京都大学大学院情報学研究科社会情報学専攻１年（22年4月時点、24年3月卒業予定）<a target="_blank" rel="noopener" href="http://www.agent.soc.i.kyoto-u.ac.jp/">伊藤孝行研究室</a>に所属しています。自然言語処理関連の研究に対して興味を持っているけど、研究内容はまだ決めていません。</p>
-<p>　学部は機械や制御を専攻しましたので、常に情報学の実務経験や基礎知識は足りないを感じました。他の優秀のエンジニアに追いつくためには、何倍の努力をしなければならない。とりあえずバックアンドエンジニアを目指す、インフラやフロントアンドのことも勉強しています。</p>
-<p>　最近は<a target="_blank" rel="noopener" href="https://atcoder.jp/users/Xiaogeamadeus">AtCoder</a>に興味を持って参加しています。その同時に、自分で書いたAtCoderの競プロ典型90問とABC過去問の答えを<a target="_blank" rel="noopener" href="https://github.com/xiaogeamadeus/AtCoder_Practice">github</a>で毎日更新しています。</p>
-<p>　そして、AWS-SAAC02の試験も準備ています。<a target="_blank" rel="noopener" href="https://xiaogeamadeus.github.io/2022/02/26/AWS-Solutions-Architect-Associate-C02/">この記事</a>をご覧ください。</p>
-<p>I’m a M1 student at Kyoto University, graduate school of informatics, Takayuki Ito LAB.</p>
-<p>I expect to graduate at Mar.2024. I’m a native speaker of Simplified Chinese, and can work in the English or Japanese environments.</p>
-<p>My resume is here.   
-
-	</p><div class="row">
-    <embed src="/pdf/Resume_WANG_Tianchen.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+<!-- Custom -->
 
 
-<p></p>
-<h3 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h3><p>現在作っています。</p>
-<h3 id="Technical-Skills"><a href="#Technical-Skills" class="headerlink" title="Technical Skills"></a>Technical Skills</h3><p>Java, Python, AWS, MATLAB, C, HTML</p>
-<h3 id="Certificate"><a href="#Certificate" class="headerlink" title="Certificate"></a>Certificate</h3><p>2021.4      TOEIC  810</p>
-<p>2021.12     JLPT  N2</p>
-<h3 id="The-Other-Side-of-Me"><a href="#The-Other-Side-of-Me" class="headerlink" title="The Other Side of Me"></a>The Other Side of Me</h3><p>I owned 30,000 fans in Zhihu (similiar to a Chinese verson Quora). </p>
-<p>I was the captain of the school of Automation’s soccer team in college (Position: GK/DF).<br><img src="/img/about/soccer.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>I had participated in more than 20 conferences of the Model United Nation and had chaired Model United Nation conferences such as the FAO.<br><img src="/img/about/MUN.JPG" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>If you are interested in me, please feel free to contact me at any time.</p>
-<p>Mail Address: <a href="mailto:wang.tianchen333@gmail.com">wang.tianchen333@gmail.com</a></p>
-<p>Tel: +81 080-9525-1185</p>
-<p>You can find the link of my Github/ Linkedin/ Twitter/ Zhihu/ Wechat at the top of this page.</p>
-
-  </div>
-
-  
-</article>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     
 
     

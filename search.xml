@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Map &amp; Collection</title>
+      <link href="/2022/03/01/Map-Collection/"/>
+      <url>/2022/03/01/Map-Collection/</url>
+      
+        <content type="html"><![CDATA[<p>　この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない…</p><h1 id="Map-と-Collection-のまとめ（自分用）"><a href="#Map-と-Collection-のまとめ（自分用）" class="headerlink" title="Map と Collection のまとめ（自分用）"></a>Map と Collection のまとめ（自分用）</h1><p>一种优化查询时间的常用方法 ——Map。</p><p>预处理线性，查询时间为对数。</p><p>Map：成对的元素，每个元素由键与值构成。</p><p><code>&lt;index, value&gt;</code></p><p>Collection：孤立的元素，只包含元素的值。</p><p><code>&lt;value&gt;</code></p><p><strong>注意： Map中的值可以重复，但键不允许重复。</strong></p><p>常用的Map集合：HashMap/ LinkedHashMap</p><h4 id="HashMap-方法"><a href="#HashMap-方法" class="headerlink" title="HashMap 方法"></a>HashMap 方法</h4><p>HashMap&lt;k, v&gt; 采用哈希表结构存储数据，元素的存取顺序不能保证是一致的</p><h4 id="LinkedHashMap-方法"><a href="#LinkedHashMap-方法" class="headerlink" title="LinkedHashMap 方法"></a>LinkedHashMap 方法</h4><p>LinkedHashMap&lt;k, v&gt; 采用哈希表+链表结构存储数据，可以保证元素的存取顺序一致</p><h2 id="Map结构的API"><a href="#Map结构的API" class="headerlink" title="Map结构的API"></a>Map结构的API</h2><p>get(Object k)：返回指定键所映射的值</p><p>put(key k, value v)：将值与映射中的键关联</p><p>remove(Object k)：如果存在一个键为k的映射关系，将其删除</p><p>clear()：删除Map中所有键/值对</p><h2 id="Map集合遍历键找值方式"><a href="#Map集合遍历键找值方式" class="headerlink" title="Map集合遍历键找值方式"></a>Map集合遍历键找值方式</h2><h2 id="Map集合遍历键值对方式"><a href="#Map集合遍历键值对方式" class="headerlink" title="Map集合遍历键值对方式"></a>Map集合遍历键值对方式</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Programming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AWS Solutions Architect Associate C02</title>
       <link href="/2022/02/26/AWS-Solutions-Architect-Associate-C02/"/>
       <url>/2022/02/26/AWS-Solutions-Architect-Associate-C02/</url>
