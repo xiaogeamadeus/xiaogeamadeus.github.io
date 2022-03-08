@@ -16,21 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在web开发过程中，经常会遇到“路由”（Routing）的概念。路由到底是什么？简单来说，路由就是URL到函数的映射。是用来跟后端服务器进行交互的一种方式，通过不同的路径来请求不同的资源，请求不同的页面。ネットワーク上でデータを転送する際、その経路を導き出すことをルーティングと呼びます。 The Flow Path of Routing 服务器发出请求。 服务器端监听到80端口（http）或者44">
+    <meta name="description" content="How the Web Works?平时在上网的时候，打开浏览器，输入网址，按下回车，显示想要的内容。这个过程电脑端与服务器端是怎样实现的呢？ 对于普通的上网过程，系统是这样做的：浏览器是一个客户端(client-site)，当你输入URL时，首先浏览器会请求DNS服务器，通过DNS服务器获取域名所对应的IP，然后通过IP地址找到Ip对应的服务器，要求建立TCP链接，等浏览器发送完HTTP Req">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Routing for Web Developer">
-<meta property="og:url" content="http://example.com/2022/03/08/Routing-for-Web-Developer/index.html">
+<meta property="og:title" content="ウェブサービス設計基礎">
+<meta property="og:url" content="http://example.com/2022/03/08/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="在web开发过程中，经常会遇到“路由”（Routing）的概念。路由到底是什么？简单来说，路由就是URL到函数的映射。是用来跟后端服务器进行交互的一种方式，通过不同的路径来请求不同的资源，请求不同的页面。ネットワーク上でデータを転送する際、その経路を導き出すことをルーティングと呼びます。 The Flow Path of Routing 服务器发出请求。 服务器端监听到80端口（http）或者44">
+<meta property="og:description" content="How the Web Works?平时在上网的时候，打开浏览器，输入网址，按下回车，显示想要的内容。这个过程电脑端与服务器端是怎样实现的呢？ 对于普通的上网过程，系统是这样做的：浏览器是一个客户端(client-site)，当你输入URL时，首先浏览器会请求DNS服务器，通过DNS服务器获取域名所对应的IP，然后通过IP地址找到Ip对应的服务器，要求建立TCP链接，等浏览器发送完HTTP Req">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-08T01:38:20.000Z">
-<meta property="article:modified_time" content="2022-03-08T02:10:25.485Z">
+<meta property="og:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
+<meta property="article:published_time" content="2022-03-08T07:39:37.000Z">
+<meta property="article:modified_time" content="2022-03-08T08:44:57.286Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Web_Developer">
+<meta property="article:tag" content="Project_Web">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
   
   
-  <title>Routing for Web Developer - WANG Tianchen</title>
+  <title>ウェブサービス設計基礎 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +169,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Routing for Web Developer">
+            <span class="h2" id="subtitle" title="ウェブサービス設計基礎">
               
             </span>
 
@@ -177,8 +179,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-08 10:38" pubdate>
-        March 8, 2022 am
+      <time datetime="2022-03-08 16:39" pubdate>
+        March 8, 2022 pm
       </time>
     </span>
   
@@ -188,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      933 Words
+      729 Words
     </span>
   
 
@@ -197,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 Minutes
+      7 Minutes
     </span>
   
 
@@ -234,34 +236,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Routing for Web Developer</h1>
+            <h1 style="display: none">ウェブサービス設計基礎</h1>
             
               <p class="note note-info">
                 
-                  Last renew: March 8, 2022 am
+                  Last renew: March 8, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <p>在web开发过程中，经常会遇到“路由”（Routing）的概念。路由到底是什么？简单来说，路由就是URL到函数的映射。是用来跟后端服务器进行交互的一种方式，通过不同的路径来请求不同的资源，请求不同的页面。ネットワーク上でデータを転送する際、その経路を導き出すことを<em>ルーティング</em>と呼びます。</p>
-<h3 id="The-Flow-Path-of-Routing"><a href="#The-Flow-Path-of-Routing" class="headerlink" title="The Flow Path of Routing"></a>The Flow Path of Routing</h3><ol>
-<li>服务器发出请求。</li>
-<li>服务器端监听到80端口（http）或者443端口（https）有请求，并且解析URL路径。</li>
-<li>根据服务器的路由配置，返回相应信息（html / json / image）。</li>
-<li>浏览器根据数据包的content-type来决定如何解析数据。</li>
+              <h2 id="How-the-Web-Works"><a href="#How-the-Web-Works" class="headerlink" title="How the Web Works?"></a>How the Web Works?</h2><p>平时在上网的时候，打开浏览器，输入网址，按下回车，显示想要的内容。这个过程电脑端与服务器端是怎样实现的呢？</p>
+<p>对于普通的上网过程，系统是这样做的：浏览器是一个客户端(client-site)，当你输入URL时，首先浏览器会请求DNS服务器，通过DNS服务器获取域名所对应的IP，然后通过IP地址找到Ip对应的服务器，要求建立TCP链接，等浏览器发送完HTTP Request（请求）包之后，服务器(server-site)接收到请求包，处理请求包，调用自身服务，返回HTTP Response（响应）包；客户端收到来自服务器的响应后开始渲染这个Response包中的主体(body)，等收到全部的内容后端开与服务器之间的TCP链接。<img src="/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png" srcset="/img/loading.gif" lazyload alt="3.1.web2"></p>
+<p>一个web服务器也被称为HTTP服务器，它通过HTTP协议与客户端通信。这个客户端一般指的是web浏览器。</p>
+<p>web服务器端的功能可以被总结为以下几点</p>
+<ol>
+<li>客户端通过TCP/IP协议建立到服务器的TCP连接。</li>
+<li>客户端向服务器发送HTTP协议请求包(HTTP Request)，请求服务器里的资源文档。</li>
+<li>服务器向客户端发送HTTP协议应答包(HTTP Response)，如果请求的资源包含动态语言，服务器会调用动态语言的解释引擎处理“动态内容”，并将处理得到的数据返回给客户端。</li>
+<li>客户端与服务器断开，由客户端解释HTML文档，在客户端屏幕上渲染图形结果。</li>
 </ol>
-<h3 id="The-Difference-between-Router-and-Route"><a href="#The-Difference-between-Router-and-Route" class="headerlink" title="The Difference between Router and Route"></a>The Difference between Router and Route</h3><p>route 就是一条路由，将一条URL路径与一个函数进行映射，例如</p>
-<p><code> /users -&gt; getAlUsers()</code> </p>
-<p><code>/users/count -&gt; getUsersCount()</code></p>
-<p>这就是两条路由，访问users时，将会执行getAllUsers()函数；当访问 /users/count时，会执行getUsersCount()函数</p>
-<p>而router（路由器）可以理解为一个容器，或者说一种机制，他管理了一组route。route执行的过程是由router来处理的。”The router routes you to a route.”</p>
-<h2 id="The-Route-of-Server"><a href="#The-Route-of-Server" class="headerlink" title="The Route of Server"></a>The Route of Server</h2><p>对于服务器来说，当接收到客户端发来的http请求，会根据请求的URL，来找到相应的映射函数，并且执行，将返回值发回客户端。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/'</span>, (req, res)=&gt;{undefined<br><br>res.<span class="hljs-built_in">sendFile</span>(<span class="hljs-string">'index'</span>)<br><br>})<br></code></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/users'</span>, (req,res)=&gt;{undefined<br>db.<span class="hljs-built_in">queryAllUsers</span>()<br>.<span class="hljs-built_in">then</span>(data =&gt; res,<span class="hljs-built_in">send</span>(data))<br>})<br></code></pre></td></tr></tbody></table></figure>
-
-<p>这里定义了两条路由，访问<code>/</code>时，会返回index界面；访问<code>/users</code>时，会从数据库中读取所有的用户数据并返回。</p>
-
+<p><strong>注：客户端与服务器之间的通讯是非持久性的，服务器发送了应答之后就会与客户端断开连接，等待下一次请求。</strong></p>
+<h3 id="URLとDNS"><a href="#URLとDNS" class="headerlink" title="URLとDNS"></a>URLとDNS</h3><p>略，Computer Science：an Overview讲过</p>
+<p>注：DNS使用的是递归查询过程+迭代查询过程，最后获取IP地址</p>
+<h3 id="HTTP-Protocol"><a href="#HTTP-Protocol" class="headerlink" title="HTTP Protocol"></a>HTTP Protocol</h3>
             </div>
             <hr>
             <div>
@@ -271,7 +268,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web-Developer/">Web_Developer</a>
+                      <a class="hover-with-bg" href="/tags/Project-Web/">Project_Web</a>
                     
                   </div>
                 
@@ -282,18 +279,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/08/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ウェブサービス設計基礎</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/08/Gogee-Day1-HTTP%E5%9F%BA%E7%A4%8E%E3%83%BBAPI%E3%81%AE%E6%A7%8B%E7%AF%89/">
-                        <span class="hidden-mobile">Gogee_Day1 HTTP基礎・APIの構築</span>
+                      <a href="/2022/03/08/Routing-for-Web-Developer/">
+                        <span class="hidden-mobile">Routing for Web Developer</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
