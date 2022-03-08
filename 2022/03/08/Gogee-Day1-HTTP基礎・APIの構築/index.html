@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない… Map と Collection のまとめ（自分用）一种优化查询时间的常用方法 ——Map。 预处理线性，查询时间为对数。 Map：成对的元素，每个元素由键与值构成。 &lt;index, value&gt; Collection：孤立的元素，只包含元素的值。">
+    <meta name="description" content="Goでウェブサービスを動かすGo语言内置了net&#x2F;http库，并且封装了http网络编程的基础接口。这样我们可以很便利的实现web接入。Gogee也是基于net&#x2F;http的框架。举个例子： 1234567891011121314151617181920212223242526272829package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net&#x2F;http&quot;)func main()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Map &amp; Collection">
-<meta property="og:url" content="http://example.com/2022/03/01/Map-Collection/index.html">
+<meta property="og:title" content="Gogee_Day1 HTTP基礎・APIの構築">
+<meta property="og:url" content="http://example.com/2022/03/08/Gogee-Day1-HTTP%E5%9F%BA%E7%A4%8E%E3%83%BBAPI%E3%81%AE%E6%A7%8B%E7%AF%89/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない… Map と Collection のまとめ（自分用）一种优化查询时间的常用方法 ——Map。 预处理线性，查询时间为对数。 Map：成对的元素，每个元素由键与值构成。 &lt;index, value&gt; Collection：孤立的元素，只包含元素的值。">
+<meta property="og:description" content="Goでウェブサービスを動かすGo语言内置了net&#x2F;http库，并且封装了http网络编程的基础接口。这样我们可以很便利的实现web接入。Gogee也是基于net&#x2F;http的框架。举个例子： 1234567891011121314151617181920212223242526272829package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net&#x2F;http&quot;)func main()">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-01T07:53:50.000Z">
-<meta property="article:modified_time" content="2022-03-01T08:14:20.554Z">
+<meta property="article:published_time" content="2022-03-08T01:24:28.000Z">
+<meta property="article:modified_time" content="2022-03-08T02:56:29.051Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Project_Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Map &amp; Collection - WANG Tianchen</title>
+  <title>Gogee_Day1 HTTP基礎・APIの構築 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Map &amp; Collection">
+            <span class="h2" id="subtitle" title="Gogee_Day1 HTTP基礎・APIの構築">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-01 16:53" pubdate>
-        March 1, 2022 pm
+      <time datetime="2022-03-08 10:24" pubdate>
+        March 8, 2022 am
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      523 Words
+      1.2k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 Minutes
+      10 Minutes
     </span>
   
 
@@ -234,31 +234,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Map &amp; Collection</h1>
+            <h1 style="display: none">Gogee_Day1 HTTP基礎・APIの構築</h1>
             
               <p class="note note-info">
                 
-                  Last renew: March 1, 2022 pm
+                  Last renew: March 8, 2022 am
                 
               </p>
             
             <div class="markdown-body">
-              <p>　この記事は、日本語やプログラミングスキルを向上するために書きました。著者は中国出身ですから、言語、文法のミスがいっぱいあるかもしれない…</p>
-<h1 id="Map-と-Collection-のまとめ（自分用）"><a href="#Map-と-Collection-のまとめ（自分用）" class="headerlink" title="Map と Collection のまとめ（自分用）"></a>Map と Collection のまとめ（自分用）</h1><p>一种优化查询时间的常用方法 ——Map。</p>
-<p>预处理线性，查询时间为对数。</p>
-<p>Map：成对的元素，每个元素由键与值构成。</p>
-<p><code>&lt;index, value&gt;</code></p>
-<p>Collection：孤立的元素，只包含元素的值。</p>
-<p><code>&lt;value&gt;</code></p>
-<p><strong>注意： Map中的值可以重复，但键不允许重复。</strong></p>
-<p>常用的Map集合：HashMap/ LinkedHashMap</p>
-<h4 id="HashMap-方法"><a href="#HashMap-方法" class="headerlink" title="HashMap 方法"></a>HashMap 方法</h4><p>HashMap&lt;k, v&gt; 采用哈希表结构存储数据，元素的存取顺序不能保证是一致的</p>
-<h4 id="LinkedHashMap-方法"><a href="#LinkedHashMap-方法" class="headerlink" title="LinkedHashMap 方法"></a>LinkedHashMap 方法</h4><p>LinkedHashMap&lt;k, v&gt; 采用哈希表+链表结构存储数据，可以保证元素的存取顺序一致</p>
-<h2 id="Map结构的API"><a href="#Map结构的API" class="headerlink" title="Map结构的API"></a>Map结构的API</h2><p>get(Object k)：返回指定键所映射的值</p>
-<p>put(key k, value v)：将值与映射中的键关联</p>
-<p>remove(Object k)：如果存在一个键为k的映射关系，将其删除</p>
-<p>clear()：删除Map中所有键/值对</p>
-<h2 id="Map集合遍历键找值方式"><a href="#Map集合遍历键找值方式" class="headerlink" title="Map集合遍历键找值方式"></a>Map集合遍历键找值方式</h2><h2 id="Map集合遍历键值对方式"><a href="#Map集合遍历键值对方式" class="headerlink" title="Map集合遍历键值对方式"></a>Map集合遍历键值对方式</h2>
+              <h3 id="Goでウェブサービスを動かす"><a href="#Goでウェブサービスを動かす" class="headerlink" title="Goでウェブサービスを動かす"></a>Goでウェブサービスを動かす</h3><p>Go语言内置了<code>net/http</code>库，并且封装了http网络编程的基础接口。这样我们可以很便利的实现web接入。Gogee也是基于<code>net/http</code>的框架。举个例子：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">"fmt"</span><br>	<span class="hljs-string">"log"</span><br>	<span class="hljs-string">"net/http"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	<span class="hljs-comment">// set 2 route- "/" and "/hello"</span><br>	http.HandleFunc(<span class="hljs-string">"/"</span>, indexHandler)<br>	http.HandleFunc(<span class="hljs-string">"/hello"</span>, helloHandler)<br>	<span class="hljs-comment">// launch web service</span><br>	<span class="hljs-comment">// :9999 : address AT 9999 port</span><br>	<span class="hljs-comment">// nil : solve instance by Standard library</span><br>	log.Fatal(http.ListenAndServe(<span class="hljs-string">":9999"</span>, <span class="hljs-literal">nil</span>))<br>}<br><br><span class="hljs-comment">//handler echoes r.URL.Path</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">indexHandler</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {<br>	fmt.Fprintf(w, <span class="hljs-string">"URL.Path = %q\n"</span>, req.URL.Path)<br>}<br><br><span class="hljs-comment">//handler echoes r.URL.Header</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">helloHandler</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {<br>	<span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> req.Header {<br>		fmt.Fprintf(w, <span class="hljs-string">"Header[%q] = %q\n"</span>, k, v)<br>	}<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>![截屏2022-03-08 11.44.50](Gogee-Day1-HTTP基礎・APIの構築/截屏2022-03-08 11.44.50.png)</p>
+<h3 id="http-handler-API-の実現"><a href="#http-handler-API-の実現" class="headerlink" title="http.handler API の実現"></a>http.handler API の実現</h3><p>handler是什么呢？查看一下<code>net/http</code>的源码。</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> http<br><br><span class="hljs-keyword">type</span> Handler <span class="hljs-keyword">interface</span> {<br>  ServeHTTP(w ResponseWriter, r *Request)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ListenAndServe</span><span class="hljs-params">(address <span class="hljs-type">string</span>, h Handler)</span></span><span class="hljs-type">error</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>Handler</code>是一个API，要求需要实现方法ServeHTTP，只要传入任何实现了ServeHTTP接口的实例，所有的HTTP请求就都交给该实例处理了。</p>
+
             </div>
             <hr>
             <div>
@@ -268,7 +261,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Programming/">Programming</a>
+                      <a class="hover-with-bg" href="/tags/Project-Go/">Project_Go</a>
                     
                   </div>
                 
@@ -279,9 +272,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/08/Go%E3%81%A7Web%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F/">
+                      <a href="/2022/03/08/Routing-for-Web-Developer/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GoでWebフレームワークを書く</span>
+                        <span class="hidden-mobile">Routing for Web Developer</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -289,8 +282,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/02/26/AWS-Solutions-Architect-Associate-C02/">
-                        <span class="hidden-mobile">AWS Solutions Architect Associate C02</span>
+                      <a href="/2022/03/08/Go%E3%81%A7Web%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F/">
+                        <span class="hidden-mobile">GoでWebフレームワークを書く</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

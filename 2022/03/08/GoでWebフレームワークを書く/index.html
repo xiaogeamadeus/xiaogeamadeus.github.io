@@ -16,19 +16,39 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://example.com/tags/index.html">
+    <meta name="description" content="Goを使ってWebフレームワークを作りましょう最近Go言語には興味があり、GoでWebサービスを構築できるようになるために、GinのWebフレームワークを学んでいます。Ginの特性は深く理解できるのため、Goで自分のWebフレームワークを作ってみようと思います。「Gogee」と言います。 カタログDAY 1：HTTP基礎・APIの構築">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoでWebフレームワークを書く">
+<meta property="og:url" content="http://example.com/2022/03/08/Go%E3%81%A7Web%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
+<meta property="og:description" content="Goを使ってWebフレームワークを作りましょう最近Go言語には興味があり、GoでWebサービスを構築できるようになるために、GinのWebフレームワークを学んでいます。Ginの特性は深く理解できるのため、Goで自分のWebフレームワークを作ってみようと思います。「Gogee」と言います。 カタログDAY 1：HTTP基礎・APIの構築">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-08T01:09:47.000Z">
+<meta property="article:modified_time" content="2022-03-08T01:24:55.924Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Project_Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Tags - WANG Tianchen</title>
+  <title>GoでWebフレームワークを書く - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -58,7 +78,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -142,22 +162,60 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/bg/kyotoyuki.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Tag">
+            <span class="h2" id="subtitle" title="GoでWebフレームワークを書く">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-08 10:09" pubdate>
+        March 8, 2022 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      166 Words
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      2 Minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        Views: <span id="busuanzi_value_page_pv"></span> 
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,24 +224,89 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">GoでWebフレームワークを書く</h1>
+            
+              <p class="note note-info">
                 
+                  Last renew: March 8, 2022 am
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Goを使ってWebフレームワークを作りましょう"><a href="#Goを使ってWebフレームワークを作りましょう" class="headerlink" title="Goを使ってWebフレームワークを作りましょう"></a>Goを使ってWebフレームワークを作りましょう</h1><p>最近Go言語には興味があり、GoでWebサービスを構築できるようになるために、GinのWebフレームワークを学んでいます。Ginの特性は深く理解できるのため、Goで自分のWebフレームワークを作ってみようと思います。「Gogee」と言います。</p>
+<h2 id="カタログ"><a href="#カタログ" class="headerlink" title="カタログ"></a>カタログ</h2><p>DAY 1：HTTP基礎・APIの構築</p>
 
-<div class="text-center tagcloud">
-  <a href="/tags/AWS-SAAC02/" style="font-size: 15px; color: #bbe">AWS-SAAC02</a> <a href="/tags/AtCoder/" style="font-size: 15px; color: #bbe">AtCoder</a> <a href="/tags/KyotoU/" style="font-size: 15px; color: #bbe">KyotoU</a> <a href="/tags/Programming/" style="font-size: 30px; color: #337ab7">Programming</a> <a href="/tags/Project-Go/" style="font-size: 30px; color: #337ab7">Project_Go</a> <a href="/tags/Web-Developer/" style="font-size: 15px; color: #bbe">Web_Developer</a>
-</div>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Project-Go/">Project_Go</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/08/Gogee-Day1-HTTP%E5%9F%BA%E7%A4%8E%E3%83%BBAPI%E3%81%AE%E6%A7%8B%E7%AF%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Gogee_Day1 HTTP基礎・APIの構築</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/01/Map-Collection/">
+                        <span class="hidden-mobile">Map & Collection</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -290,6 +413,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 

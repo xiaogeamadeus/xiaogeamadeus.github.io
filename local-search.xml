@@ -4,6 +4,63 @@
   
   
   <entry>
+    <title>Routing for Web Developer</title>
+    <link href="/2022/03/08/Routing-for-Web-Developer/"/>
+    <url>/2022/03/08/Routing-for-Web-Developer/</url>
+    
+    <content type="html"><![CDATA[<p>在web开发过程中，经常会遇到“路由”（Routing）的概念。路由到底是什么？简单来说，路由就是URL到函数的映射。是用来跟后端服务器进行交互的一种方式，通过不同的路径来请求不同的资源，请求不同的页面。ネットワーク上でデータを転送する際、その経路を導き出すことを<em>ルーティング</em>と呼びます。</p><h3 id="The-Flow-Path-of-Routing"><a href="#The-Flow-Path-of-Routing" class="headerlink" title="The Flow Path of Routing"></a>The Flow Path of Routing</h3><ol><li>服务器发出请求。</li><li>服务器端监听到80端口（http）或者443端口（https）有请求，并且解析URL路径。</li><li>根据服务器的路由配置，返回相应信息（html / json / image）。</li><li>浏览器根据数据包的content-type来决定如何解析数据。</li></ol><h3 id="The-Difference-between-Router-and-Route"><a href="#The-Difference-between-Router-and-Route" class="headerlink" title="The Difference between Router and Route"></a>The Difference between Router and Route</h3><p>route 就是一条路由，将一条URL路径与一个函数进行映射，例如</p><p><code> /users -&gt; getAlUsers()</code> </p><p><code>/users/count -&gt; getUsersCount()</code></p><p>这就是两条路由，访问users时，将会执行getAllUsers()函数；当访问 /users/count时，会执行getUsersCount()函数</p><p>而router（路由器）可以理解为一个容器，或者说一种机制，他管理了一组route。route执行的过程是由router来处理的。”The router routes you to a route.”</p><h2 id="The-Route-of-Server"><a href="#The-Route-of-Server" class="headerlink" title="The Route of Server"></a>The Route of Server</h2><p>对于服务器来说，当接收到客户端发来的http请求，会根据请求的URL，来找到相应的映射函数，并且执行，将返回值发回客户端。</p><figure class="highlight c++"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/'</span>, (req, res)=&gt;{undefined<br><br>res.<span class="hljs-built_in">sendFile</span>(<span class="hljs-string">'index'</span>)<br><br>})<br></code></pre></td></tr></tbody></table></figure><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/users'</span>, (req,res)=&gt;{undefined<br>db.<span class="hljs-built_in">queryAllUsers</span>()<br>.<span class="hljs-built_in">then</span>(data =&gt; res,<span class="hljs-built_in">send</span>(data))<br>})<br></code></pre></td></tr></tbody></table></figure><p>这里定义了两条路由，访问<code>/</code>时，会返回index界面；访问<code>/users</code>时，会从数据库中读取所有的用户数据并返回。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Web_Developer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Gogee_Day1 HTTP基礎・APIの構築</title>
+    <link href="/2022/03/08/Gogee-Day1-HTTP%E5%9F%BA%E7%A4%8E%E3%83%BBAPI%E3%81%AE%E6%A7%8B%E7%AF%89/"/>
+    <url>/2022/03/08/Gogee-Day1-HTTP%E5%9F%BA%E7%A4%8E%E3%83%BBAPI%E3%81%AE%E6%A7%8B%E7%AF%89/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Goでウェブサービスを動かす"><a href="#Goでウェブサービスを動かす" class="headerlink" title="Goでウェブサービスを動かす"></a>Goでウェブサービスを動かす</h3><p>Go语言内置了<code>net/http</code>库，并且封装了http网络编程的基础接口。这样我们可以很便利的实现web接入。Gogee也是基于<code>net/http</code>的框架。举个例子：</p><figure class="highlight go"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br><span class="hljs-string">"fmt"</span><br><span class="hljs-string">"log"</span><br><span class="hljs-string">"net/http"</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br><span class="hljs-comment">// set 2 route- "/" and "/hello"</span><br>http.HandleFunc(<span class="hljs-string">"/"</span>, indexHandler)<br>http.HandleFunc(<span class="hljs-string">"/hello"</span>, helloHandler)<br><span class="hljs-comment">// launch web service</span><br><span class="hljs-comment">// :9999 : address AT 9999 port</span><br><span class="hljs-comment">// nil : solve instance by Standard library</span><br>log.Fatal(http.ListenAndServe(<span class="hljs-string">":9999"</span>, <span class="hljs-literal">nil</span>))<br>}<br><br><span class="hljs-comment">//handler echoes r.URL.Path</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">indexHandler</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {<br>fmt.Fprintf(w, <span class="hljs-string">"URL.Path = %q\n"</span>, req.URL.Path)<br>}<br><br><span class="hljs-comment">//handler echoes r.URL.Header</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">helloHandler</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {<br><span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> req.Header {<br>fmt.Fprintf(w, <span class="hljs-string">"Header[%q] = %q\n"</span>, k, v)<br>}<br>}<br></code></pre></td></tr></tbody></table></figure><p>![截屏2022-03-08 11.44.50](Gogee-Day1-HTTP基礎・APIの構築/截屏2022-03-08 11.44.50.png)</p><h3 id="http-handler-API-の実現"><a href="#http-handler-API-の実現" class="headerlink" title="http.handler API の実現"></a>http.handler API の実現</h3><p>handler是什么呢？查看一下<code>net/http</code>的源码。</p><figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> http<br><br><span class="hljs-keyword">type</span> Handler <span class="hljs-keyword">interface</span> {<br>  ServeHTTP(w ResponseWriter, r *Request)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ListenAndServe</span><span class="hljs-params">(address <span class="hljs-type">string</span>, h Handler)</span></span><span class="hljs-type">error</span><br></code></pre></td></tr></tbody></table></figure><p><code>Handler</code>是一个API，要求需要实现方法ServeHTTP，只要传入任何实现了ServeHTTP接口的实例，所有的HTTP请求就都交给该实例处理了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Project_Go</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GoでWebフレームワークを書く</title>
+    <link href="/2022/03/08/Go%E3%81%A7Web%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F/"/>
+    <url>/2022/03/08/Go%E3%81%A7Web%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Goを使ってWebフレームワークを作りましょう"><a href="#Goを使ってWebフレームワークを作りましょう" class="headerlink" title="Goを使ってWebフレームワークを作りましょう"></a>Goを使ってWebフレームワークを作りましょう</h1><p>最近Go言語には興味があり、GoでWebサービスを構築できるようになるために、GinのWebフレームワークを学んでいます。Ginの特性は深く理解できるのため、Goで自分のWebフレームワークを作ってみようと思います。「Gogee」と言います。</p><h2 id="カタログ"><a href="#カタログ" class="headerlink" title="カタログ"></a>カタログ</h2><p>DAY 1：HTTP基礎・APIの構築</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Project_Go</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Map &amp; Collection</title>
     <link href="/2022/03/01/Map-Collection/"/>
     <url>/2022/03/01/Map-Collection/</url>
