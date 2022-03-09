@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
 <meta property="article:published_time" content="2022-03-08T07:39:37.000Z">
-<meta property="article:modified_time" content="2022-03-09T00:14:24.739Z">
+<meta property="article:modified_time" content="2022-03-09T11:00:29.435Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k Words
+      2.9k Words
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 Minutes
+      25 Minutes
     </span>
   
 
@@ -240,7 +240,7 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 9, 2022 am
+                  Last renew: March 9, 2022 pm
                 
               </p>
             
@@ -262,8 +262,34 @@
 <p>HTTP(Hyper Text Transfer Protocol) 超文本传输协议：客户端可能发送给服务器什么样的消息以及得到什么样的响应。</p>
 <p>HTTP是一种让web服务器与浏览器（客户端）通过互联网(Internet)发送与接收数据的协议，它建立在<strong>TCP协议</strong>之上，一般采用TCP的80端口。它是一个请求与响应的协议：客户端发出请求，服务器响应请求。服务器不能主动联系客户端，也不能给客户端发出回调链接。客户端与服务器端都可以提前中断一个连接。</p>
 <p>HTTP协议是无状态的，同一个客户端的这次请求和上次请求没有任何对应关系。服务器并不知道这两个请求是否来自同一个客户端。为了解决这个问题，web程序引入了<strong>cookie</strong>机制来维护<strong>连接的可持续状态</strong>。</p>
-<h4 id="HTTP-Requests-Client-Site"><a href="#HTTP-Requests-Client-Site" class="headerlink" title="HTTP Requests (Client Site)"></a>HTTP Requests (Client Site)</h4><p>对于客户端发出的HTTP请求包，其结构分为三部分。第一部分为Request line（请求行），第二部分叫request header（请求头），第三部分是body（主体）。header 和 body</p>
+<h4 id="HTTP-Requests-Client-Site"><a href="#HTTP-Requests-Client-Site" class="headerlink" title="HTTP Requests (Client Site)"></a>HTTP Requests (Client Site)</h4><p>对于客户端发出的HTTP请求包，其结构分为三部分。第一部分为Request line（请求行），第二部分叫request header（请求头），第三部分是body（主体）。header 和 body之间有个空行，如下所示。</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs awk">GET <span class="hljs-regexp">/domains/</span>example<span class="hljs-regexp">/ HTTP/</span><span class="hljs-number">1.1</span>		<span class="hljs-regexp">//</span>请求行: 请求方法 请求URI HTTP协议/协议版本<br>Host：www.iana.org				<span class="hljs-regexp">//</span>服务端的主机名<br>User-Agent：Mozilla<span class="hljs-regexp">/5.0 (Windows NT 6.1) AppleWebKit/</span><span class="hljs-number">537.4</span> (KHTML, like Gecko) Chrome<span class="hljs-regexp">/22.0.1229.94 Safari/</span><span class="hljs-number">537.4</span>			<span class="hljs-regexp">//</span>浏览器信息<br>Accept：text<span class="hljs-regexp">/html,application/</span>xhtml+xml,application<span class="hljs-regexp">/xml;q=0.9,*/</span>*;q=<span class="hljs-number">0.8</span>	<span class="hljs-regexp">//</span>客户端能接收的MIME<br>Accept-Encoding：gzip,deflate,sdch		<span class="hljs-regexp">//</span>是否支持流压缩<br>Accept-Charset：UTF-<span class="hljs-number">8</span>,*;q=<span class="hljs-number">0.5</span>		<span class="hljs-regexp">//</span>客户端字符编码集<br><span class="hljs-regexp">//</span>空行,用于分割请求头和消息体<br><span class="hljs-regexp">//</span>消息体,请求资源参数,例如POST传递的参数<br></code></pre></td></tr></tbody></table></figure>
 
+<p>HTTP协议定义了许多与服务器交互的请求方法，最基本的有4种，GET/ POST/ PUT/ DELETE。一个URL地址用于描述一个网络上的资源，而HTTP的四个基本操作对应着对这个资源的查，增，改，删。</p>
+<p>GET一般用于获取/查询资源信息，POST一般用于更新资源信息。</p>
+<p>GET与POST的区别如下：</p>
+<ol>
+<li>GET的请求body为空，而POST的body不为空</li>
+<li>GET提交的数据会放到URL之后，以<code>?</code>分割URL和传输数据，参数之间以<code>&amp;</code>相连，如<code>EditPosts.aspx? name=test1&amp;id=123456</code>POST方法则是把提交的数据放到HTTP包的body中。</li>
+<li>GET提交的数据大小有限制，POST无限制</li>
+<li>GET提交数据会带来安全问题（URL会显示账号密码，类似zoom的登陆URL）</li>
+</ol>
+<h4 id="HTTP-Response-Server-site"><a href="#HTTP-Response-Server-site" class="headerlink" title="HTTP Response (Server site)"></a>HTTP Response (Server site)</h4><p>HTTP的response包结构如下</p>
+<figure class="highlight sqf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sqf">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK						<span class="hljs-comment">//状态行</span><br>Server: nginx/<span class="hljs-number">1.0</span>.<span class="hljs-number">8</span>					<span class="hljs-comment">//服务器使用的WEB软件名及版本</span><br><span class="hljs-built_in">Date</span>:<span class="hljs-built_in">Date</span>: Tue, <span class="hljs-number">30</span> Oct <span class="hljs-number">2012</span> <span class="hljs-number">04</span>:<span class="hljs-number">14</span>:<span class="hljs-number">25</span> GMT		<span class="hljs-comment">//发送时间</span><br>Content-<span class="hljs-built_in">Type</span>: <span class="hljs-built_in">text</span>/html				<span class="hljs-comment">//服务器发送信息的类型</span><br>Transfer-Encoding: chunked			<span class="hljs-comment">//表示发送HTTP包是分段发的</span><br>Connection: keep-<span class="hljs-built_in">alive</span>				<span class="hljs-comment">//保持连接状态</span><br>Content-Length: <span class="hljs-number">90</span>					<span class="hljs-comment">//主体内容长度</span><br><span class="hljs-comment">//空行 用来分割消息头和主体</span><br>&lt;!DOCTYPE html PUBLIC <span class="hljs-string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span>... <span class="hljs-comment">//消息体</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>其第一行叫做<strong>状态行</strong>，由HTTP协议版本号，状态码，状态消息三部分组成</p>
+<p>状态码用来告诉HTTP客户端，HTTP服务器是否产生了预期的Response。对于HTTP/1.1版本来说，状态码情况如下：</p>
+<ul>
+<li>1XX 提示信息 - 表示请求已被成功接收，继续处理</li>
+<li>2XX 成功 - 表示请求已被成功接收，理解，接受</li>
+<li>3XX 重定向 - 要完成请求必须进行更进一步的处理</li>
+<li>4XX 客户端错误 - 请求有语法错误或请求无法实现</li>
+<li>5XX 服务器端错误 - 服务器未能实现合法的请求</li>
+</ul>
+<h4 id="HTTP-と-Connection-keep-alive"><a href="#HTTP-と-Connection-keep-alive" class="headerlink" title="HTTP と Connection: keep-alive"></a>HTTP と Connection: keep-alive</h4><p>从HTTP/1.1起，默认开启了Keep-Alive保持连接特性，其含义是当一个网页完成打开后，客户端与服务器之间用于传输的TCP连接不会被关闭。如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。</p>
+<p>Keep-Alive不会永久保持，有一个保持时间，可以设定。</p>
+<h3 id="Goを使ってウェブサーバーをつくよう！"><a href="#Goを使ってウェブサーバーをつくよう！" class="headerlink" title="Goを使ってウェブサーバーをつくよう！"></a>Goを使ってウェブサーバーをつくよう！</h3><p>对于Go语言来说，其提供给了我们一个完整的<code>net/http</code>包，这样可以很方便的搭建起一个可以运行的web服务。这个使用包也能很简单的对于web的router、静态文件、模版、cookie等数据进行操作和设置。</p>
+<h4 id="Use-net-x2F-http-Package-to-Create-a-Web-Server"><a href="#Use-net-x2F-http-Package-to-Create-a-Web-Server" class="headerlink" title="Use net/http Package to Create a Web Server"></a>Use net/http Package to Create a Web Server</h4>
             </div>
             <hr>
             <div>
