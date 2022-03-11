@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
 <meta property="article:published_time" content="2022-03-08T07:39:37.000Z">
-<meta property="article:modified_time" content="2022-03-09T11:00:29.435Z">
+<meta property="article:modified_time" content="2022-03-09T11:12:34.881Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,6 +286,7 @@
 <li>4XX 客户端错误 - 请求有语法错误或请求无法实现</li>
 <li>5XX 服务器端错误 - 服务器未能实现合法的请求</li>
 </ul>
+<p>本质上还是被分为Header（包含状态行）与Body。</p>
 <h4 id="HTTP-と-Connection-keep-alive"><a href="#HTTP-と-Connection-keep-alive" class="headerlink" title="HTTP と Connection: keep-alive"></a>HTTP と Connection: keep-alive</h4><p>从HTTP/1.1起，默认开启了Keep-Alive保持连接特性，其含义是当一个网页完成打开后，客户端与服务器之间用于传输的TCP连接不会被关闭。如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的TCP连接。</p>
 <p>Keep-Alive不会永久保持，有一个保持时间，可以设定。</p>
 <h3 id="Goを使ってウェブサーバーをつくよう！"><a href="#Goを使ってウェブサーバーをつくよう！" class="headerlink" title="Goを使ってウェブサーバーをつくよう！"></a>Goを使ってウェブサーバーをつくよう！</h3><p>对于Go语言来说，其提供给了我们一个完整的<code>net/http</code>包，这样可以很方便的搭建起一个可以运行的web服务。这个使用包也能很简单的对于web的router、静态文件、模版、cookie等数据进行操作和设置。</p>

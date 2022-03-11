@@ -16,18 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Terminal for Mac">
-<meta property="og:url" content="http://example.com/2022/03/09/Terminal-for-Mac/index.html">
+    <meta name="description" content="本部分主要内容：  将router独立出来，方便之后增强。 设计context，封装Request和Response，提供对JSON（JavaScript Object Notation）、HTML等返回类型的支持。  コンテキストの設計必要がある？ 对于web服务来说，无非就是根据Request*http.Request，构造响应http.ResponseWriter。但这两个对象所提供的API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gogee_Day2 コンテキスト">
+<meta property="og:url" content="http://example.com/2022/03/09/Gogee-Day2-%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
+<meta property="og:description" content="本部分主要内容：  将router独立出来，方便之后增强。 设计context，封装Request和Response，提供对JSON（JavaScript Object Notation）、HTML等返回类型的支持。  コンテキストの設計必要がある？ 对于web服务来说，无非就是根据Request*http.Request，构造响应http.ResponseWriter。但这两个对象所提供的API">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-09T01:15:29.000Z">
-<meta property="article:modified_time" content="2022-03-09T01:15:29.664Z">
+<meta property="article:published_time" content="2022-03-09T11:03:59.000Z">
+<meta property="article:modified_time" content="2022-03-10T11:10:53.490Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Project-Go">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Terminal for Mac - WANG Tianchen</title>
+  <title>Gogee_Day2 コンテキスト - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -164,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Terminal for Mac">
+            <span class="h2" id="subtitle" title="Gogee_Day2 コンテキスト">
               
             </span>
 
@@ -174,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-09 10:15" pubdate>
-        March 9, 2022 am
+      <time datetime="2022-03-09 20:03" pubdate>
+        March 9, 2022 pm
       </time>
     </span>
   
@@ -185,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 Words
+      2.6k Words
     </span>
   
 
@@ -194,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 Minutes
+      22 Minutes
     </span>
   
 
@@ -231,21 +234,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Terminal for Mac</h1>
+            <h1 style="display: none">Gogee_Day2 コンテキスト</h1>
             
               <p class="note note-info">
                 
-                  Last renew: March 9, 2022 am
+                  Last renew: March 10, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              
+              <p>本部分主要内容：</p>
+<ol>
+<li>将router独立出来，方便之后增强。</li>
+<li>设计context，封装Request和Response，提供对JSON（JavaScript Object Notation）、HTML等返回类型的支持。</li>
+</ol>
+<h2 id="コンテキストの設計"><a href="#コンテキストの設計" class="headerlink" title="コンテキストの設計"></a>コンテキストの設計</h2><h4 id="必要がある？"><a href="#必要がある？" class="headerlink" title="必要がある？"></a>必要がある？</h4><ol>
+<li>对于web服务来说，无非就是根据Request<code>*http.Request</code>，构造响应<code>http.ResponseWriter</code>。但这两个对象所提供的API太细了，比如，如果我们想要构建一个完整的Response，需要考虑Header，Body，而Header包含了状态码 (StatusCode)，消息类型(ContentType) 等几乎每次请求都要设置的信息。所以如果不进行有效的封装，使用这个框架的用户需要写大量重复且复杂的代码，还容易出错。所以说对于一个好的框架而言，能够高效的构造出HTTP响应是一个关键点。</li>
+<li>针对使用场景来说，封装<code>*http.Request</code>和<code>http.ResponseWriter</code>的方法，简化相关port的调用只是设计Context原因之一。对于框架来说，还需要支撑额外的功能。例如，将来解析动态router<code>/hello/:name</code>，参数<code>:name</code>的值放在哪呢？再比如，框架需要支持中间件，那中间件产生的信息放在哪呢？Context可以随着每一个请求的出现而产生，也随着请求的结束而销毁。所以设计Context结构，我们可以将复杂性和扩展性留在内部，对外简化了port和router的处理函数；要实现的中间件、参数都统一使用Context实例，就像一个百宝箱，可以在其中找到任何东西。</li>
+</ol>
+<h4 id="具体的に実現する"><a href="#具体的に実現する" class="headerlink" title="具体的に実現する"></a>具体的に実現する</h4><figure class="highlight go"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></div></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> gogee<br><br><span class="hljs-keyword">import</span>(<br>	<span class="hljs-string">"encoding/json"</span><br>	<span class="hljs-string">"fmt"</span><br>	<span class="hljs-string">"net/http"</span><br>)<br><br><span class="hljs-keyword">type</span> H <span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-keyword">interface</span>{}<br><br><span class="hljs-keyword">type</span> Context <span class="hljs-keyword">struct</span>{<br>	<span class="hljs-comment">//origin objects</span><br>	Writer http.ResponseWriter<br>	Req    *http.Request<br>	<span class="hljs-comment">//request info</span><br>	Path <span class="hljs-type">string</span><br>	Method <span class="hljs-type">string</span><br>	<span class="hljs-comment">//response info</span><br>	StatusCode <span class="hljs-type">int</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">newContext</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> *Context{<br>	<span class="hljs-keyword">return</span> &amp;Context{<br>		Writer: w,<br>		Req:    req,<br>		Path:   req.URL.Path,<br>		Method: req.Method,<br>	}<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> PostForm(key <span class="hljs-type">string</span>) <span class="hljs-type">string</span>{<br>	<span class="hljs-keyword">return</span> c.Req.FormValue(key)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> Query(key <span class="hljs-type">string</span>) <span class="hljs-type">string</span>{<br>	<span class="hljs-keyword">return</span> c.Req.URL.Query().Get(key)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> Status(code <span class="hljs-type">int</span>) {<br>	c.StatusCode = code<br>	c.Writer.WriteHeader(code)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> SetHeader(key <span class="hljs-type">string</span>, value <span class="hljs-type">string</span>){<br>	c.Writer.Header().Set(key, value)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> String(code <span class="hljs-type">int</span>, format <span class="hljs-type">string</span>, values ...<span class="hljs-keyword">interface</span>{}){<br>	c.SetHeader(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-string">"text/plain"</span>)<br>	c.Status(code)<br>	c.Writer.Write([]<span class="hljs-type">byte</span>(fmt.Sprintf(format, values...)))<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> JSON(code <span class="hljs-type">int</span>, obj <span class="hljs-keyword">interface</span>{}){<br>	c.SetHeader(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-string">"application/json"</span>)<br>	c.Status(code)<br>	encoder := json.NewEncoder(c.Writer)<br>	<span class="hljs-keyword">if</span> err := encoder.Encode(obj); err != <span class="hljs-literal">nil</span>{<br>		http.Error(c.Writer, err.Error(), <span class="hljs-number">500</span>)<br>	}<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> Data(code <span class="hljs-type">int</span>, data []<span class="hljs-type">byte</span>){<br>	c.Status(code)<br>	c.Writer.Write(data)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span></span> HTML(code <span class="hljs-type">int</span>, html <span class="hljs-type">string</span>){<br>	c.SetHeader(<span class="hljs-string">"Content-Type"</span>,<span class="hljs-string">"text/html"</span>)<br>	c.Status(code)<br>	c.Writer.Write([]<span class="hljs-type">byte</span>(html))<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>第一步给<code>map[string]interface{}</code>起别名<code>gogee.H</code>这样在构建JSON数据时更加简洁。</p>
+<p><code>Context</code>结构目前只包含<code>http.ResponseWriter</code>和<code>*http.Request</code>不过同时提供了对于Method/Path等request的常用属性的直接访问。</p>
+<p>代码提供了访问Query和PostForm参数的方法。</p>
+<p>代码提供了快速构造String/Data/JSON/HTML响应的方法。</p>
+<h4 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h4><p>我们将路由相关的方法和结构提取出来，放到了一个新的文件<code>router.go</code>中，方便我们下一次对于router的功能进行增强。</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Project-Go/">Project-Go</a>
+                    
+                  </div>
                 
               </div>
               
@@ -254,9 +280,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/09/Gogee-Day2-%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88/">
+                      <a href="/2022/03/10/Sending-HTTP-Request-with-Golang/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Gogee_Day2 コンテキスト</span>
+                        <span class="hidden-mobile">Sending HTTP Request with Golang</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -264,8 +290,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/09/Git%E5%9F%BA%E7%A4%8E/">
-                        <span class="hidden-mobile">Git基礎</span>
+                      <a href="/2022/03/09/Terminal-for-Mac/">
+                        <span class="hidden-mobile">Terminal for Mac</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
