@@ -16,14 +16,17 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="RFC6328: Time Based One-Time Password (TOTP)最近做到的课题需要我利用RFC6328将自己的邮箱信息加密，作为账号密码发送给对方的服务器。中文全网对于RFC6328的文章较少，在此稍微记载下学习的过程与心得。  原论文连接 TOTP是什么？TOTP指基于时间的一次性密码。TOTP是基于OTP (One-Time Password, 一次性密码)的扩展。在R">
+<meta property="og:type" content="article">
 <meta property="og:title" content="RFC6328: Time Based One-Time Password">
 <meta property="og:url" content="http://example.com/2022/03/11/RFC6328-Time-Based-One-Time-Password/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
+<meta property="og:description" content="RFC6328: Time Based One-Time Password (TOTP)最近做到的课题需要我利用RFC6328将自己的邮箱信息加密，作为账号密码发送给对方的服务器。中文全网对于RFC6328的文章较少，在此稍微记载下学习的过程与心得。  原论文连接 TOTP是什么？TOTP指基于时间的一次性密码。TOTP是基于OTP (One-Time Password, 一次性密码)的扩展。在R">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-11T00:01:02.000Z">
-<meta property="article:modified_time" content="2022-03-11T00:01:02.782Z">
+<meta property="article:modified_time" content="2022-03-11T00:36:57.577Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -185,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 Words
+      1.8k Words
     </span>
   
 
@@ -194,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 Minutes
+      15 Minutes
     </span>
   
 
@@ -240,12 +243,51 @@
               </p>
             
             <div class="markdown-body">
-              
+              <h2 id="RFC6328-Time-Based-One-Time-Password-TOTP"><a href="#RFC6328-Time-Based-One-Time-Password-TOTP" class="headerlink" title="RFC6328: Time Based One-Time Password (TOTP)"></a>RFC6328: Time Based One-Time Password (TOTP)</h2><p>最近做到的课题需要我利用RFC6328将自己的邮箱信息加密，作为账号密码发送给对方的服务器。中文全网对于RFC6328的文章较少，在此稍微记载下学习的过程与心得。 </p>
+<p><a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/html/rfc6328">原论文连接</a></p>
+<h3 id="TOTP是什么？"><a href="#TOTP是什么？" class="headerlink" title="TOTP是什么？"></a>TOTP是什么？</h3><p>TOTP指基于时间的一次性密码。TOTP是基于OTP (One-Time Password, 一次性密码)的扩展。在RFC4226中，定义了一种基于HMAC的一次性密码，被命名为HOTP。HOTP算法是基于事件的，对其来说移动因子是一个事件计数器。而在TOTP当中，移动因子建立在了一个时间值上。该算法通过利用时间值，提供了一个短命的OTP值，可以有效提高安全性。</p>
+<h3 id="HOTP算法"><a href="#HOTP算法" class="headerlink" title="HOTP算法"></a>HOTP算法</h3><p>HOTP算法是基于HMAC-SHA-1算法的，该算法公式如下所示。</p>
+<p>HOTP(K, C) = Truncate(HMAC-SHA-1(K, C))</p>
+<p>其中Truncate代表可以将HMAC-SHA-1转换为HOTP值的函数，K代表共享的秘密，C代表计数器值。</p>
+<p>换言之，想要得到HOTP密码，有如下几个先决条件：</p>
+<ol>
+<li>知道Truncate函数。</li>
+<li>服务器端与客户端有共享的秘密。</li>
+<li>用相同的计数器方法。</li>
+</ol>
+<h3 id="HOTP算法与TOTP算法的区别"><a href="#HOTP算法与TOTP算法的区别" class="headerlink" title="HOTP算法与TOTP算法的区别"></a>HOTP算法与TOTP算法的区别</h3><p>TOTP算法是HOTP算法基于时间的变体。在TOTP算法中，计数器值C被替换为了由时间参考和时间步长得出的值T</p>
+<p>TOTP可以使用HMAC-SHA-256/512函数，不同于HOTP算法的HMAC-SHA-1函数</p>
+<h3 id="TOTP算法要求"><a href="#TOTP算法要求" class="headerlink" title="TOTP算法要求"></a>TOTP算法要求</h3><p>R1: The prover (e.g., token, soft token) and verifier (authentication or validation server) MUST know or be able to derive the current Unix time (i.e., the number of seconds elapsed since midnight UTC of January 1, 1970) for OTP generation. See [UT] for a more detailed definition of the commonly known “Unix time”. The precision of the time used by the prover affects how often the clock synchronization should be done; see Section 6.</p>
+<p>（服务器端与客户端均能得知现在的Unix时间）</p>
+<p>R2: The prover and verifier MUST either share the same secret or the knowledge of a secret transformation to generate a shared secret.</p>
+<p>（服务器端与客户端需要共享相同的秘密/共享产生共享秘密的转换的知识）</p>
+<p>R3: The algorithm MUST use HOTP [RFC4226] as a key building block.</p>
+<p>（算法必须使用HOTP算法来构建）</p>
+<p>R4: The prover and verifier MUST use the same time-step value X.</p>
+<p>（服务器端与客户端必须使用相同的步长X）</p>
+<p>R5: There MUST be a unique secret (key) for each prover.</p>
+<p>（每个验证者必须有一个独特的秘密（密钥））</p>
+<p>R6: The keys SHOULD be randomly generated or derived using key derivation algorithms.</p>
+<p>（密钥应当是随机生成/使用推导算法）</p>
+<p>R7: The keys MAY be stored in a tamper-resistant device and SHOULD be protected against unauthorized access and usage.</p>
+<p>（密钥应当储存在安全设备中）</p>
+<h3 id="TOTP算法详解"><a href="#TOTP算法详解" class="headerlink" title="TOTP算法详解"></a>TOTP算法详解</h3><h4 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h4><p>X代表以秒为单位的时间步长（默认值X=30秒），是一个系统参数。</p>
+<p>T0是开始计算时间步长的Unix时间（缺省值为0，即Unix epoch），也是一个系统参数。</p>
+<h4 id="算法细节"><a href="#算法细节" class="headerlink" title="算法细节"></a>算法细节</h4><p>我们将TOTP定义为HOTP(K, T), T是一个整数，代表初始计数器时间T0和当前Unix时间之间的时间步数。</p>
+<p>T = (当前unix时间 - T0) / X</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Project-Web/">Project-Web</a>
+                    
+                  </div>
                 
               </div>
               
@@ -253,6 +295,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/03/11/RFC2617-HTTP-Authentication/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">RFC2617: HTTP Authentication</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
