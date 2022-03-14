@@ -24,7 +24,7 @@
 <meta property="og:description" content="在web开发过程中，经常会遇到“路由”（Routing）的概念。路由到底是什么？简单来说，路由就是URL到函数的映射。是用来跟后端服务器进行交互的一种方式，通过不同的路径来请求不同的资源，请求不同的页面。ネットワーク上でデータを転送する際、その経路を導き出すことをルーティングと呼びます。 The Flow Path of Routing 服务器发出请求。 服务器端监听到80端口（http）或者44">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-08T01:38:20.000Z">
-<meta property="article:modified_time" content="2022-03-08T02:10:25.485Z">
+<meta property="article:modified_time" content="2022-03-14T09:26:51.349Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web_Developer">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,9 +71,9 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="WANG Tianchen" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="WANG Tianchen" type="application/atom+xml">
 </head>
 
 
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      933 Words
+      1.6k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 Minutes
+      14 Minutes
     </span>
   
 
@@ -238,7 +238,7 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 8, 2022 am
+                  Last renew: March 14, 2022 pm
                 
               </p>
             
@@ -255,12 +255,26 @@
 <p><code>/users/count -&gt; getUsersCount()</code></p>
 <p>这就是两条路由，访问users时，将会执行getAllUsers()函数；当访问 /users/count时，会执行getUsersCount()函数</p>
 <p>而router（路由器）可以理解为一个容器，或者说一种机制，他管理了一组route。route执行的过程是由router来处理的。”The router routes you to a route.”</p>
-<h2 id="The-Route-of-Server"><a href="#The-Route-of-Server" class="headerlink" title="The Route of Server"></a>The Route of Server</h2><p>对于服务器来说，当接收到客户端发来的http请求，会根据请求的URL，来找到相应的映射函数，并且执行，将返回值发回客户端。</p>
+<h3 id="The-Route-of-Server"><a href="#The-Route-of-Server" class="headerlink" title="The Route of Server"></a>The Route of Server</h3><p>对于服务器来说，当接收到客户端发来的http请求，会根据请求的URL，来找到相应的映射函数，并且执行，将返回值发回客户端。</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/'</span>, (req, res)=&gt;{undefined<br><br>res.<span class="hljs-built_in">sendFile</span>(<span class="hljs-string">'index'</span>)<br><br>})<br></code></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">app.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/users'</span>, (req,res)=&gt;{undefined<br>db.<span class="hljs-built_in">queryAllUsers</span>()<br>.<span class="hljs-built_in">then</span>(data =&gt; res,<span class="hljs-built_in">send</span>(data))<br>})<br></code></pre></td></tr></tbody></table></figure>
 
 <p>这里定义了两条路由，访问<code>/</code>时，会返回index界面；访问<code>/users</code>时，会从数据库中读取所有的用户数据并返回。</p>
+<h3 id="Dynamic-Router-と-Static-Router"><a href="#Dynamic-Router-と-Static-Router" class="headerlink" title="Dynamic Router と Static Router"></a>Dynamic Router と Static Router</h3><h4 id="Static-Router"><a href="#Static-Router" class="headerlink" title="Static Router"></a>Static Router</h4><p>静态路由是由管理员手工配置的，简单直接，是什么就是什么。但缺点在于如果网络拓扑发生变化/故障时静态路由也得由管理员亲手修改。</p>
+<p>举个例子来说，就像公交车一样，路线与停靠站都是决定好的，就算有近路或者路线被堵了也只能按照规定好的路线走。</p>
+<p>对于家用路由器来说每个家用路由中都有一条设定好的默认路由。默认添加了一条指向wan口的默认路由。因为没有第二条路走所以大丈夫。</p>
+<h4 id="Dynamic-Router"><a href="#Dynamic-Router" class="headerlink" title="Dynamic Router"></a>Dynamic Router</h4><p>现在我们来到一座陌生的城市，我们用google map进行导航。这里面，googlemap其实分了两步操作。第一步手机会自动下载我们周围的道路信息，第二步是根据算法计算出一条最好的路径去目的地。</p>
+<p>动态路由适合大型网络，不需要手动添加路由条目，方便管理。</p>
+<p>就好比出租车，会抄近路，也可以看路况抄近路，出租车司机的路由表是随时更新的。动态路由的最大特点是路由器上运行路由协议，使路由器可以自动根据网络拓扑的变化调整路由条目。</p>
+<p>动态路由的工作方式：第一步，路由器获得全网的拓扑，包含了所有路由器和路由器之间的链路信息，拓扑就是地图。</p>
+<p>第二步，路由器在拓扑中计算出到达目的地网址的最优路径。</p>
+<h4 id="Pros-and-Cons"><a href="#Pros-and-Cons" class="headerlink" title="Pros and Cons"></a>Pros and Cons</h4><p>优点：静态路由：简单、高效、可靠、网络安全、转发效率高。</p>
+<p>​            动态路由：灵活，能够适应网络结构的变化，无需管理员手工维护，减轻了管理员的工作负担。</p>
+<p>缺点：静态路由：不能灵活的适应网络动态变化</p>
+<p>​            动态路由：占用网络带宽。（用于传输路由更新信息）</p>
+<p>使用场景：静态路由：网络规模不大，拓扑结构固定的网络中。</p>
+<p>​                     动态路由：网络规模大，网络拓扑机构复杂的网络。</p>
 
             </div>
             <hr>
