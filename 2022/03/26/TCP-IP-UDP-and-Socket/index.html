@@ -16,19 +16,39 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Tags - Project-Web">
-<meta property="og:url" content="http://example.com/tags/Project-Web/index.html">
+    <meta name="description" content="本篇旨在解决如下三个问题：  什么是TCP&#x2F;IP、UDP？ Socket是什么？ 如何使用上述的服务？  让我们开始吧！ 1. 什么是TCP&#x2F;IP、UDP？TCP&#x2F;IP（Transmission Control Protocol&#x2F; Internet Protocol）即传输控制协议&#x2F;网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。 UDP（User Data Prot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP&#x2F;IP, UDP and Socket">
+<meta property="og:url" content="http://example.com/2022/03/26/TCP-IP-UDP-and-Socket/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
+<meta property="og:description" content="本篇旨在解决如下三个问题：  什么是TCP&#x2F;IP、UDP？ Socket是什么？ 如何使用上述的服务？  让我们开始吧！ 1. 什么是TCP&#x2F;IP、UDP？TCP&#x2F;IP（Transmission Control Protocol&#x2F; Internet Protocol）即传输控制协议&#x2F;网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。 UDP（User Data Prot">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-26T01:56:22.000Z">
+<meta property="article:modified_time" content="2022-03-26T02:12:39.805Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Tags - Project-Web - WANG Tianchen</title>
+  <title>TCP/IP, UDP and Socket - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -58,7 +78,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -142,22 +162,60 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/bg/kyotoyuki.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Tag - Project-Web">
+            <span class="h2" id="subtitle" title="TCP/IP, UDP and Socket">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-26 10:56" pubdate>
+        March 26, 2022 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      916 Words
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 Minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        Views: <span id="busuanzi_value_page_pv"></span> 
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,58 +224,98 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">4 posts in total.</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/03/26/TCP-IP-UDP-and-Socket/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">TCP/IP, UDP and Socket</span>
-      <time style="float: right;">03-26</time>
-    </a>
-  
-    
-    <a href="/2022/03/11/RFC2617-HTTP-Authentication/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">RFC2617: HTTP Authentication</span>
-      <time style="float: right;">03-11</time>
-    </a>
-  
-    
-    <a href="/2022/03/11/RFC6328-Time-Based-One-Time-Password/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">RFC6328: Time Based One-Time Password</span>
-      <time style="float: right;">03-11</time>
-    </a>
-  
-    
-    <a href="/2022/03/08/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ウェブサービス設計基礎</span>
-      <time style="float: right;">03-08</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">TCP/IP, UDP and Socket</h1>
+            
+              <p class="note note-info">
+                
+                  Last renew: March 26, 2022 am
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>本篇旨在解决如下三个问题：</p>
+<ol>
+<li>什么是TCP/IP、UDP？</li>
+<li>Socket是什么？</li>
+<li>如何使用上述的服务？</li>
+</ol>
+<p>让我们开始吧！</p>
+<h2 id="1-什么是TCP-x2F-IP、UDP？"><a href="#1-什么是TCP-x2F-IP、UDP？" class="headerlink" title="1. 什么是TCP/IP、UDP？"></a>1. 什么是TCP/IP、UDP？</h2><p>TCP/IP（Transmission Control Protocol/ Internet Protocol）即传输控制协议/网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。</p>
+<p>UDP（User Data Protocal，用户数据报协议）是与TCP相对应的协议。他是属于TCP/IP协议集中的一种。</p>
+<p>![截屏2022-03-26 11.04.16](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.04.16.png)</p>
+<p>TCP/IP协议族包括运输层、网络层、链路层。TCP与UDP都是运用在运输层上的协议。</p>
+<h2 id="2-Socket是什么？"><a href="#2-Socket是什么？" class="headerlink" title="2. Socket是什么？"></a>2. Socket是什么？</h2><p>在上图中，我们并未看到Socket的影子。</p>
+<p>Socket究竟在网络服务中扮演了怎样的角色呢？</p>
+<p>实际上Socket的位置应该在应用层与运输层之间。起到了一个将应用层传输给运输层的信息进行抽象的作用。</p>
+<p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，他是一组接口。在设计模式中，Socket其实就是一个门面模式，他可以将复杂的TCP/IP协议族隐藏在后面，提供给用户一个简单的接口信息。用户只需要让Socket去组织数据，以符合制定的协议。</p>
+<h2 id="3-如何使用上述的服务？"><a href="#3-如何使用上述的服务？" class="headerlink" title="3. 如何使用上述的服务？"></a>3. 如何使用上述的服务？</h2><h4 id="截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png"><a href="#截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png" class="headerlink" title="![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)"></a>![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)</h4><p>先从服务器端讲起。服务器端先初始化Socket，然后与端口绑定（bind），对端口进行监听（Listen），调用Accept阻塞，等待客户端链接。在这时候如果有客户端初始化了一个Socket，然后连接服务器（connect），如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接受请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pashanhu6402/article/details/96428887">原文连接</a></p>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Project-Web/">Project-Web</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/16/gototp-A-TOTP-Library-Written-by-Go/">
+                        <span class="hidden-mobile">gototp: A TOTP Library Written by Go</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -324,6 +422,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
