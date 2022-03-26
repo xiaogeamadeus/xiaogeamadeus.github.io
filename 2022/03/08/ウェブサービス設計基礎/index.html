@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
 <meta property="article:published_time" content="2022-03-08T07:39:37.000Z">
-<meta property="article:modified_time" content="2022-03-26T02:15:35.918Z">
+<meta property="article:modified_time" content="2022-03-26T06:10:26.822Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.3k Words
+      4.9k Words
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36 Minutes
+      42 Minutes
     </span>
   
 
@@ -240,7 +240,7 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 26, 2022 am
+                  Last renew: March 26, 2022 pm
                 
               </p>
             
@@ -304,6 +304,18 @@
 <li>Listen Socket接受客户端的请求，得到Client Socket，接下来通过Client Socket与客户端通信。</li>
 <li>处理客户端的请求，首先从Client Socket读取HTTP请求的协议头，如果是POST方法，还需要读取客户端提交的数据，然后交给相应的handler处理请求，handler处理完毕准备好客户端需要的数据，通过Client Socket写给客户端。</li>
 </ol>
+<p>在整个过程中，我们只需要了解三个问题，就可以明白Go是如何让Web运行起来的。</p>
+<ol>
+<li>如何监听端口？</li>
+<li>如何接收客户端请求？</li>
+<li>如何分配handler？</li>
+</ol>
+<p>从前面小节的代码中我们可以看出，对于监听来说，<code>net/http</code>包中有一个专用的API<code>ListenAndServe</code>来进行处理。</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ListenAndServe</span><span class="hljs-params">(addr <span class="hljs-type">string</span>, handler Handler)</span></span> <span class="hljs-type">error</span> {<br>  server := &amp;Server{Addr: addr, Handler: handler}<br>  <span class="hljs-keyword">return</span> server.ListenAndServe()<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>ListenAndServe</code>会初始化一个<code>sever</code>对象，然后调用了Server对象的方法<code>ListenAndServe</code>。其源码如下：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(srv *Server)</span></span> ListenAndServe() <span class="hljs-type">error</span>{<br>  <span class="hljs-comment">//对于Server对象的ListenAndServe方法。</span><br>  <span class="hljs-keyword">if</span> srv.shuttingDown() {<br>    <span class="hljs-keyword">return</span> ErrServerClosed<br>  }<br>  addr := srv.Addr<br>  <span class="hljs-keyword">if</span> addr == <span class="hljs-string">""</span> {<br>    addr = <span class="hljs-string">":http"</span><br>  }<br>  ln, err := net.Listen(<span class="hljs-string">"tcp"</span>, addr)<br>  <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {  <br>    <span class="hljs-comment">//若err值不为空（出现了错误值）</span><br>    <span class="hljs-keyword">return</span> err<br>    <span class="hljs-comment">//返回错误值</span><br>  }<br>  <span class="hljs-keyword">return</span> srv.Serve(ln)<br>}<br></code></pre></td></tr></tbody></table></figure>
+
 
             </div>
             <hr>
