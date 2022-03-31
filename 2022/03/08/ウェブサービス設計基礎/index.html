@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/%E3%82%A6%E3%82%A7%E3%83%95%E3%82%99%E3%82%B5%E3%83%BC%E3%83%92%E3%82%99%E3%82%B9%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E/3.1.web2.png">
 <meta property="article:published_time" content="2022-03-08T07:39:37.000Z">
-<meta property="article:modified_time" content="2022-03-26T06:10:26.822Z">
+<meta property="article:modified_time" content="2022-03-30T05:23:25.426Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k Words
+      5.9k Words
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42 Minutes
+      50 Minutes
     </span>
   
 
@@ -240,7 +240,7 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 26, 2022 pm
+                  Last renew: March 30, 2022 pm
                 
               </p>
             
@@ -310,11 +310,19 @@
 <li>如何接收客户端请求？</li>
 <li>如何分配handler？</li>
 </ol>
-<p>从前面小节的代码中我们可以看出，对于监听来说，<code>net/http</code>包中有一个专用的API<code>ListenAndServe</code>来进行处理。</p>
+<h5 id="How-to-Listen-the-Part"><a href="#How-to-Listen-the-Part" class="headerlink" title="How to Listen the Part"></a>How to Listen the Part</h5><p>从前面小节的代码中我们可以看出，对于监听来说，<code>net/http</code>包中有一个专用的API<code>ListenAndServe</code>来进行处理。</p>
 <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ListenAndServe</span><span class="hljs-params">(addr <span class="hljs-type">string</span>, handler Handler)</span></span> <span class="hljs-type">error</span> {<br>  server := &amp;Server{Addr: addr, Handler: handler}<br>  <span class="hljs-keyword">return</span> server.ListenAndServe()<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p><code>ListenAndServe</code>会初始化一个<code>sever</code>对象，然后调用了Server对象的方法<code>ListenAndServe</code>。其源码如下：</p>
+<p><code>ListenAndServe</code>会初始化一个<code>sever</code>对象，然后调用了<code>Server</code>对象的方法<code>ListenAndServe</code>。其源码如下：</p>
 <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(srv *Server)</span></span> ListenAndServe() <span class="hljs-type">error</span>{<br>  <span class="hljs-comment">//对于Server对象的ListenAndServe方法。</span><br>  <span class="hljs-keyword">if</span> srv.shuttingDown() {<br>    <span class="hljs-keyword">return</span> ErrServerClosed<br>  }<br>  addr := srv.Addr<br>  <span class="hljs-keyword">if</span> addr == <span class="hljs-string">""</span> {<br>    addr = <span class="hljs-string">":http"</span><br>  }<br>  ln, err := net.Listen(<span class="hljs-string">"tcp"</span>, addr)<br>  <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {  <br>    <span class="hljs-comment">//若err值不为空（出现了错误值）</span><br>    <span class="hljs-keyword">return</span> err<br>    <span class="hljs-comment">//返回错误值</span><br>  }<br>  <span class="hljs-keyword">return</span> srv.Serve(ln)<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>ListenAndServe</code>调用了<code>net.Listen("tcp, addr")</code>，也就是底层用TCP协议搭建了一个服务，最后调用<code>src.Serve</code>监控我们设置的端口。监控之后如何接受客户端的请求呢？</p>
+<h5 id="How-to-Accept-the-Request-from-client-side"><a href="#How-to-Accept-the-Request-from-client-side" class="headerlink" title="How to Accept the Request from client-side"></a>How to Accept the Request from client-side</h5><p><code>Serve</code>的具体实现如下（仅包括关键代码），通过下面的分析源码我们可以看到客户端请求的具体处理过程：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(srv *Server)</span></span> Serve(l net.Listener) <span class="hljs-type">error</span> {<br>  ...<br>  <br>  ctx := context.WithValue(baseCtx, ServerContextKey, srv)<br>  <span class="hljs-keyword">for</span> {<br>    rw, err := l.Accept()<br>    ...<br>    connCtx := ctx<br>    <span class="hljs-keyword">if</span> cc := srv.ConnContext; cc != <span class="hljs-literal">nil</span> {<br>      connCtx = cc(connCtx, rw)<br>      <span class="hljs-keyword">if</span> connCtx == <span class="hljs-literal">nil</span> {<br>        <span class="hljs-built_in">panic</span>(<span class="hljs-string">"ConnContext returned nil"</span>)<br>      }<br>    }<br>    tempDelay = <span class="hljs-number">0</span><br>    c := srv.newConn(rw)<br>    c.setState(c.rwc, stateNew, runHooks) <span class="hljs-comment">//before Serve can return </span><br>    <span class="hljs-keyword">go</span> c.serve(connCtx)<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>这个函数利用了for循环，首先通过Listener接受请求<code>l.Accept()</code>，其次创建一个Conn：<code>c := srv.newConn(rw)</code> ，最后单独开了一个goroutine，把这个请求的数据当成参数扔给这个conn去服务：<code>go c.serve(connCtx)</code>。这个就是对于高并发的体现。用户的每一次请求都是在一个新的goroutine去服务，相互不影响。</p>
+<h5 id="How-to-distribute-the-function-to-solve-request"><a href="#How-to-distribute-the-function-to-solve-request" class="headerlink" title="How to distribute the function to solve request."></a>How to distribute the function to solve request.</h5><p>那么如何分配具体的函数来处理请求呢？我们继续分析conn的<code>serve</code>方法，其源码如下（仅展示关键代码）：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *conn)</span></span> serve(ctx context.Context) {<br>  ...<br>  <br>  ctx, cancelCtx := context.WithCancel(ctx)<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 
             </div>
@@ -547,20 +555,5 @@
 <script  src="/js/boot.js" ></script>
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
