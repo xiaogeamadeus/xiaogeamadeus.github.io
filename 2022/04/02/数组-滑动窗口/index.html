@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本篇旨在解决如下三个问题：  什么是TCP&#x2F;IP、UDP？ Socket是什么？ 如何使用上述的服务？  让我们开始吧！ 1. 什么是TCP&#x2F;IP、UDP？TCP&#x2F;IP（Transmission Control Protocol&#x2F; Internet Protocol）即传输控制协议&#x2F;网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。 UDP（User Data Prot">
+    <meta name="description" content="数组题型刷题总结数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 一般看到链表&#x2F;子串&#x2F;数组之类的题，直接上双指针就行 常用方法：  二分法 双指针 滑动窗口  1. 二分法限制条件：有序数组  且 无重复元素 Key：边界条件的设定。在二分查找过程中，每次区间变化都遵守边界条件不变。 常用区间：[lo, hi],  [lo, hi) 注：乘法溢出时用除法处理即可。 2. 双指针双指针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP&#x2F;IP, UDP and Socket">
-<meta property="og:url" content="http://example.com/2022/03/26/TCP-IP-UDP-and-Socket/index.html">
+<meta property="og:title" content="数组">
+<meta property="og:url" content="http://example.com/2022/04/02/%E6%95%B0%E7%BB%84-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="本篇旨在解决如下三个问题：  什么是TCP&#x2F;IP、UDP？ Socket是什么？ 如何使用上述的服务？  让我们开始吧！ 1. 什么是TCP&#x2F;IP、UDP？TCP&#x2F;IP（Transmission Control Protocol&#x2F; Internet Protocol）即传输控制协议&#x2F;网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。 UDP（User Data Prot">
+<meta property="og:description" content="数组题型刷题总结数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 一般看到链表&#x2F;子串&#x2F;数组之类的题，直接上双指针就行 常用方法：  二分法 双指针 滑动窗口  1. 二分法限制条件：有序数组  且 无重复元素 Key：边界条件的设定。在二分查找过程中，每次区间变化都遵守边界条件不变。 常用区间：[lo, hi],  [lo, hi) 注：乘法溢出时用除法处理即可。 2. 双指针双指针">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-26T01:56:22.000Z">
-<meta property="article:modified_time" content="2022-03-26T02:12:39.805Z">
+<meta property="article:published_time" content="2022-04-02T10:56:03.000Z">
+<meta property="article:modified_time" content="2022-04-02T11:48:45.228Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Project-Web">
+<meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>TCP/IP, UDP and Socket - WANG Tianchen</title>
+  <title>数组 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="TCP/IP, UDP and Socket">
+            <span class="h2" id="subtitle" title="数组">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-26 10:56" pubdate>
-        March 26, 2022 am
+      <time datetime="2022-04-02 19:56" pubdate>
+        April 2, 2022 pm
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      916 Words
+      1.2k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 Minutes
+      10 Minutes
     </span>
   
 
@@ -234,32 +234,42 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">TCP/IP, UDP and Socket</h1>
+            <h1 style="display: none">数组</h1>
             
               <p class="note note-info">
                 
-                  Last renew: March 26, 2022 am
+                  Last renew: April 2, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <p>本篇旨在解决如下三个问题：</p>
+              <h1 id="数组题型刷题总结"><a href="#数组题型刷题总结" class="headerlink" title="数组题型刷题总结"></a>数组题型刷题总结</h1><p>数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。</p>
+<p>一般看到链表/子串/数组之类的题，直接上双指针就行</p>
+<p>常用方法：</p>
 <ol>
-<li>什么是TCP/IP、UDP？</li>
-<li>Socket是什么？</li>
-<li>如何使用上述的服务？</li>
+<li>二分法</li>
+<li>双指针</li>
+<li>滑动窗口</li>
 </ol>
-<p>让我们开始吧！</p>
-<h2 id="1-什么是TCP-x2F-IP、UDP？"><a href="#1-什么是TCP-x2F-IP、UDP？" class="headerlink" title="1. 什么是TCP/IP、UDP？"></a>1. 什么是TCP/IP、UDP？</h2><p>TCP/IP（Transmission Control Protocol/ Internet Protocol）即传输控制协议/网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。</p>
-<p>UDP（User Data Protocal，用户数据报协议）是与TCP相对应的协议。他是属于TCP/IP协议集中的一种。</p>
-<p>![截屏2022-03-26 11.04.16](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.04.16.png)</p>
-<p>TCP/IP协议族包括运输层、网络层、链路层。TCP与UDP都是运用在运输层上的协议。</p>
-<h2 id="2-Socket是什么？"><a href="#2-Socket是什么？" class="headerlink" title="2. Socket是什么？"></a>2. Socket是什么？</h2><p>在上图中，我们并未看到Socket的影子。</p>
-<p>Socket究竟在网络服务中扮演了怎样的角色呢？</p>
-<p>实际上Socket的位置应该在应用层与运输层之间。起到了一个将应用层传输给运输层的信息进行抽象的作用。</p>
-<p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，他是一组接口。在设计模式中，Socket其实就是一个门面模式，他可以将复杂的TCP/IP协议族隐藏在后面，提供给用户一个简单的接口信息。用户只需要让Socket去组织数据，以符合制定的协议。</p>
-<h2 id="3-如何使用上述的服务？"><a href="#3-如何使用上述的服务？" class="headerlink" title="3. 如何使用上述的服务？"></a>3. 如何使用上述的服务？</h2><h4 id="截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png"><a href="#截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png" class="headerlink" title="![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)"></a>![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)</h4><p>先从服务器端讲起。服务器端先初始化Socket，然后与端口绑定（bind），对端口进行监听（Listen），调用Accept阻塞，等待客户端链接。在这时候如果有客户端初始化了一个Socket，然后连接服务器（connect），如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接受请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pashanhu6402/article/details/96428887">原文连接</a></p>
+<h3 id="1-二分法"><a href="#1-二分法" class="headerlink" title="1. 二分法"></a>1. 二分法</h3><p>限制条件：<strong>有序数组</strong>  且 <strong>无重复元素</strong></p>
+<p>Key：边界条件的设定。在二分查找过程中，每次区间变化都遵守边界条件不变。</p>
+<p>常用区间：[lo, hi],  [lo, hi)</p>
+<p>注：乘法溢出时用除法处理即可。</p>
+<h3 id="2-双指针"><a href="#2-双指针" class="headerlink" title="2. 双指针"></a>2. 双指针</h3><p>双指针技巧可以分为两类：【快慢指针】和【左右指针】。前者解决链表中的问题，比如判断链表是否包含环；后者主要解决数组（字符串）中的问题，二分查找也是左右指针的一种特殊情况。</p>
+<p>常见的双指针问题还有移除元素/移除字符串等。</p>
+<p>快慢指针常见问题：链表操作/找中点/归并排序/链表环</p>
+<p>左右指针常见问题：反转数组/二分搜索</p>
+<h3 id="3-滑动窗口"><a href="#3-滑动窗口" class="headerlink" title="3. 滑动窗口"></a>3. 滑动窗口</h3><p>实际上滑动窗口也是一种特殊的双指针。不过因为其在<strong>子串</strong>问题中的优异表现，我将其单独作为一个部分来讲。</p>
+<p>滑动窗口算法的大致逻辑如下：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">while</span> (right &lt; s.soze()) {<br>  <span class="hljs-comment">//增大窗口</span><br>  window.add(s[right]);<br>  right++;<br>  <br>  <span class="hljs-keyword">while</span> (window needs shrink) {<br>    <span class="hljs-comment">//缩小窗口</span><br>    window.remove(s[left]);<br>    left++;<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>时间复杂度O(N)， 比一般的字符串暴力算法高效的多。</p>
+<p>滑动窗口的关键在于各种细节问题。比如如何向窗口中添加新元素，如何缩小窗口，在窗口滑动的哪个阶段更新结果。即使你明白了这些细节，也容易报错。</p>
+<p>使用一套来自labuladong 的滑动窗口代码框架。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java">Map&lt;Character, Integer&gt; window = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>Map&lt;Character, Integer&gt; need = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><span class="hljs-comment">//需要的字符传入need</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : t.toCharArray()) {<br>  need. put(c, need.getOrDefault(c, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>}<br><span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (right &lt; s.length()) {<br>  <span class="hljs-comment">//c是移入窗口的字符</span><br>  <span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(right);<br>  <span class="hljs-comment">//右边界右移</span><br>  right++;<br>  <br>  <span class="hljs-comment">//进入窗口的一系列操作.....</span><br>  <br>  <span class="hljs-comment">//当满足时，进行窗口缩减</span><br>  <span class="hljs-keyword">while</span> (window needs shrink) {<br>    <span class="hljs-type">char</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> s.charAt(left);<br>    <span class="hljs-comment">//左边界右移</span><br>    left++;<br>    <br>    <span class="hljs-comment">//出窗口</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+
+
 
             </div>
             <hr>
@@ -270,7 +280,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Project-Web/">Project-Web</a>
+                      <a class="hover-with-bg" href="/tags/Programming/">Programming</a>
                     
                   </div>
                 
@@ -281,18 +291,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/31/OnJava8-File/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">OnJava8-File</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/16/gototp-A-TOTP-Library-Written-by-Go/">
-                        <span class="hidden-mobile">gototp: A TOTP Library Written by Go</span>
+                      <a href="/2022/03/31/OnJava8-File/">
+                        <span class="hidden-mobile">OnJava8-File</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
