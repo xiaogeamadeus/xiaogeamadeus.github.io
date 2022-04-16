@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Scanner &amp; BufferedReader用法详解这段时间一直没把java的输入写明白，在该记事里进行一个总结 ScannerScanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的next方法将得到的标记转换为不同类型的值。 Scanner位于java.util包中，Scanner的具体用法为 1234567891011import jav">
+    <meta name="description" content="Scanner &amp; BufferedReader用法详解注：本文仅为个人学习笔记，无任何版权。 这段时间一直没把java的输入写明白，在该记事里进行一个总结 ScannerScanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的next方法将得到的标记转换为不同类型的值。 Scanner位于java.util包中，Scanner的具体用法为 123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scanner &amp; BufferedReader 用法详解">
 <meta property="og:url" content="http://example.com/2022/04/06/Scanner-BufferReader-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="Scanner &amp; BufferedReader用法详解这段时间一直没把java的输入写明白，在该记事里进行一个总结 ScannerScanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的next方法将得到的标记转换为不同类型的值。 Scanner位于java.util包中，Scanner的具体用法为 1234567891011import jav">
+<meta property="og:description" content="Scanner &amp; BufferedReader用法详解注：本文仅为个人学习笔记，无任何版权。 这段时间一直没把java的输入写明白，在该记事里进行一个总结 ScannerScanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的next方法将得到的标记转换为不同类型的值。 Scanner位于java.util包中，Scanner的具体用法为 123">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-06T01:29:31.000Z">
-<meta property="article:modified_time" content="2022-04-06T02:00:17.245Z">
+<meta property="article:modified_time" content="2022-04-07T14:55:20.250Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,12 +238,13 @@
             
               <p class="note note-info">
                 
-                  Last renew: April 6, 2022 am
+                  Last renew: April 7, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="Scanner-amp-BufferedReader用法详解"><a href="#Scanner-amp-BufferedReader用法详解" class="headerlink" title="Scanner &amp; BufferedReader用法详解"></a>Scanner &amp; BufferedReader用法详解</h2><p>这段时间一直没把java的输入写明白，在该记事里进行一个总结</p>
+              <h2 id="Scanner-amp-BufferedReader用法详解"><a href="#Scanner-amp-BufferedReader用法详解" class="headerlink" title="Scanner &amp; BufferedReader用法详解"></a>Scanner &amp; BufferedReader用法详解</h2><p>注：本文仅为个人学习笔记，无任何版权。</p>
+<p>这段时间一直没把java的输入写明白，在该记事里进行一个总结</p>
 <h3 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h3><p>Scanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的<code>next</code>方法将得到的标记转换为不同类型的值。</p>
 <p>Scanner位于<code>java.util</code>包中，Scanner的具体用法为</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-comment">//通过new创建一个Scanner对象</span><br><span class="hljs-comment">//传入一个System.in参数来读取输入</span><br><span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-comment">//输入一个Integer</span><br><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.nextInt(); <br><span class="hljs-comment">//读取一整行字符串（以Enter结尾进行分界）</span><br><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.nextLine();<br><span class="hljs-comment">//读取一组字符串（以空格/Tab/Enter进行分界，只要遇到其中之一就返回下一个 //输入）</span><br><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.next();<br></code></pre></td></tr></tbody></table></figure>
@@ -273,6 +274,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/04/07/Depth-First-Search-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Depth First Search 深度优先搜索</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数组题型刷题总结数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 两点注意；  数组下标都是从0开始 数组内存空间地址连续（增添删除都很麻烦）  二维数组在系统中的存储方式 m*n的二维数组来说，一般由一个头节点指向一个长为n的一维列数组，每个列数组又作为另一个长为m的一维行数组的头节点。 并不是连续地址空间 一般看到链表&#x2F;子串&#x2F;数组之类的题，直接上双指针就行 常用方法：  二分法">
+    <meta name="description" content="数组题型刷题总结注：本文仅为个人学习笔记，无任何版权。 数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 两点注意；  数组下标都是从0开始 数组内存空间地址连续（增添删除都很麻烦）  二维数组在系统中的存储方式 m*n的二维数组来说，一般由一个头节点指向一个长为n的一维列数组，每个列数组又作为另一个长为m的一维行数组的头节点。 并不是连续地址空间 一般看到链表&#x2F;子串&#x2F;数组之类的题，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数组">
 <meta property="og:url" content="http://example.com/2022/04/02/%E6%95%B0%E7%BB%84-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="数组题型刷题总结数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 两点注意；  数组下标都是从0开始 数组内存空间地址连续（增添删除都很麻烦）  二维数组在系统中的存储方式 m*n的二维数组来说，一般由一个头节点指向一个长为n的一维列数组，每个列数组又作为另一个长为m的一维行数组的头节点。 并不是连续地址空间 一般看到链表&#x2F;子串&#x2F;数组之类的题，直接上双指针就行 常用方法：  二分法">
+<meta property="og:description" content="数组题型刷题总结注：本文仅为个人学习笔记，无任何版权。 数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。 两点注意；  数组下标都是从0开始 数组内存空间地址连续（增添删除都很麻烦）  二维数组在系统中的存储方式 m*n的二维数组来说，一般由一个头节点指向一个长为n的一维列数组，每个列数组又作为另一个长为m的一维行数组的头节点。 并不是连续地址空间 一般看到链表&#x2F;子串&#x2F;数组之类的题，">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-02T10:56:03.000Z">
-<meta property="article:modified_time" content="2022-04-04T04:16:35.962Z">
+<meta property="article:modified_time" content="2022-04-10T06:11:35.680Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,12 +238,13 @@
             
               <p class="note note-info">
                 
-                  Last renew: April 4, 2022 pm
+                  Last renew: April 10, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="数组题型刷题总结"><a href="#数组题型刷题总结" class="headerlink" title="数组题型刷题总结"></a>数组题型刷题总结</h1><p>数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。</p>
+              <h1 id="数组题型刷题总结"><a href="#数组题型刷题总结" class="headerlink" title="数组题型刷题总结"></a>数组题型刷题总结</h1><p>注：本文仅为个人学习笔记，无任何版权。</p>
+<p>数组：存放在连续空间的相同类型元素的集合，一般不进行删除操作。</p>
 <p>两点注意；</p>
 <ol>
 <li>数组下标都是从0开始</li>
@@ -277,7 +278,7 @@
 <h3 id="3-滑动窗口"><a href="#3-滑动窗口" class="headerlink" title="3. 滑动窗口"></a>3. 滑动窗口</h3><p>209, 904, 76</p>
 <p>实际上滑动窗口也是一种特殊的双指针。不过因为其在<strong>子串</strong>问题中的优异表现，我将其单独作为一个部分来讲。</p>
 <p>滑动窗口算法的大致逻辑如下：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">while</span> (right &lt; s.soze()) {<br>  <span class="hljs-comment">//增大窗口</span><br>  window.add(s[right]);<br>  right++;<br>  <br>  <span class="hljs-keyword">while</span> (window needs shrink) {<br>    <span class="hljs-comment">//缩小窗口</span><br>    window.remove(s[left]);<br>    left++;<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">while</span> (right &lt; s.size()) {<br>  <span class="hljs-comment">//增大窗口</span><br>  window.add(s[right]);<br>  right++;<br>  <br>  <span class="hljs-keyword">while</span> (window needs shrink) {<br>    <span class="hljs-comment">//缩小窗口</span><br>    window.remove(s[left]);<br>    left++;<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>时间复杂度O(N)， 比一般的字符串暴力算法高效的多。</p>
 <p>滑动窗口的关键在于各种细节问题。比如如何向窗口中添加新元素，如何缩小窗口，在窗口滑动的哪个阶段更新结果。即使你明白了这些细节，也容易报错。</p>

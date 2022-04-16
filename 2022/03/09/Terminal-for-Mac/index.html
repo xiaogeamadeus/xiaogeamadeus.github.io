@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="The Basic Operation of Shell for Mac更改目录：123cd &lt;Path&gt; &#x2F;&#x2F;找到对应路径cd .. &#x2F;&#x2F;移动到上一级目录pushd &lt;Path&gt; &#x2F;&#x2F;记住来源的同时移动到其他目录，popd 返回来源  目录列举123456ls &#x2F;&#x2F;列举出当前目录下所有的文件和子目录   &#x2F;&#x2F;可以使用通配符 * 来缩小搜索范围。   &#x2F;&#x2F;例1: 列举所有以">
+    <meta name="description" content="The Basic Operation of Shell for Mac注：本文仅为个人学习笔记，无任何版权。 更改目录：123cd &lt;Path&gt; &#x2F;&#x2F;找到对应路径cd .. &#x2F;&#x2F;移动到上一级目录pushd &lt;Path&gt; &#x2F;&#x2F;记住来源的同时移动到其他目录，popd 返回来源  目录列举123456ls &#x2F;&#x2F;列举出当前目录下所有的文件和子目录   &#x2F;&#x2F;可以使用通配符 * 来缩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Terminal for Mac">
 <meta property="og:url" content="http://example.com/2022/03/09/Terminal-for-Mac/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="The Basic Operation of Shell for Mac更改目录：123cd &lt;Path&gt; &#x2F;&#x2F;找到对应路径cd .. &#x2F;&#x2F;移动到上一级目录pushd &lt;Path&gt; &#x2F;&#x2F;记住来源的同时移动到其他目录，popd 返回来源  目录列举123456ls &#x2F;&#x2F;列举出当前目录下所有的文件和子目录   &#x2F;&#x2F;可以使用通配符 * 来缩小搜索范围。   &#x2F;&#x2F;例1: 列举所有以">
+<meta property="og:description" content="The Basic Operation of Shell for Mac注：本文仅为个人学习笔记，无任何版权。 更改目录：123cd &lt;Path&gt; &#x2F;&#x2F;找到对应路径cd .. &#x2F;&#x2F;移动到上一级目录pushd &lt;Path&gt; &#x2F;&#x2F;记住来源的同时移动到其他目录，popd 返回来源  目录列举123456ls &#x2F;&#x2F;列举出当前目录下所有的文件和子目录   &#x2F;&#x2F;可以使用通配符 * 来缩">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-09T01:15:29.000Z">
-<meta property="article:modified_time" content="2022-03-31T00:32:52.403Z">
+<meta property="article:modified_time" content="2022-04-07T14:55:33.301Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Shell">
 <meta name="twitter:card" content="summary_large_image">
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      534 Words
+      553 Words
     </span>
   
 
@@ -238,12 +238,13 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 31, 2022 am
+                  Last renew: April 7, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="The-Basic-Operation-of-Shell-for-Mac"><a href="#The-Basic-Operation-of-Shell-for-Mac" class="headerlink" title="The Basic Operation of Shell for Mac"></a>The Basic Operation of Shell for Mac</h2><h3 id="更改目录："><a href="#更改目录：" class="headerlink" title="更改目录："></a>更改目录：</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">cd &lt;Path&gt; //找到对应路径<br>cd .. //移动到上一级目录<br>pushd &lt;Path&gt; //记住来源的同时移动到其他目录，popd 返回来源<br></code></pre></td></tr></tbody></table></figure>
+              <h2 id="The-Basic-Operation-of-Shell-for-Mac"><a href="#The-Basic-Operation-of-Shell-for-Mac" class="headerlink" title="The Basic Operation of Shell for Mac"></a>The Basic Operation of Shell for Mac</h2><p>注：本文仅为个人学习笔记，无任何版权。</p>
+<h3 id="更改目录："><a href="#更改目录：" class="headerlink" title="更改目录："></a>更改目录：</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">cd &lt;Path&gt; //找到对应路径<br>cd .. //移动到上一级目录<br>pushd &lt;Path&gt; //记住来源的同时移动到其他目录，popd 返回来源<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="目录列举"><a href="#目录列举" class="headerlink" title="目录列举"></a>目录列举</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls //列举出当前目录下所有的文件和子目录<br>   //可以使用通配符 * 来缩小搜索范围。<br>   //例1: 列举所有以".java"结尾的文件<br>     ls *.java<br>   //例2：列举所有以"F"开头，".java"结尾的文件<br>     ls F*.java<br></code></pre></td></tr></tbody></table></figure>
 

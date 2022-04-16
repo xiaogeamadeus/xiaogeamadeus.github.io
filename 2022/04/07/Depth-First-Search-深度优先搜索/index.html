@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="The Way to Input&#x2F;Output File by Java注：本文仅为个人学习笔记，无任何版权。 打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的java.nio.file包以及streams与文件结合使得文件操作编程变得十分简单。 对于文件操作来说，最基本的两个组件是  文件或者目录的路径； 文件本身。  文件和目录路径一个Path对象表示一个文件或者">
+    <meta name="description" content="注：本文仅为个人学习笔记，无任何版权。 深度优先算法（DFS, Depth first search），是搜索算法的一种。 基本思想：沿着树的深度来遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都已被探寻过，搜索讲回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个过程反复进行直到所有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OnJava8-File">
-<meta property="og:url" content="http://example.com/2022/03/31/OnJava8-File/index.html">
+<meta property="og:title" content="Depth First Search 深度优先搜索">
+<meta property="og:url" content="http://example.com/2022/04/07/Depth-First-Search-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="The Way to Input&#x2F;Output File by Java注：本文仅为个人学习笔记，无任何版权。 打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的java.nio.file包以及streams与文件结合使得文件操作编程变得十分简单。 对于文件操作来说，最基本的两个组件是  文件或者目录的路径； 文件本身。  文件和目录路径一个Path对象表示一个文件或者">
+<meta property="og:description" content="注：本文仅为个人学习笔记，无任何版权。 深度优先算法（DFS, Depth first search），是搜索算法的一种。 基本思想：沿着树的深度来遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都已被探寻过，搜索讲回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个过程反复进行直到所有">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-31T01:01:41.000Z">
-<meta property="article:modified_time" content="2022-04-07T14:54:54.246Z">
+<meta property="article:published_time" content="2022-04-07T14:33:35.000Z">
+<meta property="article:modified_time" content="2022-04-07T14:53:44.850Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>OnJava8-File - WANG Tianchen</title>
+  <title>Depth First Search 深度优先搜索 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="OnJava8-File">
+            <span class="h2" id="subtitle" title="Depth First Search 深度优先搜索">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-31 10:01" pubdate>
-        March 31, 2022 am
+      <time datetime="2022-04-07 23:33" pubdate>
+        April 7, 2022 pm
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k Words
+      224 Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24 Minutes
+      2 Minutes
     </span>
   
 
@@ -234,7 +234,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">OnJava8-File</h1>
+            <h1 style="display: none">Depth First Search 深度优先搜索</h1>
             
               <p class="note note-info">
                 
@@ -243,17 +243,10 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="The-Way-to-Input-x2F-Output-File-by-Java"><a href="#The-Way-to-Input-x2F-Output-File-by-Java" class="headerlink" title="The Way to Input/Output File by Java"></a>The Way to Input/Output File by Java</h2><p>注：本文仅为个人学习笔记，无任何版权。</p>
-<p>打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的<code>java.nio.file</code>包以及streams与文件结合使得文件操作编程变得十分简单。</p>
-<p>对于文件操作来说，最基本的两个组件是</p>
-<ol>
-<li>文件或者目录的路径；</li>
-<li>文件本身。</li>
-</ol>
-<h3 id="文件和目录路径"><a href="#文件和目录路径" class="headerlink" title="文件和目录路径"></a>文件和目录路径</h3><p>一个<code>Path</code>对象表示一个文件或者目录的路径，可以跨操作系统和文件系统。</p>
-<p><code>java.nio.file.Path</code>包含一个重载方法<code>static get()</code>，该方法接受一系列<code>String</code>字符串或一个URI作为参数，进行转换返回一个<code>Path</code>对象：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// files/PathInfo.java</span><br><span class="hljs-keyword">import</span> java.nio.file.*;<br><span class="hljs-keyword">import</span> java.net.URI;<br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PathInfo</span> {<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">(String id, Object p)</span> {<br>        System.out.println(id + <span class="hljs-string">": "</span> + p);<br>    }<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">info</span><span class="hljs-params">(Path p)</span> {<br>        show(<span class="hljs-string">"toString"</span>, p);<br>        show(<span class="hljs-string">"Exists"</span>, Files.exists(p));<br>        show(<span class="hljs-string">"RegularFile"</span>, Files.isRegularFile(p));<br>        show(<span class="hljs-string">"Directory"</span>, Files.isDirectory(p));<br>        show(<span class="hljs-string">"Absolute"</span>, p.isAbsolute());<br>        show(<span class="hljs-string">"FileName"</span>, p.getFileName());<br>        show(<span class="hljs-string">"Parent"</span>, p.getParent());<br>        show(<span class="hljs-string">"Root"</span>, p.getRoot());<br>        System.out.println(<span class="hljs-string">"******************"</span>);<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {<br>        System.out.println(System.getProperty(<span class="hljs-string">"os.name"</span>));<br>        info(Paths.get(<span class="hljs-string">"C:"</span>, <span class="hljs-string">"path"</span>, <span class="hljs-string">"to"</span>, <span class="hljs-string">"nowhere"</span>, <span class="hljs-string">"NoFile.txt"</span>));<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> Paths.get(<span class="hljs-string">"PathInfo.java"</span>);<br>        info(p);<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">ap</span> <span class="hljs-operator">=</span> p.toAbsolutePath();<br>        info(ap);<br>        info(ap.getParent());<br>        <span class="hljs-keyword">try</span> {<br>            info(p.toRealPath());<br>        } <span class="hljs-keyword">catch</span>(IOException e) {<br>           System.out.println(e);<br>        }<br>        <span class="hljs-type">URI</span> <span class="hljs-variable">u</span> <span class="hljs-operator">=</span> p.toUri();<br>        System.out.println(<span class="hljs-string">"URI: "</span> + u);<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">puri</span> <span class="hljs-operator">=</span> Paths.get(u);<br>        System.out.println(Files.exists(puri));<br>        <span class="hljs-type">File</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> ap.toFile(); <span class="hljs-comment">// Don't be fooled</span><br>    }<br>}<br><br><span class="hljs-comment">/* 输出:</span><br><span class="hljs-comment">Windows 10</span><br><span class="hljs-comment">toString: C:\path\to\nowhere\NoFile.txt</span><br><span class="hljs-comment">Exists: false</span><br><span class="hljs-comment">RegularFile: false</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: NoFile.txt</span><br><span class="hljs-comment">Parent: C:\path\to\nowhere</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: false</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: null</span><br><span class="hljs-comment">Root: null</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files\PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: false</span><br><span class="hljs-comment">Directory: true</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: files</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files\PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">URI: file:///C:/Users/Bruce/Documents/GitHub/onjava/</span><br><span class="hljs-comment">ExtractedExamples/files/PathInfo.java</span><br><span class="hljs-comment">true</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></tbody></table></figure>
-
+              <p>注：本文仅为个人学习笔记，无任何版权。</p>
+<p>深度优先算法（DFS, Depth first search），是搜索算法的一种。</p>
+<p>基本思想：沿着树的深度来遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都已被探寻过，搜索讲回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个过程反复进行直到所有节点都被访问为止。</p>
+<p>深度优先算法也可以解决很多经典的图论问题</p>
 
             </div>
             <hr>
@@ -275,9 +268,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/02/%E6%95%B0%E7%BB%84-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                      <a href="/2022/04/07/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数组</span>
+                        <span class="hidden-mobile">回溯算法详解</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -285,8 +278,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/26/TCP-IP-UDP-and-Socket/">
-                        <span class="hidden-mobile">TCP/IP, UDP and Socket</span>
+                      <a href="/2022/04/06/Scanner-BufferReader-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/">
+                        <span class="hidden-mobile">Scanner & BufferedReader 用法详解</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

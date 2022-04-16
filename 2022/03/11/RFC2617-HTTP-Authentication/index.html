@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="HTTP Authentication: Basic and Digest Access Authentication在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。 Basic Authentication Scheme基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来认证自己的每个realm，realm">
+    <meta name="description" content="HTTP Authentication: Basic and Digest Access Authentication在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。注：本文仅为个人学习笔记，无任何版权。 Basic Authentication Scheme基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RFC2617: HTTP Authentication">
 <meta property="og:url" content="http://example.com/2022/03/11/RFC2617-HTTP-Authentication/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="HTTP Authentication: Basic and Digest Access Authentication在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。 Basic Authentication Scheme基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来认证自己的每个realm，realm">
+<meta property="og:description" content="HTTP Authentication: Basic and Digest Access Authentication在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。注：本文仅为个人学习笔记，无任何版权。 Basic Authentication Scheme基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-11T01:07:06.000Z">
-<meta property="article:modified_time" content="2022-03-11T01:21:45.924Z">
+<meta property="article:modified_time" content="2022-04-07T14:54:58.574Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Project-Web">
 <meta name="twitter:card" content="summary_large_image">
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      500 Words
+      519 Words
     </span>
   
 
@@ -238,12 +238,12 @@
             
               <p class="note note-info">
                 
-                  Last renew: March 11, 2022 am
+                  Last renew: April 7, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="HTTP-Authentication-Basic-and-Digest-Access-Authentication"><a href="#HTTP-Authentication-Basic-and-Digest-Access-Authentication" class="headerlink" title="HTTP Authentication: Basic and Digest Access Authentication"></a>HTTP Authentication: Basic and Digest Access Authentication</h2><p>在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。</p>
+              <h2 id="HTTP-Authentication-Basic-and-Digest-Access-Authentication"><a href="#HTTP-Authentication-Basic-and-Digest-Access-Authentication" class="headerlink" title="HTTP Authentication: Basic and Digest Access Authentication"></a>HTTP Authentication: Basic and Digest Access Authentication</h2><p>在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。注：本文仅为个人学习笔记，无任何版权。</p>
 <h3 id="Basic-Authentication-Scheme"><a href="#Basic-Authentication-Scheme" class="headerlink" title="Basic Authentication Scheme"></a>Basic Authentication Scheme</h3><p>基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来认证自己的每个realm，realm vakye应当被认为是一个不透明的字符串，只能与该服务器上的其他realm进行比较以确定是否相等，服务器只有在能够验证Request-URI的用户ID和密码的情况下才能为请求提供服务。</p>
 <p>basic-credentials = base64-user-pass </p>
 <p>base64-user-pass = &lt;base64 [4] encoding of user-pass, except not limited to 76 char/line&gt;</p>

@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="The Way to Input&#x2F;Output File by Java注：本文仅为个人学习笔记，无任何版权。 打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的java.nio.file包以及streams与文件结合使得文件操作编程变得十分简单。 对于文件操作来说，最基本的两个组件是  文件或者目录的路径； 文件本身。  文件和目录路径一个Path对象表示一个文件或者">
+    <meta name="description" content="回溯问题概述注：本文仅为个人学习笔记，无任何版权。 注2: dfs与回溯之间并不是并列的关系，dfs是一种深度优先的遍历方法，而回溯是一种解决问题的手段。dfs可以有回溯，回溯也可以用dfs。 什么是回溯算法？回溯法也可以叫做回溯搜索法，是一种搜索的方式。回溯是递归的副产品，有递归就会有回溯。 回溯法的效率回溯法的性能如何呢？实际上不是什么高效的算法。因为本质是穷举。如果想要回溯法高效，可以增加一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OnJava8-File">
-<meta property="og:url" content="http://example.com/2022/03/31/OnJava8-File/index.html">
+<meta property="og:title" content="回溯算法详解">
+<meta property="og:url" content="http://example.com/2022/04/07/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="The Way to Input&#x2F;Output File by Java注：本文仅为个人学习笔记，无任何版权。 打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的java.nio.file包以及streams与文件结合使得文件操作编程变得十分简单。 对于文件操作来说，最基本的两个组件是  文件或者目录的路径； 文件本身。  文件和目录路径一个Path对象表示一个文件或者">
+<meta property="og:description" content="回溯问题概述注：本文仅为个人学习笔记，无任何版权。 注2: dfs与回溯之间并不是并列的关系，dfs是一种深度优先的遍历方法，而回溯是一种解决问题的手段。dfs可以有回溯，回溯也可以用dfs。 什么是回溯算法？回溯法也可以叫做回溯搜索法，是一种搜索的方式。回溯是递归的副产品，有递归就会有回溯。 回溯法的效率回溯法的性能如何呢？实际上不是什么高效的算法。因为本质是穷举。如果想要回溯法高效，可以增加一">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-31T01:01:41.000Z">
-<meta property="article:modified_time" content="2022-04-07T14:54:54.246Z">
+<meta property="article:published_time" content="2022-04-07T14:44:26.000Z">
+<meta property="article:modified_time" content="2022-04-09T06:27:07.544Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>OnJava8-File - WANG Tianchen</title>
+  <title>回溯算法详解 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="OnJava8-File">
+            <span class="h2" id="subtitle" title="回溯算法详解">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-31 10:01" pubdate>
-        March 31, 2022 am
+      <time datetime="2022-04-07 23:44" pubdate>
+        April 7, 2022 pm
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k Words
+      2.4k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24 Minutes
+      20 Minutes
     </span>
   
 
@@ -234,26 +234,63 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">OnJava8-File</h1>
+            <h1 style="display: none">回溯算法详解</h1>
             
               <p class="note note-info">
                 
-                  Last renew: April 7, 2022 pm
+                  Last renew: April 9, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="The-Way-to-Input-x2F-Output-File-by-Java"><a href="#The-Way-to-Input-x2F-Output-File-by-Java" class="headerlink" title="The Way to Input/Output File by Java"></a>The Way to Input/Output File by Java</h2><p>注：本文仅为个人学习笔记，无任何版权。</p>
-<p>打开并读取文件对于大多数编程语言来说是非常实用的。Java8与java7新增的<code>java.nio.file</code>包以及streams与文件结合使得文件操作编程变得十分简单。</p>
-<p>对于文件操作来说，最基本的两个组件是</p>
+              <h2 id="回溯问题概述"><a href="#回溯问题概述" class="headerlink" title="回溯问题概述"></a>回溯问题概述</h2><p>注：本文仅为个人学习笔记，无任何版权。</p>
+<p>注2: dfs与回溯之间并不是并列的关系，dfs是一种深度优先的遍历方法，而回溯是一种解决问题的手段。dfs可以有回溯，回溯也可以用dfs。</p>
+<h4 id="什么是回溯算法？"><a href="#什么是回溯算法？" class="headerlink" title="什么是回溯算法？"></a>什么是回溯算法？</h4><p>回溯法也可以叫做回溯搜索法，是一种搜索的方式。回溯是递归的副产品，有递归就会有回溯。</p>
+<h4 id="回溯法的效率"><a href="#回溯法的效率" class="headerlink" title="回溯法的效率"></a>回溯法的效率</h4><p>回溯法的性能如何呢？实际上不是什么高效的算法。因为本质是穷举。如果想要回溯法高效，可以增加一些剪枝的操作。但效率仍然一般，因为其本质就是穷举。</p>
+<h4 id="回溯法适合解决的问题"><a href="#回溯法适合解决的问题" class="headerlink" title="回溯法适合解决的问题"></a>回溯法适合解决的问题</h4><ul>
+<li>组合问题：N个数里面按一定规则找出k个数的集合</li>
+<li>切割问题：一个字符串按一定规则有几种切割方式</li>
+<li>子集问题：一个N个数的集合里有多少符合条件的子集</li>
+<li>排列问题：N个数按一定规则全排列，有几种排列方式</li>
+<li>棋盘问题：N皇后，解数独等</li>
+</ul>
+<p>注：组合和排列的区别是组合不强调元素顺序，排列强调元素顺序。</p>
+<h4 id="如何理解回溯法"><a href="#如何理解回溯法" class="headerlink" title="如何理解回溯法"></a>如何理解回溯法</h4><p>回溯法解决的问题都可以抽象为树形结构！</p>
+<p>因为回溯法解决的都是在集合中递归查找子集，集合的大小就构成了树的宽度，递归的深度则构成了树的深度。</p>
+<p>使用递归就要有中止条件，所以树的高度是有限的。</p>
+<p>解决一个回溯问题，实际上就是一个决策树的遍历过程。你只需要思考三个问题。</p>
 <ol>
-<li>文件或者目录的路径；</li>
-<li>文件本身。</li>
+<li>路径：也就是已经作出的选择。</li>
+<li>选择列表：也就是你当前可以做的选择。</li>
+<li>结束条件：也就是到达决策树底层，无法再做选择的条件。</li>
 </ol>
-<h3 id="文件和目录路径"><a href="#文件和目录路径" class="headerlink" title="文件和目录路径"></a>文件和目录路径</h3><p>一个<code>Path</code>对象表示一个文件或者目录的路径，可以跨操作系统和文件系统。</p>
-<p><code>java.nio.file.Path</code>包含一个重载方法<code>static get()</code>，该方法接受一系列<code>String</code>字符串或一个URI作为参数，进行转换返回一个<code>Path</code>对象：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// files/PathInfo.java</span><br><span class="hljs-keyword">import</span> java.nio.file.*;<br><span class="hljs-keyword">import</span> java.net.URI;<br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PathInfo</span> {<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">(String id, Object p)</span> {<br>        System.out.println(id + <span class="hljs-string">": "</span> + p);<br>    }<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">info</span><span class="hljs-params">(Path p)</span> {<br>        show(<span class="hljs-string">"toString"</span>, p);<br>        show(<span class="hljs-string">"Exists"</span>, Files.exists(p));<br>        show(<span class="hljs-string">"RegularFile"</span>, Files.isRegularFile(p));<br>        show(<span class="hljs-string">"Directory"</span>, Files.isDirectory(p));<br>        show(<span class="hljs-string">"Absolute"</span>, p.isAbsolute());<br>        show(<span class="hljs-string">"FileName"</span>, p.getFileName());<br>        show(<span class="hljs-string">"Parent"</span>, p.getParent());<br>        show(<span class="hljs-string">"Root"</span>, p.getRoot());<br>        System.out.println(<span class="hljs-string">"******************"</span>);<br>    }<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {<br>        System.out.println(System.getProperty(<span class="hljs-string">"os.name"</span>));<br>        info(Paths.get(<span class="hljs-string">"C:"</span>, <span class="hljs-string">"path"</span>, <span class="hljs-string">"to"</span>, <span class="hljs-string">"nowhere"</span>, <span class="hljs-string">"NoFile.txt"</span>));<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> Paths.get(<span class="hljs-string">"PathInfo.java"</span>);<br>        info(p);<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">ap</span> <span class="hljs-operator">=</span> p.toAbsolutePath();<br>        info(ap);<br>        info(ap.getParent());<br>        <span class="hljs-keyword">try</span> {<br>            info(p.toRealPath());<br>        } <span class="hljs-keyword">catch</span>(IOException e) {<br>           System.out.println(e);<br>        }<br>        <span class="hljs-type">URI</span> <span class="hljs-variable">u</span> <span class="hljs-operator">=</span> p.toUri();<br>        System.out.println(<span class="hljs-string">"URI: "</span> + u);<br>        <span class="hljs-type">Path</span> <span class="hljs-variable">puri</span> <span class="hljs-operator">=</span> Paths.get(u);<br>        System.out.println(Files.exists(puri));<br>        <span class="hljs-type">File</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> ap.toFile(); <span class="hljs-comment">// Don't be fooled</span><br>    }<br>}<br><br><span class="hljs-comment">/* 输出:</span><br><span class="hljs-comment">Windows 10</span><br><span class="hljs-comment">toString: C:\path\to\nowhere\NoFile.txt</span><br><span class="hljs-comment">Exists: false</span><br><span class="hljs-comment">RegularFile: false</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: NoFile.txt</span><br><span class="hljs-comment">Parent: C:\path\to\nowhere</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: false</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: null</span><br><span class="hljs-comment">Root: null</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files\PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: false</span><br><span class="hljs-comment">Directory: true</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: files</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">toString: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files\PathInfo.java</span><br><span class="hljs-comment">Exists: true</span><br><span class="hljs-comment">RegularFile: true</span><br><span class="hljs-comment">Directory: false</span><br><span class="hljs-comment">Absolute: true</span><br><span class="hljs-comment">FileName: PathInfo.java</span><br><span class="hljs-comment">Parent: C:\Users\Bruce\Documents\GitHub\onjava\</span><br><span class="hljs-comment">ExtractedExamples\files</span><br><span class="hljs-comment">Root: C:\</span><br><span class="hljs-comment">******************</span><br><span class="hljs-comment">URI: file:///C:/Users/Bruce/Documents/GitHub/onjava/</span><br><span class="hljs-comment">ExtractedExamples/files/PathInfo.java</span><br><span class="hljs-comment">true</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs java">result = []<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title function_">backtrack</span><span class="hljs-params">(路径，选择列表)</span>:<br>  <span class="hljs-keyword">if</span> (满足结束条件){<br>    result.add(路径);<br>    <span class="hljs-keyword">return</span>;<br>  }<br>  <span class="hljs-keyword">for</span> (选择 : 选择列表) {<br>     做选择 or 处理节点;<br>     backtrack(路径，选择列表); <span class="hljs-comment">// 递归</span><br>     回溯，撤销选择;<br>  }<br></code></pre></td></tr></tbody></table></figure>
 
+<p>核心就是for循环里的递归，在递归调用之前做选择，在递归调用之后撤销选择。</p>
+<p>可以看出for循环就是横向的遍历，backtracking就是纵向遍历，这样就把这棵树全遍历完了。</p>
+<p>这个框架的奥秘在哪里呢？我们来看两道例题：</p>
+<h3 id="1-全排列问题"><a href="#1-全排列问题" class="headerlink" title="1. 全排列问题"></a>1. 全排列问题</h3><p>高中的排列组合数学题。对于n个不同的数，全排列共有n!个。</p>
+<p>穷举全排列的方法？[1, 2, 3] [1, 3, 2] [2, 1, 3] [2, 3, 1]…..</p>
+<p>可以按照这个逻辑画出一颗决策树。</p>
+<p>只要从root遍历这棵树，记录路径上的数字，其实就是所有的全排列。</p>
+<p>假如我们进行穷举走到了[2, x, y]的分叉，这时候2的含义就是[路径]，用于记录你已经做过的选择；</p>
+<p>而[1]或[3]则是[选择列表]。表示你当前可以做出的选择；</p>
+<p>[结束条件]就是遍历到树的底层，在这里就是选择列表为空的时候。</p>
+<p>这时候可以看出，我们所定义的backtrack函数其实就像一个指针，在这棵树上游走，同时要正确维护每个节点的属性，每当走到树的底层，其[路径]就是一个全排列。</p>
+<p>那么，如何遍历这棵树？</p>
+<p>简单的二叉树遍历罢了，前序遍历 or 后序遍历。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">traverse</span><span class="hljs-params">(TreeNode root)</span> </span>{<br>  <span class="hljs-keyword">for</span> (TreeNode child : root.children)<br>  <span class="hljs-comment">//前序遍历需要的操作</span><br>    <span class="hljs-built_in">traverse</span>(child);<br>  <span class="hljs-comment">//后序遍历需要的操作</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>稍微回忆一下，前序遍历的代码会在进入某一个节点之前的时间执行，而后序遍历代码会在离开某个节点之后的那个时间点执行。</p>
+<p>而就在刚才我们所述，[路径]和[选择]是每个节点的属性，函数在树上游走要正确维护节点的属性。所以我们应当在前序和后序两个位置选择不同的操作。</p>
+<p>前序为做出选择，而后序为撤销选择。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> 选择 <span class="hljs-keyword">in</span> 选择列表:<br>  <span class="hljs-comment">#做选择</span><br>  将该选择从选择列表移除<br>  路径.add(选择) <br>  backtrack(路径，选择列表)<br>  <span class="hljs-comment">#撤销选择</span><br>  路径.remove(选择)<br>  将该选择再加入选择列表<br></code></pre></td></tr></tbody></table></figure>
+
+<p>我们只要在递归之前做出选择，在递归之后撤销刚才的选择，就能正确的得到每个节点的选择列表与路径。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++">List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br><br><span class="hljs-comment">// 主函数，输入一组不重复的数字，返回他们的全排列</span><br>List&lt;List&lt;Integer&gt;&gt; <span class="hljs-built_in">permute</span>(<span class="hljs-type">int</span>[] nums) {<br>  <span class="hljs-comment">// 记录路径</span><br>  LinkedList&lt;integer&gt; track = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>  <span class="hljs-built_in">backtrack</span>(nums, track);<br>  <span class="hljs-keyword">return</span> res;<br>}<br><br><span class="hljs-comment">// 路径：记录在 track 中</span><br><span class="hljs-comment">// 选择列表：nums 中不存在于 track 的那些元素</span><br><span class="hljs-comment">// 结束条件: nums 中的元素全都在track 中出现</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, LinkedList&lt;Integer&gt; track)</span> </span>{<br>  <span class="hljs-comment">// 触发结束条件</span><br>  <span class="hljs-keyword">if</span> (track.<span class="hljs-built_in">size</span>() == nums.length) {<br>    res.<span class="hljs-built_in">add</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">LinkedList</span>(track));<br>    <span class="hljs-keyword">return</span>;<br>  }<br>  <br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt; nums.length; i++) {<br>    <span class="hljs-comment">// 排除不合法的选择</span><br>    <span class="hljs-keyword">if</span> (track.<span class="hljs-built_in">contains</span>(nums[i]))<br>      <span class="hljs-keyword">continue</span>;<br>    <span class="hljs-comment">// 做选择</span><br>    track.<span class="hljs-built_in">add</span>(nums[i]);<br>    <span class="hljs-comment">// 进入下一层决策树</span><br>    <span class="hljs-built_in">backtrack</span>(nums, track);<br>    <span class="hljs-comment">// 取消选择</span><br>    track.<span class="hljs-built_in">removeLast</span>();<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>自此，我们就通过全排列问题了解了简单的回溯算法。当然，这个算法解决全排列并不高效，<code>contains</code>方法需要O(N)的时间复杂度。有更好的方法可以follow up</p>
+<p>但不论怎样优化，只要符合回溯框架，时间复杂度都不可能低于O(N!)，因为穷举整棵树是无法避免的。一般回溯算法时间复杂度都很高。</p>
 
             </div>
             <hr>
@@ -275,9 +312,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/02/%E6%95%B0%E7%BB%84-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                      <a href="/2022/04/16/Anaconda-for-Mac/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数组</span>
+                        <span class="hidden-mobile">Anaconda for Mac</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -285,8 +322,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/26/TCP-IP-UDP-and-Socket/">
-                        <span class="hidden-mobile">TCP/IP, UDP and Socket</span>
+                      <a href="/2022/04/07/Depth-First-Search-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                        <span class="hidden-mobile">Depth First Search 深度优先搜索</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
