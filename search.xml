@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Numpy &amp; Matplotlib for Python</title>
+      <link href="/2022/04/17/Numpy-Matplotlib-for-Python/"/>
+      <url>/2022/04/17/Numpy-Matplotlib-for-Python/</url>
+      
+        <content type="html"><![CDATA[<h2 id="NumPy-amp-Matplotlib-for-Python"><a href="#NumPy-amp-Matplotlib-for-Python" class="headerlink" title="NumPy &amp; Matplotlib for Python"></a>NumPy &amp; Matplotlib for Python</h2><p>写在前面：</p><p>本篇文章为个人学习总结所用。</p><p>使用环境：Anaconda + Python3.7 + Jupyter notebook + Tensorflow</p><p><strong>NumPy 与 Matplotlib一同创造了一个MATLAB的完全替代品。配合Jupiter-notebook一同使用可以在数据处理上达到令人满意的效果。</strong></p><h3 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h3><p>NumPy最重要的一个特点是其N维数组对象ndarray，是一系列同类型数据的集合。</p><p>创建一个ndarray只需要调用NumPy的array函数即可。</p><figure class="highlight python"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 一维数组</span><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span> (a)<br><span class="hljs-comment"># 输出结果：[1 2 3]</span><br><br><span class="hljs-comment"># 多于一个维度</span><br>a = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])<br><span class="hljs-comment"># 输出结果：[[1 2]</span><br><span class="hljs-comment">#           [3 4]]</span><br><br><span class="hljs-comment"># 最小维度</span><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], ndmin = <span class="hljs-number">2</span>)<br><span class="hljs-built_in">print</span> (a)<br><span class="hljs-comment"># 输出结果：[[1 2 3 4 5]]（这是一个二维数组，但是第二行没有赋值）</span><br><br><span class="hljs-comment"># dtype参数</span><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], dtype = <span class="hljs-built_in">complex</span>)<br><span class="hljs-built_in">print</span> (a)<br><span class="hljs-comment"># 输出结果：[1.+0.j 2.+0.j 3.+0.j]</span><br></code></pre></td></tr></tbody></table></figure><h3 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h3><p>Matplotlib 是 Python 的绘图库。通常和NumPy共同进行使用。</p><p>Pyplot是Matplotlib的子库，提供了和Matlab类似的绘图API</p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># plot()方法绘制二维图形</span><br>xpoints = np.array([<span class="hljs-number">0</span>, <span class="hljs-number">6</span>])<br>ypoints = np.array([<span class="hljs-number">0</span>, <span class="hljs-number">100</span>])<br><br>plt.plot(xpoints, ypoints)<br>plt.show()<br><span class="hljs-comment"># 得到一个(0,0) 到 (6,100) 的直线</span><br></code></pre></td></tr></tbody></table></figure><p>plot函数可以绘制点和线，语法格式如下：</p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 画单条线</span><br>plt.plot([x], y, [fmt], *, data=<span class="hljs-literal">None</span>, **kwargs)<br><span class="hljs-comment"># 画多条线</span><br>plt.plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)<br></code></pre></td></tr></tbody></table></figure><p>参数说明：</p><ul><li>x, y：点或线的节点。x为x轴数据，y为y轴数据，数据可以列表或数组。</li><li>fmt：可选，定义基本格式（颜色，标记和线条样式）</li><li>**kwargs：可选，用在二维平面图上，设置指定属性，如标签和线的宽度。</li></ul><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>plot(x, y)        <span class="hljs-comment"># 创建 y 中数据与 x 中对应值的二维线图，使用默认样式</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>plot(x, y, <span class="hljs-string">'bo'</span>)  <span class="hljs-comment"># 创建 y 中数据与 x 中对应值的二维线图，使用蓝色实心圈绘制</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>plot(y)           <span class="hljs-comment"># x 的值为 0..N-1</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>plot(y, <span class="hljs-string">'r+'</span>)     <span class="hljs-comment"># 使用红色 + 号</span><br></code></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Anaconda for Mac</title>
       <link href="/2022/04/16/Anaconda-for-Mac/"/>
       <url>/2022/04/16/Anaconda-for-Mac/</url>
@@ -280,7 +299,7 @@
       
         <tags>
             
-            <tag> Shell </tag>
+            <tag> Tools </tag>
             
         </tags>
       
