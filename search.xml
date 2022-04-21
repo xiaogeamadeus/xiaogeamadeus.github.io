@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>哈希表_总结</title>
+      <link href="/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/"/>
+      <url>/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h2 id="哈希表-Hash-Table"><a href="#哈希表-Hash-Table" class="headerlink" title="哈希表(Hash Table)"></a>哈希表(Hash Table)</h2><h3 id="什么是哈希表"><a href="#什么是哈希表" class="headerlink" title="什么是哈希表"></a>什么是哈希表</h3><p>哈希表是根据关键码的值而直接进行访问的数据结构。</p><p>简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。</p><h3 id="哈希表一般用于解决什么问题？"><a href="#哈希表一般用于解决什么问题？" class="headerlink" title="哈希表一般用于解决什么问题？"></a>哈希表一般用于解决什么问题？</h3><p>用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。</p><h3 id="常见的三种哈希结构"><a href="#常见的三种哈希结构" class="headerlink" title="常见的三种哈希结构"></a>常见的三种哈希结构</h3><p>当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。</p><ul><li>数组</li><li>set 集合</li><li>map 映射</li></ul><p>set只能储存一种值，但map可以储存一个<code>&lt;key, value&gt;</code>的键值对</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Programming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git for PyCharm</title>
       <link href="/2022/04/18/Git-for-PyCharm/"/>
       <url>/2022/04/18/Git-for-PyCharm/</url>
