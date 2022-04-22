@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Formal Language Theory</title>
+    <link href="/2022/04/22/Formal-Language-Theory/"/>
+    <url>/2022/04/22/Formal-Language-Theory/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Formal-Language-Theory-形式语言理论"><a href="#Formal-Language-Theory-形式语言理论" class="headerlink" title="Formal Language Theory 形式语言理论"></a>Formal Language Theory 形式语言理论</h1><h3 id="什么是形式语言？-x2F-语言的形式定义"><a href="#什么是形式语言？-x2F-语言的形式定义" class="headerlink" title="什么是形式语言？/ 语言的形式定义"></a>什么是形式语言？/ 语言的形式定义</h3><p> 形式语言（Formal Language）是用精确的数学/及其可处理的公式定义的语言。一般作为一个集合出现。</p><p>语言定义在某一个特定的字母表上，字母表可以为任意有限集合（一般由$\Sigma$表示）。例如集合${a, b, c…, z}$就表示所有小写字母构成的字母表。</p><p>而字符串就是字母表中元素构成的有穷序列。</p><p>所以直觉上，一个语言是字母表所能构成的所有串的集合的一个子集。</p><h3 id="语言的表示方法"><a href="#语言的表示方法" class="headerlink" title="语言的表示方法"></a>语言的表示方法</h3><p>不像自然语言，一个形式语言作为一个集合，需要有某种明确的标准来定义一个字符串是否是他的元素。定义方法主要有如下几种。</p><ul><li>枚举法</li><li>形式文法（Formal Grammars，也叫做Phrase Structure Grammars）</li><li>正则语法（Regular Grammars）</li><li>自动机（图灵机、有限状态自动机）（Automate）</li><li>上下文无关文法（Context-Free Grammars, CFG）</li></ul><!--注：在NLP中，S表示句子；NP/VP/PP是名词短语、动词短语、介词短语（短语级别）；N/V/P分别是名词、动词、介词--><h2 id="Formal-Grammars-（形式文法）"><a href="#Formal-Grammars-（形式文法）" class="headerlink" title="Formal Grammars （形式文法）"></a>Formal Grammars （形式文法）</h2><p>在形式语言理论中，形式文法是形式语言中字符串的一套产生式规则(Production Rules)。这些规则描述了如何用语言的字母表生成复合语法的有效字符串。</p><p>文法不描述字符串的含义，也不描述任何上下文中可以用他们做什么，只描述他们的形式。</p><p>![截屏2022-04-22 22.35.39](Formal-Language-Theory/截屏2022-04-22 22.35.39.png)</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>NLP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>哈希表_总结</title>
     <link href="/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/"/>
     <url>/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/</url>
