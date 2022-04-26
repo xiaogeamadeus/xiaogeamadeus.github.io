@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Groulette: ごはん屋さんルーレット</title>
+    <link href="/2022/04/26/Groulette-%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%E3%81%95%E3%82%93%E3%83%AB%E3%83%BC%E3%83%AC%E3%83%83%E3%83%88/"/>
+    <url>/2022/04/26/Groulette-%E3%81%94%E3%81%AF%E3%82%93%E5%B1%8B%E3%81%95%E3%82%93%E3%83%AB%E3%83%BC%E3%83%AC%E3%83%83%E3%83%88/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Formal Language Theory</title>
     <link href="/2022/04/22/Formal-Language-Theory/"/>
     <url>/2022/04/22/Formal-Language-Theory/</url>
@@ -369,7 +382,7 @@
     <link href="/2022/03/09/Git%E5%9F%BA%E7%A4%8E/"/>
     <url>/2022/03/09/Git%E5%9F%BA%E7%A4%8E/</url>
     
-    <content type="html"><![CDATA[<h2 id="Gitを使って方法（Mac）"><a href="#Gitを使って方法（Mac）" class="headerlink" title="Gitを使って方法（Mac）"></a>Gitを使って方法（Mac）</h2><p>注：本文仅为个人学习笔记，无任何版权。</p><h2 id="建立仓库，并与git连接"><a href="#建立仓库，并与git连接" class="headerlink" title="建立仓库，并与git连接"></a>建立仓库，并与git连接</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ol><li><p>github上新建一个repository</p></li><li><p>复制repository的ssh地址</p></li><li><p>打开终端输入命令</p><p><code>cd /users/xiaogeamadeus/mygo/src</code></p></li><li><p>然后克隆项目</p><p><code>git clone ssh (copy from github)</code></p></li><li><p>在vscode新建一个工程，路径为刚克隆的文件夹</p></li></ol><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ol><li><p>本地创建一个repository</p><p><code>mkdir projectname</code></p><p><code>cd projectname</code></p></li><li><p>通过<code>git init</code>命令将这个projectname目录变为git可以管理的目录</p><p><code>git init</code></p></li></ol><h2 id="如何提交修改"><a href="#如何提交修改" class="headerlink" title="如何提交修改"></a>如何提交修改</h2><ol><li><p>切换到项目文件夹所在的路径</p><p>``cd /users/xiaogeamadeus/mygo/project(created)`</p></li><li><p>输入</p><p><code>git add .</code> 将文件添加到仓库（.代表提交所有文件）</p><p><code>git commit -m "day1"</code> 把文件提交到暂存区（””内为本次提交的说明，用于方便找到提交记录）</p><p><code>git push</code> 上传到github</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="Gitを使って方法（Mac）"><a href="#Gitを使って方法（Mac）" class="headerlink" title="Gitを使って方法（Mac）"></a>Gitを使って方法（Mac）</h2><p>注：本文仅为个人学习笔记，无任何版权。</p><h2 id="建立仓库，并与git连接"><a href="#建立仓库，并与git连接" class="headerlink" title="建立仓库，并与git连接"></a>建立仓库，并与git连接</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ol><li><p>github上新建一个repository</p></li><li><p>复制repository的ssh地址</p></li><li><p>打开终端输入命令</p><p><code>cd /users/xiaogeamadeus/mygo/src</code></p></li><li><p>然后克隆项目</p><p><code>git clone ssh (copy from github)</code></p></li><li><p>在vscode新建一个工程，路径为刚克隆的文件夹</p></li></ol><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ol><li><p>本地创建一个repository</p><p><code>mkdir projectname</code></p><p><code>cd projectname</code></p></li><li><p>通过<code>git init</code>命令将这个projectname目录变为git可以管理的目录</p><p><code>git init</code></p></li></ol><h2 id="如何提交修改"><a href="#如何提交修改" class="headerlink" title="如何提交修改"></a>如何提交修改</h2><ol><li><p>切换到项目文件夹所在的路径</p><p>``cd /users/xiaogeamadeus/mygo/project(created)`</p></li><li><p>输入</p><p><code>git add .</code> 将文件添加到仓库（.代表提交所有文件）</p><p><code>git commit -m "day1"</code> 把文件提交到暂存区（””内为本次提交的说明，用于方便找到提交记录）</p><p><code>git push</code> 上传到github</p></li><li><p>merge</p><p>git将别人的分支加入main分支是很常见的操作。可以线上（github）完成此操作。<code>create pull request</code>然后<code>confirm pull</code>即可</p></li></ol>]]></content>
     
     
     
