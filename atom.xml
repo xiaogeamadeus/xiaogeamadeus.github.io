@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-24T06:44:32.107Z</updated>
+  <updated>2022-04-26T13:15:46.652Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Groulette</title>
+    <link href="http://example.com/2022/04/26/Groulette/"/>
+    <id>http://example.com/2022/04/26/Groulette/</id>
+    <published>2022-04-26T13:14:44.000Z</published>
+    <updated>2022-04-26T13:15:46.652Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Groulette"><a href="#Groulette" class="headerlink" title="Groulette"></a>Groulette</h2><p>京都大学の5人のチームの一員として、現在、Grouletteの開発が進められています。</p><p><a href="https://github.com/xiaogeamadeus/groulette_backend">Github_Backend</a></p><h3 id="ごはんやさんルーレット（ぐるーれっと）"><a href="#ごはんやさんルーレット（ぐるーれっと）" class="headerlink" title="ごはんやさんルーレット（ぐるーれっと）"></a>ごはんやさんルーレット（ぐるーれっと）</h3><h4 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h4><p>・ご飯を食べに行く店をルーレットで決定してくれるwebアプリ</p><p>・ジャンル、値段、評価選択⇨ルーレット作成⇨回す⇨その店を表示</p><p>・条件に合ったレストランの中から、ランダムに１０個程度を選択肢、ルーレットを作成する。</p><p>・営業時間外のお店を除外する</p><p>・追加機能、「Dangerous」「Normal」「Recommend」3種類のリストを選択する。</p><p>・追加機能、好きではない店はバツする。</p><p>・ユーザーログイン機能も追加する。お客様過去の記録によって、ルーレットは別々だ。 </p><p>3種類の推薦アルゴリズムの実装、店のデータベースの構築、フロントエンドから送られてくるrequestを受け付けるAPIの作成、Google Map APIへの地図データのrequests送信など、バックエンドの開発は私に担当しています。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Groulette&quot;&gt;&lt;a href=&quot;#Groulette&quot; class=&quot;headerlink&quot; title=&quot;Groulette&quot;&gt;&lt;/a&gt;Groulette&lt;/h2&gt;&lt;p&gt;京都大学の5人のチームの一員として、現在、Grouletteの開発が進められています</summary>
+      
+    
+    
+    
+    
+    <category term="Project-Python" scheme="http://example.com/tags/Project-Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Formal Language Theory</title>
@@ -445,28 +467,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;The-Basic-Operation-of-Shell-for-Mac&quot;&gt;&lt;a href=&quot;#The-Basic-Operation-of-Shell-for-Mac&quot; class=&quot;headerlink&quot; title=&quot;The Basic Operation </summary>
-      
-    
-    
-    
-    
-    <category term="Tools" scheme="http://example.com/tags/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git基礎</title>
-    <link href="http://example.com/2022/03/09/Git%E5%9F%BA%E7%A4%8E/"/>
-    <id>http://example.com/2022/03/09/Git%E5%9F%BA%E7%A4%8E/</id>
-    <published>2022-03-09T01:10:22.000Z</published>
-    <updated>2022-04-26T08:14:07.884Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Gitを使って方法（Mac）"><a href="#Gitを使って方法（Mac）" class="headerlink" title="Gitを使って方法（Mac）"></a>Gitを使って方法（Mac）</h2><p>注：本文仅为个人学习笔记，无任何版权。</p><h2 id="建立仓库，并与git连接"><a href="#建立仓库，并与git连接" class="headerlink" title="建立仓库，并与git连接"></a>建立仓库，并与git连接</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ol><li><p>github上新建一个repository</p></li><li><p>复制repository的ssh地址</p></li><li><p>打开终端输入命令</p><p><code>cd /users/xiaogeamadeus/mygo/src</code></p></li><li><p>然后克隆项目</p><p><code>git clone ssh (copy from github)</code></p></li><li><p>在vscode新建一个工程，路径为刚克隆的文件夹</p></li></ol><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ol><li><p>本地创建一个repository</p><p><code>mkdir projectname</code></p><p><code>cd projectname</code></p></li><li><p>通过<code>git init</code>命令将这个projectname目录变为git可以管理的目录</p><p><code>git init</code></p></li></ol><h2 id="如何提交修改"><a href="#如何提交修改" class="headerlink" title="如何提交修改"></a>如何提交修改</h2><ol><li><p>切换到项目文件夹所在的路径</p><p>``cd /users/xiaogeamadeus/mygo/project(created)`</p></li><li><p>输入</p><p><code>git add .</code> 将文件添加到仓库（.代表提交所有文件）</p><p><code>git commit -m "day1"</code> 把文件提交到暂存区（””内为本次提交的说明，用于方便找到提交记录）</p><p><code>git push</code> 上传到github</p></li><li><p>merge</p><p>git将别人的分支加入main分支是很常见的操作。可以线上（github）完成此操作。<code>create pull request</code>然后<code>confirm pull</code>即可</p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Gitを使って方法（Mac）&quot;&gt;&lt;a href=&quot;#Gitを使って方法（Mac）&quot; class=&quot;headerlink&quot; title=&quot;Gitを使って方法（Mac）&quot;&gt;&lt;/a&gt;Gitを使って方法（Mac）&lt;/h2&gt;&lt;p&gt;注：本文仅为个人学习笔记，无任何版权。&lt;/p</summary>
       
     
     

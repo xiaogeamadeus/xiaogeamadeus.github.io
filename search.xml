@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Groulette</title>
+      <link href="/2022/04/26/Groulette/"/>
+      <url>/2022/04/26/Groulette/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Groulette"><a href="#Groulette" class="headerlink" title="Groulette"></a>Groulette</h2><p>京都大学の5人のチームの一員として、現在、Grouletteの開発が進められています。</p><p><a href="https://github.com/xiaogeamadeus/groulette_backend">Github_Backend</a></p><h3 id="ごはんやさんルーレット（ぐるーれっと）"><a href="#ごはんやさんルーレット（ぐるーれっと）" class="headerlink" title="ごはんやさんルーレット（ぐるーれっと）"></a>ごはんやさんルーレット（ぐるーれっと）</h3><h4 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h4><p>・ご飯を食べに行く店をルーレットで決定してくれるwebアプリ</p><p>・ジャンル、値段、評価選択⇨ルーレット作成⇨回す⇨その店を表示</p><p>・条件に合ったレストランの中から、ランダムに１０個程度を選択肢、ルーレットを作成する。</p><p>・営業時間外のお店を除外する</p><p>・追加機能、「Dangerous」「Normal」「Recommend」3種類のリストを選択する。</p><p>・追加機能、好きではない店はバツする。</p><p>・ユーザーログイン機能も追加する。お客様過去の記録によって、ルーレットは別々だ。 </p><p>3種類の推薦アルゴリズムの実装、店のデータベースの構築、フロントエンドから送られてくるrequestを受け付けるAPIの作成、Google Map APIへの地図データのrequests送信など、バックエンドの開発は私に担当しています。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Project-Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Formal Language Theory</title>
       <link href="/2022/04/22/Formal-Language-Theory/"/>
       <url>/2022/04/22/Formal-Language-Theory/</url>
