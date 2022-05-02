@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="哈希表(Hash Table)什么是哈希表哈希表是根据关键码的值而直接进行访问的数据结构。 简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。 哈希表一般用于解决什么问题？用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。 常见的三种哈希结构当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。  数组 set 集">
+    <meta name="description" content="算法基础模版个人学习总结所用，来自于俞佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length + 1];">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哈希表_总结">
-<meta property="og:url" content="http://example.com/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="算法基础模版">
+<meta property="og:url" content="http://example.com/2022/05/02/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%89%88/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="哈希表(Hash Table)什么是哈希表哈希表是根据关键码的值而直接进行访问的数据结构。 简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。 哈希表一般用于解决什么问题？用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。 常见的三种哈希结构当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。  数组 set 集">
+<meta property="og:description" content="算法基础模版个人学习总结所用，来自于俞佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length + 1];">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-21T14:38:56.000Z">
-<meta property="article:modified_time" content="2022-04-21T14:54:35.458Z">
+<meta property="article:published_time" content="2022-05-02T10:16:41.000Z">
+<meta property="article:modified_time" content="2022-05-02T13:12:40.331Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>哈希表_总结 - WANG Tianchen</title>
+  <title>算法基础模版 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="哈希表_总结">
+            <span class="h2" id="subtitle" title="算法基础模版">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-21 23:38" pubdate>
-        April 21, 2022 pm
+      <time datetime="2022-05-02 19:16" pubdate>
+        May 2, 2022 pm
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      240 Words
+      1.2k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 Minutes
+      10 Minutes
     </span>
   
 
@@ -234,25 +234,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">哈希表_总结</h1>
+            <h1 style="display: none">算法基础模版</h1>
             
               <p class="note note-info">
                 
-                  Last renew: April 21, 2022 pm
+                  Last renew: May 2, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="哈希表-Hash-Table"><a href="#哈希表-Hash-Table" class="headerlink" title="哈希表(Hash Table)"></a>哈希表(Hash Table)</h2><h3 id="什么是哈希表"><a href="#什么是哈希表" class="headerlink" title="什么是哈希表"></a>什么是哈希表</h3><p>哈希表是根据关键码的值而直接进行访问的数据结构。</p>
-<p>简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。</p>
-<h3 id="哈希表一般用于解决什么问题？"><a href="#哈希表一般用于解决什么问题？" class="headerlink" title="哈希表一般用于解决什么问题？"></a>哈希表一般用于解决什么问题？</h3><p>用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。</p>
-<h3 id="常见的三种哈希结构"><a href="#常见的三种哈希结构" class="headerlink" title="常见的三种哈希结构"></a>常见的三种哈希结构</h3><p>当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。</p>
-<ul>
-<li>数组</li>
-<li>set 集合</li>
-<li>map 映射</li>
-</ul>
-<p>set只能储存一种值，但map可以储存一个<code>&lt;key, value&gt;</code>的键值对</p>
+              <h2 id="算法基础模版"><a href="#算法基础模版" class="headerlink" title="算法基础模版"></a>算法基础模版</h2><p>个人学习总结所用，来自于俞佬个人总结。</p>
+<h3 id="前缀和（Prefix-sum）"><a href="#前缀和（Prefix-sum）" class="headerlink" title="前缀和（Prefix sum）"></a>前缀和（Prefix sum）</h3><p>前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。</p>
+<h4 id="一维数组中的前缀和"><a href="#一维数组中的前缀和" class="headerlink" title="一维数组中的前缀和"></a>一维数组中的前缀和</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-immutable/">LeetCode 303</a></p>
+<p>一维数组前缀和模版：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">prefixSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] A, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span>{<br>  <span class="hljs-type">int</span>[] B = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[A.length + <span class="hljs-number">1</span>];<br>  <br>  B[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; B.length; i++) {<br>    B[i] = B[i - <span class="hljs-number">1</span>] + A[i - <span class="hljs-number">1</span>];<br>  }<br>  <span class="hljs-keyword">return</span> B[right + <span class="hljs-number">1</span>] - B[left]<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<h4 id="二维数组中的前缀和"><a href="#二维数组中的前缀和" class="headerlink" title="二维数组中的前缀和"></a>二维数组中的前缀和</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-2d-immutable/">LeetCode304</a></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">prefixSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] A, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2)</span> {<br>  <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> A.length;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> A[<span class="hljs-number">0</span>].length;<br>  <span class="hljs-type">int</span>[][] B = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[m + <span class="hljs-number">1</span>][n + <span class="hljs-number">1</span>];<br>  <br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= m; i++) {<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; j &lt;= n; j++) {<br>      B[i][j] = B[i-<span class="hljs-number">1</span>][j] + B[i][j-<span class="hljs-number">1</span>] + A[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>] - B[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>];<br>    }<br>  }<br>  <br>  <span class="hljs-keyword">return</span> B[x2+<span class="hljs-number">1</span>][y2+<span class="hljs-number">1</span>] - B[x2+<span class="hljs-number">1</span>][y1] - B[x1][y2+<span class="hljs-number">1</span>] + B[x1][y1];<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="和为K的字数组"><a href="#和为K的字数组" class="headerlink" title="和为K的字数组"></a>和为K的字数组</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-sum-equals-k/">LeetCode560</a></p>
+<p>两数之和+前缀和</p>
+<p>两数之和就是哈希表存值出现的次数，然后加入，然后再加上前缀和可以实现O(n)的时间复杂度。</p>
+<p>如果不加哈希表，用双循环+前缀和就是O(n^2)，不是很理想</p>
+<h2 id="差分数组-Difference-Array"><a href="#差分数组-Difference-Array" class="headerlink" title="差分数组(Difference Array)"></a>差分数组(Difference Array)</h2><p>差分数组的思想是基于前缀和的，主要适用于频繁对原始数组的某个区间的元素进行增减。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/corporate-flight-bookings/">Leetcode1109</a></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] difference(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> val) {<br>  <span class="hljs-keyword">if</span>(nums.length &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span>[] diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  diff[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) {<br>    diff[i] = nums[i] - nums[i-<span class="hljs-number">1</span>];<br>  }<br>  <br>  diff[x1] += val;<br>  <span class="hljs-keyword">if</span>(x2 + <span class="hljs-number">1</span> &lt; diff.length)diff[x2] -= val;<br>  <br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[diff.length];<br>  res[<span class="hljs-number">0</span>] = diff[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; diff.length; i++) {<br>    res[i] = res[i - <span class="hljs-number">1</span>] + diff[i];<br>  }<br>  <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
 
             </div>
             <hr>
@@ -274,18 +283,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/22/Formal-Language-Theory/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Formal Language Theory</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/18/Git-for-PyCharm/">
-                        <span class="hidden-mobile">Git for PyCharm</span>
+                      <a href="/2022/04/26/Groulette/">
+                        <span class="hidden-mobile">Groulette</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

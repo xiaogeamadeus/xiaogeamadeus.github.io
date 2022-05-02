@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-26T13:15:46.652Z</updated>
+  <updated>2022-05-02T13:12:40.331Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法基础模版</title>
+    <link href="http://example.com/2022/05/02/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%89%88/"/>
+    <id>http://example.com/2022/05/02/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%89%88/</id>
+    <published>2022-05-02T10:16:41.000Z</published>
+    <updated>2022-05-02T13:12:40.331Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="算法基础模版"><a href="#算法基础模版" class="headerlink" title="算法基础模版"></a>算法基础模版</h2><p>个人学习总结所用，来自于俞佬个人总结。</p><h3 id="前缀和（Prefix-sum）"><a href="#前缀和（Prefix-sum）" class="headerlink" title="前缀和（Prefix sum）"></a>前缀和（Prefix sum）</h3><p>前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。</p><h4 id="一维数组中的前缀和"><a href="#一维数组中的前缀和" class="headerlink" title="一维数组中的前缀和"></a>一维数组中的前缀和</h4><p><a href="https://leetcode-cn.com/problems/range-sum-query-immutable/">LeetCode 303</a></p><p>一维数组前缀和模版：</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">prefixSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] A, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span>{<br>  <span class="hljs-type">int</span>[] B = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[A.length + <span class="hljs-number">1</span>];<br>  <br>  B[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; B.length; i++) {<br>    B[i] = B[i - <span class="hljs-number">1</span>] + A[i - <span class="hljs-number">1</span>];<br>  }<br>  <span class="hljs-keyword">return</span> B[right + <span class="hljs-number">1</span>] - B[left]<br>}<br><br></code></pre></td></tr></tbody></table></figure><h4 id="二维数组中的前缀和"><a href="#二维数组中的前缀和" class="headerlink" title="二维数组中的前缀和"></a>二维数组中的前缀和</h4><p><a href="https://leetcode-cn.com/problems/range-sum-query-2d-immutable/">LeetCode304</a></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">prefixSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] A, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> y1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> y2)</span> {<br>  <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> A.length;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> A[<span class="hljs-number">0</span>].length;<br>  <span class="hljs-type">int</span>[][] B = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[m + <span class="hljs-number">1</span>][n + <span class="hljs-number">1</span>];<br>  <br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= m; i++) {<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; j &lt;= n; j++) {<br>      B[i][j] = B[i-<span class="hljs-number">1</span>][j] + B[i][j-<span class="hljs-number">1</span>] + A[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>] - B[i-<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>];<br>    }<br>  }<br>  <br>  <span class="hljs-keyword">return</span> B[x2+<span class="hljs-number">1</span>][y2+<span class="hljs-number">1</span>] - B[x2+<span class="hljs-number">1</span>][y1] - B[x1][y2+<span class="hljs-number">1</span>] + B[x1][y1];<br>}<br></code></pre></td></tr></tbody></table></figure><h4 id="和为K的字数组"><a href="#和为K的字数组" class="headerlink" title="和为K的字数组"></a>和为K的字数组</h4><p><a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/">LeetCode560</a></p><p>两数之和+前缀和</p><p>两数之和就是哈希表存值出现的次数，然后加入，然后再加上前缀和可以实现O(n)的时间复杂度。</p><p>如果不加哈希表，用双循环+前缀和就是O(n^2)，不是很理想</p><h2 id="差分数组-Difference-Array"><a href="#差分数组-Difference-Array" class="headerlink" title="差分数组(Difference Array)"></a>差分数组(Difference Array)</h2><p>差分数组的思想是基于前缀和的，主要适用于频繁对原始数组的某个区间的元素进行增减。</p><p><a href="https://leetcode-cn.com/problems/corporate-flight-bookings/">Leetcode1109</a></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] difference(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> val) {<br>  <span class="hljs-keyword">if</span>(nums.length &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span>[] diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  diff[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) {<br>    diff[i] = nums[i] - nums[i-<span class="hljs-number">1</span>];<br>  }<br>  <br>  diff[x1] += val;<br>  <span class="hljs-keyword">if</span>(x2 + <span class="hljs-number">1</span> &lt; diff.length)diff[x2] -= val;<br>  <br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[diff.length];<br>  res[<span class="hljs-number">0</span>] = diff[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; diff.length; i++) {<br>    res[i] = res[i - <span class="hljs-number">1</span>] + diff[i];<br>  }<br>  <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;算法基础模版&quot;&gt;&lt;a href=&quot;#算法基础模版&quot; class=&quot;headerlink&quot; title=&quot;算法基础模版&quot;&gt;&lt;/a&gt;算法基础模版&lt;/h2&gt;&lt;p&gt;个人学习总结所用，来自于俞佬个人总结。&lt;/p&gt;
+&lt;h3 id=&quot;前缀和（Prefix-sum）&quot;&gt;&lt;a hr</summary>
+      
+    
+    
+    
+    
+    <category term="Programming" scheme="http://example.com/tags/Programming/"/>
+    
+  </entry>
   
   <entry>
     <title>Groulette</title>
@@ -451,28 +474,6 @@
     
     
     <category term="Project-Go" scheme="http://example.com/tags/Project-Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Terminal for Mac</title>
-    <link href="http://example.com/2022/03/09/Terminal-for-Mac/"/>
-    <id>http://example.com/2022/03/09/Terminal-for-Mac/</id>
-    <published>2022-03-09T01:15:29.000Z</published>
-    <updated>2022-04-17T01:01:58.041Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="The-Basic-Operation-of-Shell-for-Mac"><a href="#The-Basic-Operation-of-Shell-for-Mac" class="headerlink" title="The Basic Operation of Shell for Mac"></a>The Basic Operation of Shell for Mac</h2><p>注：本文仅为个人学习笔记，无任何版权。</p><h3 id="更改目录："><a href="#更改目录：" class="headerlink" title="更改目录："></a>更改目录：</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">cd &lt;Path&gt; //找到对应路径<br>cd .. //移动到上一级目录<br>pushd &lt;Path&gt; //记住来源的同时移动到其他目录，popd 返回来源<br></code></pre></td></tr></tbody></table></figure><h3 id="目录列举"><a href="#目录列举" class="headerlink" title="目录列举"></a>目录列举</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls //列举出当前目录下所有的文件和子目录<br>   //可以使用通配符 * 来缩小搜索范围。<br>   //例1: 列举所有以".java"结尾的文件<br>     ls *.java<br>   //例2：列举所有以"F"开头，".java"结尾的文件<br>     ls F*.java<br></code></pre></td></tr></tbody></table></figure><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir //系统<br>mkdir books //示例<br></code></pre></td></tr></tbody></table></figure><h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm //系统<br>rm somefile.java //示例<br></code></pre></td></tr></tbody></table></figure><h3 id="移除目录"><a href="#移除目录" class="headerlink" title="移除目录"></a>移除目录</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm -r //系统<br>rm -r books //示例<br></code></pre></td></tr></tbody></table></figure><h3 id="重复命令"><a href="#重复命令" class="headerlink" title="重复命令"></a>重复命令</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">!! //重复上条命令<br>!n //重复倒数第n条命令<br></code></pre></td></tr></tbody></table></figure><h3 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">history //系统<br></code></pre></td></tr></tbody></table></figure><h3 id="文件解压"><a href="#文件解压" class="headerlink" title="文件解压"></a>文件解压</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">//Linux/Mac 都有命令行解压程序 unzip，你可以通过互联网为 Windows 安装命令行解压程序 unzip。<br>//图形界面下（Windows 资源管理器，Mac Finder，Linux Nautilus 或其他等效软件）右键单击该文件，<br>//在 Mac 上选择“open”<br><br></code></pre></td></tr></tbody></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;The-Basic-Operation-of-Shell-for-Mac&quot;&gt;&lt;a href=&quot;#The-Basic-Operation-of-Shell-for-Mac&quot; class=&quot;headerlink&quot; title=&quot;The Basic Operation </summary>
-      
-    
-    
-    
-    
-    <category term="Tools" scheme="http://example.com/tags/Tools/"/>
     
   </entry>
   
