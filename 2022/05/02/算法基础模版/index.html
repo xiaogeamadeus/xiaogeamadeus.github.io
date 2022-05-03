@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="算法基础模版个人学习总结所用，来自于俞佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length + 1];">
+    <meta name="description" content="算法基础模版个人学习总结所用，无版权，来自于Yjy佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法基础模版">
 <meta property="og:url" content="http://example.com/2022/05/02/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%89%88/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="算法基础模版个人学习总结所用，来自于俞佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length + 1];">
+<meta property="og:description" content="算法基础模版个人学习总结所用，无版权，来自于Yjy佬个人总结。 前缀和（Prefix sum）前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。 一维数组中的前缀和LeetCode 303 一维数组前缀和模版： 12345678910public int prefixSum(int[] A, int left, int right){  int[] B &#x3D; new int[A.length">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-02T10:16:41.000Z">
-<meta property="article:modified_time" content="2022-05-02T13:12:40.331Z">
+<meta property="article:modified_time" content="2022-05-03T12:24:33.154Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k Words
+      2.2k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 Minutes
+      19 Minutes
     </span>
   
 
@@ -238,12 +238,12 @@
             
               <p class="note note-info">
                 
-                  Last renew: May 2, 2022 pm
+                  Last renew: May 3, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="算法基础模版"><a href="#算法基础模版" class="headerlink" title="算法基础模版"></a>算法基础模版</h2><p>个人学习总结所用，来自于俞佬个人总结。</p>
+              <h2 id="算法基础模版"><a href="#算法基础模版" class="headerlink" title="算法基础模版"></a>算法基础模版</h2><p>个人学习总结所用，无版权，来自于Yjy佬个人总结。</p>
 <h3 id="前缀和（Prefix-sum）"><a href="#前缀和（Prefix-sum）" class="headerlink" title="前缀和（Prefix sum）"></a>前缀和（Prefix sum）</h3><p>前缀和技巧适用于快速、频繁地计算一个索引区间内的元素之和。</p>
 <h4 id="一维数组中的前缀和"><a href="#一维数组中的前缀和" class="headerlink" title="一维数组中的前缀和"></a>一维数组中的前缀和</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-query-immutable/">LeetCode 303</a></p>
 <p>一维数组前缀和模版：</p>
@@ -260,7 +260,12 @@
 <p>如果不加哈希表，用双循环+前缀和就是O(n^2)，不是很理想</p>
 <h2 id="差分数组-Difference-Array"><a href="#差分数组-Difference-Array" class="headerlink" title="差分数组(Difference Array)"></a>差分数组(Difference Array)</h2><p>差分数组的思想是基于前缀和的，主要适用于频繁对原始数组的某个区间的元素进行增减。</p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/corporate-flight-bookings/">Leetcode1109</a></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] difference(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> val) {<br>  <span class="hljs-keyword">if</span>(nums.length &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span>[] diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  diff[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) {<br>    diff[i] = nums[i] - nums[i-<span class="hljs-number">1</span>];<br>  }<br>  <br>  diff[x1] += val;<br>  <span class="hljs-keyword">if</span>(x2 + <span class="hljs-number">1</span> &lt; diff.length)diff[x2] -= val;<br>  <br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[diff.length];<br>  res[<span class="hljs-number">0</span>] = diff[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; diff.length; i++) {<br>    res[i] = res[i - <span class="hljs-number">1</span>] + diff[i];<br>  }<br>  <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/car-pooling/">Leetcode1094</a></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] difference(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> x1, <span class="hljs-type">int</span> x2, <span class="hljs-type">int</span> val) {<br>  <span class="hljs-keyword">if</span>(nums.length &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span>[] diff = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length];<br>  diff[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>  <span class="hljs-comment">// 差分数组初始化</span><br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) {<br>    diff[i] = nums[i] - nums[i-<span class="hljs-number">1</span>];<br>  }<br>  <br>  <span class="hljs-comment">// 加减值</span><br>  diff[x1] += val;<br>  <span class="hljs-keyword">if</span>(x2 + <span class="hljs-number">1</span> &lt; diff.length)<br>    diff[x2 + <span class="hljs-number">1</span>] -= val;<br>  <br>  <span class="hljs-comment">// 输出数组为差分数组的和</span><br>  <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[diff.length];<br>  res[<span class="hljs-number">0</span>] = diff[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; diff.length; i++) {<br>    res[i] = res[i - <span class="hljs-number">1</span>] + diff[i];<br>  }<br>  <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="快速排序、归并排序"><a href="#快速排序、归并排序" class="headerlink" title="快速排序、归并排序"></a>快速排序、归并排序</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-an-array/">Leetcode912</a></p>
+<p>快速排序模版：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">quickSort</span>{<br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] sortArray(<span class="hljs-type">int</span>[] nums) {<br>    <span class="hljs-comment">// Shuffle the array.</span><br>    shuffle(nums);<br>    sort(nums, <span class="hljs-number">0</span>, nums.length - <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> nums;<br>  }<br>  <br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> lo, <span class="hljs-type">int</span> hi)</span> {<br>    <span class="hljs-keyword">if</span> (lo &gt; hi) <span class="hljs-keyword">return</span>;<br>    <br>    <span class="hljs-type">int</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> partition(nums, lo, hi);<br>    sort(nums, lo, p-<span class="hljs-number">1</span>);<br>    sort(nums, p+<span class="hljs-number">1</span>, hi);<br>  }<br>  <br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">partition</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> lo, <span class="hljs-type">int</span> hi)</span> {<br>    <span class="hljs-type">int</span> <span class="hljs-variable">pivot</span> <span class="hljs-operator">=</span> nums[lo];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> lo + <span class="hljs-number">1</span>, j = hi;<br>    <br>    <span class="hljs-keyword">while</span> (i&lt;=j) {<br>      <span class="hljs-keyword">while</span>(i &lt; hi &amp;&amp; nums[i] &lt;= pivot){<br>        i++;<br>      }<br>      <br>      <span class="hljs-keyword">while</span>(j &gt; lo &amp;&amp; nums[j] &gt; pivot) {<br>        j--;<br>      }<br>      <br>      <span class="hljs-keyword">if</span>(i&gt;=j) {<br>        <span class="hljs-keyword">break</span>;<br>      }<br>      swap(nums, i, j);<br>    }<br>    swap(nums, lo, j);<br>    <span class="hljs-keyword">return</span> j;<br>  }<br>  <br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">shuffle</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> {<br>    <span class="hljs-type">Random</span> <span class="hljs-variable">rand</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Random</span>();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i&lt;n; i++) {<br>      <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> i + rand.nextInt(n - i);<br>      swap(nums, i, r);<br>    }<br>    <br>  }<br>  <span class="hljs-comment">// Swap the two element of array.</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">swap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> {<br>    <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> nums[i];<br>    nums[i] = nums[j];<br>    nums[j] = temp;<br>  }<br>}<br><br></code></pre></td></tr></tbody></table></figure>
 
 
             </div>
@@ -282,6 +287,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/05/03/Create-API-by-Python/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Create API by Python</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -487,5 +498,20 @@
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
