@@ -16,21 +16,19 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="哈希表(Hash Table)什么是哈希表哈希表是根据关键码的值而直接进行访问的数据结构。 简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。 哈希表一般用于解决什么问题？用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。 常见的三种哈希结构当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。  数组 set 集">
-<meta property="og:type" content="article">
-<meta property="og:title" content="哈希表_总结">
-<meta property="og:url" content="http://example.com/2022/04/21/%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%80%BB%E7%BB%93/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="字符串总结">
+<meta property="og:url" content="http://example.com/2022/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="哈希表(Hash Table)什么是哈希表哈希表是根据关键码的值而直接进行访问的数据结构。 简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。 哈希表一般用于解决什么问题？用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。 常见的三种哈希结构当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。  数组 set 集">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-21T14:38:56.000Z">
-<meta property="article:modified_time" content="2022-05-08T05:22:14.642Z">
+<meta property="article:published_time" content="2022-05-05T07:13:45.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:14:07.059Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>哈希表_总结 - WANG Tianchen</title>
+  <title>字符串总结 - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +165,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="哈希表_总结">
+            <span class="h2" id="subtitle" title="字符串总结">
               
             </span>
 
@@ -177,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-21 23:38" pubdate>
-        April 21, 2022 pm
+      <time datetime="2022-05-05 16:13" pubdate>
+        May 5, 2022 pm
       </time>
     </span>
   
@@ -188,7 +186,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      680 Words
+      0 Words
     </span>
   
 
@@ -197,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 Minutes
+      1 Minutes
     </span>
   
 
@@ -234,45 +232,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">哈希表_总结</h1>
+            <h1 style="display: none">字符串总结</h1>
             
               <p class="note note-info">
                 
-                  Last renew: May 8, 2022 pm
+                  Last renew: May 5, 2022 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="哈希表-Hash-Table"><a href="#哈希表-Hash-Table" class="headerlink" title="哈希表(Hash Table)"></a>哈希表(Hash Table)</h2><h3 id="什么是哈希表"><a href="#什么是哈希表" class="headerlink" title="什么是哈希表"></a>什么是哈希表</h3><p>哈希表是根据关键码的值而直接进行访问的数据结构。</p>
-<p>简单来讲，数组就是一种哈希表。哈希表中关键码就是数组的索引下标，通过下标直接访问数组中的元素。</p>
-<h3 id="哈希表一般用于解决什么问题？"><a href="#哈希表一般用于解决什么问题？" class="headerlink" title="哈希表一般用于解决什么问题？"></a>哈希表一般用于解决什么问题？</h3><p>用来快速判断一个元素是否出现在集合里。O(1)就可以做到，无需遍历。但需要额外空间。</p>
-<h3 id="常见的三种哈希结构"><a href="#常见的三种哈希结构" class="headerlink" title="常见的三种哈希结构"></a>常见的三种哈希结构</h3><p>当我们想用哈希法解决问题的时候，一般会选择如下三种关系结构。</p>
-<ul>
-<li>数组</li>
-<li>set 集合</li>
-<li>map 映射</li>
-</ul>
-<p>set只能储存一种值，但map可以储存一个<code>&lt;key, value&gt;</code>的键值对</p>
-<h3 id="哈希表经典题目"><a href="#哈希表经典题目" class="headerlink" title="哈希表经典题目"></a>哈希表经典题目</h3><h4 id="数组作为哈希表"><a href="#数组作为哈希表" class="headerlink" title="数组作为哈希表"></a>数组作为哈希表</h4><p>242， 383</p>
-<p>一些应用场景就是为数组量身定做的，比如要求只有小写字母。</p>
-<p>虽然这两道题用Map也可以解决，但map消耗空间更大。</p>
-<h4 id="Set作为哈希表"><a href="#Set作为哈希表" class="headerlink" title="Set作为哈希表"></a>Set作为哈希表</h4><p>349, 202</p>
-<p>当数组大小没有被限制的时候，就无法使用数组做哈希表了。</p>
-<p>主要原因有如下两点：</p>
-<ul>
-<li>数组的大小受限，受到系统栈空间的限制</li>
-<li>如果数组空间足够大，但哈希值比较少，比较分散，跨度非常大，使用数组会造成空间的极大浪费。</li>
-</ul>
-<h4 id="Map作为哈希表"><a href="#Map作为哈希表" class="headerlink" title="Map作为哈希表"></a>Map作为哈希表</h4><p>1, 454, 18, 15</p>
-<p>使用数组和哈希set也有自身的局限。</p>
-<ul>
-<li>数组的大小受限值，如果元素很少，而哈希值太大会造成内存空间的浪费。</li>
-<li>Set是一个集合，里面放的元素只能是一个key。而两数之和不仅要判断y是否存在，还要记录y的下标并返回，所以无法用set。</li>
-</ul>
-<p>map是一种&lt;key, value&gt;的结构，本题可以用key保存数值，并用value来保存数值所在的下标。</p>
-<p>但面对三数之和，四数之和的时候，虽然哈希表依旧可以解决，但非常麻烦，代码效率很低。</p>
-<p>所以在18， 15两道题中推荐使用双指针。</p>
-
+              
             </div>
             <hr>
             <div>
@@ -293,9 +262,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/22/Formal-Language-Theory/">
+                      <a href="/2022/05/10/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Formal Language Theory</span>
+                        <span class="hidden-mobile">栈和队列</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -303,8 +272,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/18/Git-for-PyCharm/">
-                        <span class="hidden-mobile">Git for PyCharm</span>
+                      <a href="/2022/05/03/Create-API-by-Python/">
+                        <span class="hidden-mobile">Create API by Python</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
