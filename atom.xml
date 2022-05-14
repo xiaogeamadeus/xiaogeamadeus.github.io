@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-10T14:42:23.178Z</updated>
+  <updated>2022-05-14T01:54:31.871Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode备考计划</title>
+    <link href="http://example.com/2022/05/14/Leetcode%E5%A4%87%E8%80%83%E8%AE%A1%E5%88%92/"/>
+    <id>http://example.com/2022/05/14/Leetcode%E5%A4%87%E8%80%83%E8%AE%A1%E5%88%92/</id>
+    <published>2022-05-14T00:49:57.000Z</published>
+    <updated>2022-05-14T01:54:31.871Z</updated>
+    
+    <content type="html"><![CDATA[<p>背景：代码基础为学校授课水平，刷题量近乎为0。</p><p>目标：2023年招聘时能够达到通过外企代码要求水平。</p><p>时间长度：2022年2月 - 2023年3月</p><h2 id="“归纳流”方法论概要"><a href="#“归纳流”方法论概要" class="headerlink" title="“归纳流”方法论概要"></a>“归纳流”方法论概要</h2><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol><li>始终保持<strong>匀速前进</strong>，即不松懈倦怠，亦不急于求成。</li><li>定时<strong>归纳</strong>总结，按类训练。</li><li>按照记忆<strong>高频率高效复习</strong>。</li><li><strong>拥抱孤独</strong>，过滤杂音，放平心态。</li></ol><h3 id="1-始终保持匀速前进"><a href="#1-始终保持匀速前进" class="headerlink" title="1 始终保持匀速前进"></a>1 始终保持匀速前进</h3><p>对于lc来说题海流不可取，一天刷20道也并不会让你再次面对面试/OA的时候能够有思路熟练的解决，保证刷题质量是关键，这一点得到了多位上岸前辈的确认。当然这并不代表刷100道就能过了…总而言之是牢记追求的不是刷了一千道一万道，而是通过OA和面试。</p><p>匀速前进也是最关键的事情。Greedy在这件事上不可取，动态规划追求最好的整体效果才是关键，目光要放长远。每个人每天的精力是有限且平均的。今天的事超标了，看似赚了，实际上是在透支明天自己的精力，透支一次就会打乱一次结构，整体来看对于大目标的实现毫无疑问是副作用。这一招只适合在 最后冲刺前/ ddl前/ final前 的终结技。一周一小停，一月一大停非常之效率低。</p><p>目前看上去对我个人来说，工作日2道+复习，休息日4道+复习可能是极限了。</p><p>注1：归纳法的参考结构： 早上两题，写完休息；下午两题，复习早上的，写完休息。晚上复习归纳一整天做的题。</p><p>注2：自己的时间规划还可以进行调整，实习面试比较多，确实有点难办。</p><p>注3：暂定时间规划如下：</p><p>workday：早起床1；下午1+复习早上； 晚复习全天</p><p>weekend：早起床2；下午2+复习早上；晚复习全天+周赛</p><h3 id="2-定时归纳总结，按类训练"><a href="#2-定时归纳总结，按类训练" class="headerlink" title="2 定时归纳总结，按类训练"></a>2 定时归纳总结，按类训练</h3><p>尝试在同类事物中挖掘普遍规律，并利用该规律高效地解决更多同类问题。</p><p>刷题一定要同类型一起刷，在进行了大量针对性的同类型训练后，隐藏在事物深层的普遍规律往往会自然而然浮出表面。这时候进行总结归纳是最好的正反馈。</p><p>注：定期归纳的参考结构：一段时间内（5-7天）只做该类型题目，结合其他高质量题解以及labuladong/代码随想录等，加上自身的见解总结出自己的框架。</p><h3 id="3-高频率高效复习"><a href="#3-高频率高效复习" class="headerlink" title="3  高频率高效复习"></a>3  高频率高效复习</h3><p>为了将做题的记忆转化为长期记忆，频繁且有效的重复刺激即可。所以复习旧题的重要性要远大于做新题。</p><p>每一区段刷少量题+复习上一区段</p><p>把自己想象成一个正在运行机器学习的机器。只会背诵训练集的劣质模型没有意义，尝试理解和归纳你手中的“数据”。</p><h3 id="拥抱孤独，过滤杂音"><a href="#拥抱孤独，过滤杂音" class="headerlink" title="拥抱孤独，过滤杂音"></a>拥抱孤独，过滤杂音</h3><p>减少无效信息的获取。</p><p>减少无意义社交与社交媒体的使用。</p><p>倾听内心的声音。</p><p><strong>你不需要任何庇护，倘若能够利用好资源，不断强大自身的毅力和内心，再配合正确的方法，你已具备进入谷歌的一切潜质。</strong></p><p>长期的保持一个节奏，贯彻一个方案，不因取得的阶段性成就而大喜，亦不因遭受阶段性挫折而大悲，当进入这个状态之后，那么离你的目标就真的不再遥远了。</p><p>高考我惨败，修考小负，但具有了堂堂正正跟他们站在同一个擂台的入场券。</p><p>这第三场，让我们来看看我这个混凝土出身的双非小子有没有办法跟你们站在同一个高度吧。</p><h2 id="时间规划记录"><a href="#时间规划记录" class="headerlink" title="时间规划记录"></a>时间规划记录</h2><h4 id="2022年"><a href="#2022年" class="headerlink" title="2022年"></a>2022年</h4><p>2月 - 3月中旬：方向走错，刷题量 &lt; 50，AtCoder AB秒C做不出来水平</p><p>3月下旬 - 5月：想明白要全力刷题了，开学+搬家+打疫苗事情太多，刷题量80</p><p>5月：计划 完成所有tag一轮，包括dp和greedy、backtracking之类的，同时每日一题完成。注：按照归纳流的方法，除去满课的周二之外争取工作日每天刷两道+复习，周末4道+复习+周赛。</p><p>6月：准备Amazon实习，AmazonHot 100+面经+题库</p><p>7月：同上，刷题内容未定+final</p><p>8月-9月：有实习的日子同上，没实习的日子按休息日进行。内容暂定是tag复习+剑指之类的</p><p>10月：Nintendo实习选考，准备乐天正选考</p><p>…</p><p>2月-3月 旧题巩固，tag三轮，每日一题，面经+题库</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;背景：代码基础为学校授课水平，刷题量近乎为0。&lt;/p&gt;
+&lt;p&gt;目标：2023年招聘时能够达到通过外企代码要求水平。&lt;/p&gt;
+&lt;p&gt;时间长度：2022年2月 - 2023年3月&lt;/p&gt;
+&lt;h2 id=&quot;“归纳流”方法论概要&quot;&gt;&lt;a href=&quot;#“归纳流”方法论概要&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="Programming" scheme="http://example.com/tags/Programming/"/>
+    
+  </entry>
   
   <entry>
     <title>栈和队列</title>
@@ -442,28 +467,6 @@
     
     
     <category term="Project-Go" scheme="http://example.com/tags/Project-Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RFC2617: HTTP Authentication</title>
-    <link href="http://example.com/2022/03/11/RFC2617-HTTP-Authentication/"/>
-    <id>http://example.com/2022/03/11/RFC2617-HTTP-Authentication/</id>
-    <published>2022-03-11T01:07:06.000Z</published>
-    <updated>2022-04-07T14:54:58.574Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="HTTP-Authentication-Basic-and-Digest-Access-Authentication"><a href="#HTTP-Authentication-Basic-and-Digest-Access-Authentication" class="headerlink" title="HTTP Authentication: Basic and Digest Access Authentication"></a>HTTP Authentication: Basic and Digest Access Authentication</h2><p>在做课题的过程中需要了解RFC2617的知识，在此做一个中文总结。注：本文仅为个人学习笔记，无任何版权。</p><h3 id="Basic-Authentication-Scheme"><a href="#Basic-Authentication-Scheme" class="headerlink" title="Basic Authentication Scheme"></a>Basic Authentication Scheme</h3><p>基本认证方案(Basic Authentication Scheme)是基于这样的模型：客户必须用一个用户ID和一个密码来认证自己的每个realm，realm vakye应当被认为是一个不透明的字符串，只能与该服务器上的其他realm进行比较以确定是否相等，服务器只有在能够验证Request-URI的用户ID和密码的情况下才能为请求提供服务。</p><p>basic-credentials = base64-user-pass </p><p>base64-user-pass = &lt;base64 [4] encoding of user-pass, except not limited to 76 char/line&gt;</p><p>user-pass = userid “:” password</p><p>userid  = *&lt;TEXT excluding “:”&gt;</p><p>password = *TEXT</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;HTTP-Authentication-Basic-and-Digest-Access-Authentication&quot;&gt;&lt;a href=&quot;#HTTP-Authentication-Basic-and-Digest-Access-Authentication&quot; cl</summary>
-      
-    
-    
-    
-    
-    <category term="Project-Web" scheme="http://example.com/tags/Project-Web/"/>
     
   </entry>
   
