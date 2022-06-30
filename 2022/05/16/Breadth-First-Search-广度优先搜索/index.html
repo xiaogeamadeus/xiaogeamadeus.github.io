@@ -24,7 +24,7 @@
 <meta property="og:description" content="Breadth First Search - 广度优先搜索BFS的核心思想把一些问题抽象成图，从一个点开始，向四周开始扩散。所以一般来说我们写BFS都是用队列这种数据结构，每次将一个节点周围的所有节点加入队列。 BFS与DFS的区别BFS找到的路径一定是最短的，但代价就是空间复杂度很高。 为什么BFS可以找到最短路径，DFS不行吗？DFS实际上是靠递归的对栈记录走过的路径，你要找到最短路径就得把二">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-15T15:32:37.000Z">
-<meta property="article:modified_time" content="2022-05-23T16:27:59.850Z">
+<meta property="article:modified_time" content="2022-06-03T13:52:13.593Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k Words
+      3k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19 Minutes
+      25 Minutes
     </span>
   
 
@@ -238,7 +238,7 @@
             
               <p class="note note-info">
                 
-                  Last renew: May 24, 2022 am
+                  Last renew: June 3, 2022 pm
                 
               </p>
             
@@ -266,6 +266,28 @@
 <p>顺带学到了一种对于二维数组的bfs框架方法：</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">Queue&lt;Integer&gt; neighbors = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br><span class="hljs-comment">// 用r*n+c进行记录 r是row c是column。然后求除/或者取余就行。</span><br>neighbors.offer(r * n + c);<br><span class="hljs-keyword">while</span> (!neighbors.isEmpty()) {<br>    <span class="hljs-type">int</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> neighbors.poll();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">row</span> <span class="hljs-operator">=</span> id / n;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">col</span> <span class="hljs-operator">=</span> id % n;<br>    <span class="hljs-keyword">if</span> (row - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; grid[row-<span class="hljs-number">1</span>][col] == <span class="hljs-string">'1'</span>) {<br>       neighbors.offer((row-<span class="hljs-number">1</span>)*n + col);<br>       grid[row-<span class="hljs-number">1</span>][col] = <span class="hljs-string">'0'</span>;<br>    }<br>    <span class="hljs-keyword">if</span> (row + <span class="hljs-number">1</span> &lt; m &amp;&amp; grid[row+<span class="hljs-number">1</span>][col] == <span class="hljs-string">'1'</span>) {<br>       neighbors.offer((row+<span class="hljs-number">1</span>)*n + col);<br>       grid[row+<span class="hljs-number">1</span>][col] = <span class="hljs-string">'0'</span>;<br>    }<br>    <span class="hljs-keyword">if</span> (col - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; grid[row][col-<span class="hljs-number">1</span>] == <span class="hljs-string">'1'</span>) {<br>       neighbors.offer(row*n + col - <span class="hljs-number">1</span>);<br>       grid[row][col-<span class="hljs-number">1</span>] = <span class="hljs-string">'0'</span>;<br>    }<br>    <span class="hljs-keyword">if</span> (col + <span class="hljs-number">1</span> &lt; n &amp;&amp; grid[row][col+<span class="hljs-number">1</span>] == <span class="hljs-string">'1'</span>) {<br>       neighbors.offer(row*n + col + <span class="hljs-number">1</span>);<br>       grid[row][col+<span class="hljs-number">1</span>] = <span class="hljs-string">'0'</span>;<br>    }<br></code></pre></td></tr></tbody></table></figure>
 
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaogeamadeus/Leetcode_Answer/tree/main">LC207</a></p>
+<p>拓扑排序(Topological ordering)：一个有向无环图(DAG, Directed Acyclic Graph)的所有顶点的线性序列。且该序列满足：</p>
+<ol>
+<li>每个顶点出现且只出现一次</li>
+<li>若存在一条从顶点A到顶点B的路径，那么在序列中顶点A出现在顶点B的前面。</li>
+</ol>
+<p>注：只要这个图是DAG，那么他至少有一条拓扑排序。相反，我们也可以利用他是否有拓扑排序来验证该图是否有环。</p>
+<p>这个题蛮有意思，可以用BFS也可以用DFS。我先用BFS做一下。</p>
+<p>思路很重要。我们只要能够证明遍历完整张图我都无法找到一条拓扑排序，就能代表这张图不是DAG。反之，只要能够找到任意一条，就能证明这张图是DAG。</p>
+<p>那么遍历方式可以利用BFS。</p>
+<ol>
+<li>首先，将所有初始入度为0的节点放入队列中（若没有的话直接false，因为有环）。</li>
+<li>然后取出队列中的节点，逐一消除掉与他相关的边（即将与这个节点相连的节点的入度-1）</li>
+<li>在这个过程中如果有新的节点的度数为0，则将新的节点加入队列当中。循环直到队列中没有节点，并且在这个过程中计算节点数。</li>
+<li>判断遍历过的节点数。如果所有节点都被遍历完成，代表我们找到了一条拓扑排序。</li>
+</ol>
+<p>时间复杂度：<code>O(N+M)</code>最坏情况就是遍历完所有节点和所有边，然后节点数为N，边数为M。</p>
+<p>空间复杂度：利用了一个<code>ArrayList&lt;ArrayList&lt;Integer&gt;&gt;</code>结构，外层的arraylist是N个节点，里层的是M条边。所以依旧是<code>O(N+M)</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaogeamadeus/Leetcode_Answer/blob/main/301Remove%20Invalid%20Parentheses">LC301</a></p>
+<p>很有意思的题，虽然是道hard，但本质其实就是一道easy+一道medium。首先你要会判断一个包含括号的字符串是否valid，然后可以利用BFS/回溯+剪枝完成一个遍历。</p>
+<p>遍历方式是每轮删除一个括号，然后存到set中。之后遍历Set判断，合法的就存，不合法的就扔。删除字符串的方式也蛮有趣，选择了子字符串+子字符串。</p>
+<p><a href="">LC399</a></p>
 
             </div>
             <hr>
@@ -286,6 +308,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/05/24/Use-Django-to-Develop-Web-Application/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Use Django to Develop Web Application</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
