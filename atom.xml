@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-24T08:57:31.823Z</updated>
+  <updated>2022-07-01T04:30:11.327Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Create Line Bot Endpoint</title>
+    <link href="http://example.com/2022/07/01/Create-Line-Bot-Endpoint/"/>
+    <id>http://example.com/2022/07/01/Create-Line-Bot-Endpoint/</id>
+    <published>2022-07-01T04:22:12.000Z</published>
+    <updated>2022-07-01T04:30:11.327Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://developers.line.biz/en/docs/messaging-api/getting-started/">The Document of Line</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://developers.line.biz/en/docs/messaging-api/getting-started/&quot;&gt;The Document of Line&lt;/a&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="Develop" scheme="http://example.com/tags/Develop/"/>
+    
+  </entry>
   
   <entry>
     <title>Use Django to Develop Web Application</title>
@@ -121,7 +144,7 @@
     <link href="http://example.com/2022/05/03/Create-API-by-Python/"/>
     <id>http://example.com/2022/05/03/Create-API-by-Python/</id>
     <published>2022-05-02T23:52:08.000Z</published>
-    <updated>2022-05-04T14:51:41.376Z</updated>
+    <updated>2022-07-05T06:32:10.302Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Framework：Django"><a href="#Framework：Django" class="headerlink" title="Framework：Django"></a>Framework：Django</h2><p>The Description of Django: </p><p>Django is a open-source web application framework writted by Python.</p><p>Django is based on <strong>MVC model</strong> (MVC = Model + View + Controller)</p><p>The merits of Django:</p><ol><li>Powerful database functions </li><li>Powerful backend functions</li><li>Elegant URL</li></ol><h3 id="MVC-model"><a href="#MVC-model" class="headerlink" title="MVC model"></a>MVC model</h3><p>The diagram of MVC model.</p><p>![截屏2022-05-03 09.06.44](Create-API-by-Python/截屏2022-05-03 09.06.44.png)</p><p>The merits of MVC model:</p><ol><li>low coupling</li><li>Fast development</li><li>Easy to deploy</li><li>High reusability</li><li>Low maintenance cost</li></ol><h3 id="Install-django-for-mac-with-anaconda-environment"><a href="#Install-django-for-mac-with-anaconda-environment" class="headerlink" title="Install django for mac with anaconda environment"></a>Install django for mac with anaconda environment</h3><p>Open the terminal of Pycharm and write:</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs shall">pip install Django<br><br>pip install djangorestframework<br></code></pre></td></tr></tbody></table></figure><p> Then we are ready to finish the installation.</p>]]></content>
     
@@ -427,36 +450,6 @@
     
     
     <category term="Programming" scheme="http://example.com/tags/Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP/IP, UDP and Socket</title>
-    <link href="http://example.com/2022/03/26/TCP-IP-UDP-and-Socket/"/>
-    <id>http://example.com/2022/03/26/TCP-IP-UDP-and-Socket/</id>
-    <published>2022-03-26T01:56:22.000Z</published>
-    <updated>2022-04-07T14:55:29.031Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文仅为个人学习笔记，无任何版权。</p><p>本篇旨在解决如下三个问题：</p><ol><li>什么是TCP/IP、UDP？</li><li>Socket是什么？</li><li>如何使用上述的服务？</li></ol><p>让我们开始吧！</p><h2 id="1-什么是TCP-x2F-IP、UDP？"><a href="#1-什么是TCP-x2F-IP、UDP？" class="headerlink" title="1. 什么是TCP/IP、UDP？"></a>1. 什么是TCP/IP、UDP？</h2><p>TCP/IP（Transmission Control Protocol/ Internet Protocol）即传输控制协议/网间协议。是一个工业标准的protocol集，他是为广域网（WANs）设计的。</p><p>UDP（User Data Protocal，用户数据报协议）是与TCP相对应的协议。他是属于TCP/IP协议集中的一种。</p><p>![截屏2022-03-26 11.04.16](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.04.16.png)</p><p>TCP/IP协议族包括运输层、网络层、链路层。TCP与UDP都是运用在运输层上的协议。</p><h2 id="2-Socket是什么？"><a href="#2-Socket是什么？" class="headerlink" title="2. Socket是什么？"></a>2. Socket是什么？</h2><p>在上图中，我们并未看到Socket的影子。</p><p>Socket究竟在网络服务中扮演了怎样的角色呢？</p><p>实际上Socket的位置应该在应用层与运输层之间。起到了一个将应用层传输给运输层的信息进行抽象的作用。</p><p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，他是一组接口。在设计模式中，Socket其实就是一个门面模式，他可以将复杂的TCP/IP协议族隐藏在后面，提供给用户一个简单的接口信息。用户只需要让Socket去组织数据，以符合制定的协议。</p><h2 id="3-如何使用上述的服务？"><a href="#3-如何使用上述的服务？" class="headerlink" title="3. 如何使用上述的服务？"></a>3. 如何使用上述的服务？</h2><h4 id="截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png"><a href="#截屏2022-03-26-11-09-35-TCP-IP-UDP-and-Socket-x2F-截屏2022-03-26-11-09-35-png" class="headerlink" title="![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)"></a>![截屏2022-03-26 11.09.35](TCP-IP-UDP-and-Socket/截屏2022-03-26 11.09.35.png)</h4><p>先从服务器端讲起。服务器端先初始化Socket，然后与端口绑定（bind），对端口进行监听（Listen），调用Accept阻塞，等待客户端链接。在这时候如果有客户端初始化了一个Socket，然后连接服务器（connect），如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接受请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。</p><p><a href="https://blog.csdn.net/pashanhu6402/article/details/96428887">原文连接</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;注：本文仅为个人学习笔记，无任何版权。&lt;/p&gt;
-&lt;p&gt;本篇旨在解决如下三个问题：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;什么是TCP/IP、UDP？&lt;/li&gt;
-&lt;li&gt;Socket是什么？&lt;/li&gt;
-&lt;li&gt;如何使用上述的服务？&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;让我们开始吧！&lt;/p&gt;
-&lt;h</summary>
-      
-    
-    
-    
-    
-    <category term="Project-Web" scheme="http://example.com/tags/Project-Web/"/>
     
   </entry>
   
