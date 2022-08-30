@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-30T12:52:08.598Z</updated>
+  <updated>2022-08-30T12:58:02.196Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker Started</title>
+    <link href="http://example.com/2022/08/30/Docker-Started/"/>
+    <id>http://example.com/2022/08/30/Docker-Started/</id>
+    <published>2022-08-30T12:56:49.000Z</published>
+    <updated>2022-08-30T12:58:02.196Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Docker-Started"><a href="#Docker-Started" class="headerlink" title="Docker Started"></a>Docker Started</h2><h2 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h2><p>需要从操作系统说起。</p><p>操作系统就是管理计算机的硬件软件和资源，并且为软件运行提供通用服务的系统软件。</p><p>硬件管理，包括分配CPU时间、内存；从网络、存储设备等IO设备读写数据。</p><p>软件管理，就是各种软件的运行，线程、进程调度之类的工作。</p><p>为软件提供运行环境</p><p>随着硬件的性能提升，以及软件种类的丰富，两种情况变得很常见。</p><ol><li>硬件性能过剩。</li><li>软件冲突——业务需要，我们在两个或者多个软件之间，以及一个软件的多个不同版本之间产生冲突。例如早年Web前端的选手，需要测试网页在不同版本的IE上是否能显示，但windows只能装一个版本的IE。</li></ol><p>为了解决软件冲突，要么配多台电脑，要么在一台电脑装多个操作系统，都不太好用。</p><h2 id="Hardware-Virtualization"><a href="#Hardware-Virtualization" class="headerlink" title="Hardware Virtualization"></a>Hardware Virtualization</h2><p>硬件虚拟化，就是利用某个软件仿真出一台或者多台计算机的各种硬件。用户可以在这一台虚拟机上安装、运行操作系统和各种应用——&gt;比如VMware（虚拟机的一种）</p><p>但是虚拟机的缺点在于Guest OS通常会占用不少硬件资源。如果运用多台虚拟机，实际上大部分的硬件资源都是重复的。</p><p>能不能所有的应用使用同一个操作系统减少硬件资源的浪费，但是又能避免包括运行库 (Lib) 在内的软件冲突呢？</p><p>操作系统层虚拟化→容器概念的提出，就是为了解决这个问题</p><figure class="highlight json"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs json">+-----+-----+-----+-----+                                   +-----+-----+-----+-----+<br>|App A|App B|App C|App D|     +-----+-----+-----+-----+     |App A|App B|App C|App D|<br>+-----+-----+-----+-----+     |App A|App B|App C|App D|     +-----+-----+-----+-----+<br>|+---------------------+|     +-----+-----+-----+-----+     |Guest|Guest|Guest|Guest|<br>||   Runtime Library   ||     |Lib A|Lib B|Lib C|Lib D|     | OS0 | OS1 | OS2 | OS3 |<br>|+---------------------+|     +-----+-----+-----+-----+     +-----+-----+-----+-----+<br>||       Kernel        ||     |    Container Engine   |     |        Hypervisor     |<br>|+---------------------+|     +-----------------------+     +-----------------------+<br>|   Operating System    |     |         Host OS       |     |         Host OS       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>|       Hardware        |     |        Hardware       |     |        Hardware       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>    Physical Machine                  Container                 Type II Hypervisor<br></code></pre></td></tr></tbody></table></figure><p>说白就是不需要重复的每个虚拟机都弄一个操作系统，我们只需要利用容器这个概念隔离出APP以及Lib（运行库）即可。</p><p>Docker把App和Lib的文件打包成一个镜像，可以实现：</p><ol><li>多个APP可以共用相同的底层镜像</li><li>App运行时的IO操作和镜像文件隔离</li></ol><h2 id="The-result"><a href="#The-result" class="headerlink" title="The result"></a>The result</h2><p>绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不再需要关心如何搭建环境，如何安装，如何解决不同发行版本的库冲突——并且通常不需要消耗过多的硬件资源。</p><h2 id="The-pros-of-container"><a href="#The-pros-of-container" class="headerlink" title="The pros of container"></a>The pros of container</h2><ol><li>迅速启动：没有虚拟机硬件的初始化，没有Guest OS的启动过程，可以节约很多启动时间。</li><li>占用资源少：没有运行Guest OS所需的内存开销，无需为虚拟机预留运行内存，无需安装，内存占用少。</li></ol><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2a25560-33d2-4826-8a0d-228457e30a6b/%E6%88%AA%E5%B1%8F2022-08-25_9.21.26.png" alt="截屏2022-08-25 9.21.26.png"></p><h2 id="Image-Definition"><a href="#Image-Definition" class="headerlink" title="Image Definition"></a>Image Definition</h2><p>镜像（Image）就是一堆只读层(read-only layer)的统一视角</p><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9d11124-f97a-446d-8a57-967b30ee0e3e/%E6%88%AA%E5%B1%8F2022-08-25_9.25.56.png" alt="截屏2022-08-25 9.25.56.png"></p><p>左边有多个只读层，他们重叠在一起。除了最下面一层，其他层都会有一个指针指向下一层。这些层是Docker内部的实现细节，并且能够在主机（运行docker的机器）的文件系统上访问到。统一文件系统（Union file system）技术能够将不同的层整合成一个文件系统。</p><h2 id="Container-Definition"><a href="#Container-Definition" class="headerlink" title="Container Definition"></a>Container Definition</h2><p>容器(container)的定义和镜像（image）几乎一摸一样，也是一堆层的统一视角。唯一区别在于容器的最上面一层是可读可写的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Docker-Started&quot;&gt;&lt;a href=&quot;#Docker-Started&quot; class=&quot;headerlink&quot; title=&quot;Docker Started&quot;&gt;&lt;/a&gt;Docker Started&lt;/h2&gt;&lt;h2 id=&quot;What-is-Docker&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="Development_infra" scheme="http://example.com/tags/Development-infra/"/>
+    
+  </entry>
   
   <entry>
     <title>According to C#</title>
@@ -420,29 +442,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;Scanner-amp-BufferedReader用法详解&quot;&gt;&lt;a href=&quot;#Scanner-amp-BufferedReader用法详解&quot; class=&quot;headerlink&quot; title=&quot;Scanner &amp;amp; BufferedReader用法详解</summary>
-      
-    
-    
-    
-    
-    <category term="Programming" scheme="http://example.com/tags/Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>链表</title>
-    <link href="http://example.com/2022/04/04/%E9%93%BE%E8%A1%A8/"/>
-    <id>http://example.com/2022/04/04/%E9%93%BE%E8%A1%A8/</id>
-    <published>2022-04-04T04:15:56.000Z</published>
-    <updated>2022-04-21T14:34:41.628Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="链表题型刷题总结"><a href="#链表题型刷题总结" class="headerlink" title="链表题型刷题总结"></a>链表题型刷题总结</h1><p>注：本文仅为个人学习笔记，无任何版权。</p><h3 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h3><p>一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域，一个是指针域（存放指向下一个节点的指针），最后一个节点的指针域指向null</p><p>链表的头节点为head</p><h4 id="链表的类型："><a href="#链表的类型：" class="headerlink" title="链表的类型："></a>链表的类型：</h4><ol><li>单链表</li><li>双链表</li><li>循环链表</li></ol><h4 id="链表在内存中的储存方式"><a href="#链表在内存中的储存方式" class="headerlink" title="链表在内存中的储存方式"></a>链表在内存中的储存方式</h4><p>与数组不同，链表在内存中<strong>不是连续分布。</strong></p><p>链表是通过指针域的指针链接在内存的各个节点，所以链表中的节点在内存中不是连续分布的，而是三楼缘分不在内存中的某地址上，分配机制取决于操作系统的内存管理。</p><h4 id="链表的定义"><a href="#链表的定义" class="headerlink" title="链表的定义"></a>链表的定义</h4><figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListNode</span> {<br>    <span class="hljs-comment">// 结点的值</span><br>    <span class="hljs-type">int</span> val;<br><br>    <span class="hljs-comment">// 下一个结点</span><br>    ListNode next;<br><br>    <span class="hljs-comment">// 节点的构造函数(无参)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">()</span> {<br>    }<br><br>    <span class="hljs-comment">// 节点的构造函数(有一个参数)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> {<br>        <span class="hljs-built_in">this</span>.val = val;<br>    }<br><br>    <span class="hljs-comment">// 节点的构造函数(有两个参数)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">(<span class="hljs-type">int</span> val, ListNode next)</span> {<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.next = next;<br>    }<br>}<br><br>List&lt;&gt; xxx = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br></code></pre></td></tr></tbody></table></figure><h4 id="删除节点："><a href="#删除节点：" class="headerlink" title="删除节点："></a>删除节点：</h4><p>只要将被删除节点的前一个节点的指针，指向后一个节点就可以了。如果要删除第n个节点，可以将第n-1个节点的指针指到第n+1个节点，java会自动释放那块内存。</p><h4 id="添加节点："><a href="#添加节点：" class="headerlink" title="添加节点："></a>添加节点：</h4><p>同理，修改指针即可。</p><p>可以看出链表的增添/删除都是O(1)的操作，不会影响到其他节点。但是，如果要删除第c个节点，需要从头节点找到第c-1个节点，查找的时间复杂度为O(c)</p><h4 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h4><p>链表删除/插入：O(1)</p><p>链表查找：          O(n)</p><p>数组删除/插入：O(n)</p><p>数组查找：          O(1)</p><p>数组：数据量固定，频繁查找，较少增删</p><p>链表：数据量不固定，频繁增删，较少查找</p><h3 id="链表的经典题目"><a href="#链表的经典题目" class="headerlink" title="链表的经典题目"></a>链表的经典题目</h3><h4 id="虚拟头节点"><a href="#虚拟头节点" class="headerlink" title="虚拟头节点"></a>虚拟头节点</h4><p>链表操作的一大问题就是当前节点必须要找前一个节点才能操作，在这种情况下，用一个虚拟头节点可以解决这个问题。</p><p>203</p><h4 id="链表的基本操作"><a href="#链表的基本操作" class="headerlink" title="链表的基本操作"></a>链表的基本操作</h4><p>一道题写一个链表ListNode的class出来，非常好的题目 </p><p>707</p><h4 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h4><p>高频题目，递归和迭代都可以解决，建议一定熟练掌握本质。</p><p>206</p><h4 id="删除倒数第N个节点"><a href="#删除倒数第N个节点" class="headerlink" title="删除倒数第N个节点"></a>删除倒数第N个节点</h4><p>虚拟头节点 + 双指针，第一个指针走n 然后第二个指针跟第一个指针一起出发。</p><p>19</p><h4 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h4><p>很trick的方法。虽然两个链表到达相交点的距离可能不一样，但我们可以加两个链表加起来。一个指针从A遍历到B，一个指针从B遍历到A。这样他们就可以同时到达交点了！</p><p>面试题 02.07</p><h4 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h4><p>难点在数学证明，方法是快慢指针。很有趣的题目。</p><p>142</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;链表题型刷题总结&quot;&gt;&lt;a href=&quot;#链表题型刷题总结&quot; class=&quot;headerlink&quot; title=&quot;链表题型刷题总结&quot;&gt;&lt;/a&gt;链表题型刷题总结&lt;/h1&gt;&lt;p&gt;注：本文仅为个人学习笔记，无任何版权。&lt;/p&gt;
-&lt;h3 id=&quot;什么是链表？&quot;&gt;&lt;a hre</summary>
       
     
     

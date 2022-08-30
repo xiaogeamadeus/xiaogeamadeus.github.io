@@ -16,21 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Async &amp; AwaitC#利用Async和Await关键字实现异步编程。 异步编程：让程序并行运行的一种方式，并行的好处就不多说了。 Async和await是代码标记，它标记代码位置为任务完成后控件应该恢复的位置。 Lambda FunctionLambda函数是foreach以及简单的for循环的替代。会让代码看起来更加整洁漂亮。 首先，你可以使用一个lambda表达式来创建一个匿名">
+    <meta name="description" content="Docker StartedWhat is Docker?需要从操作系统说起。 操作系统就是管理计算机的硬件软件和资源，并且为软件运行提供通用服务的系统软件。 硬件管理，包括分配CPU时间、内存；从网络、存储设备等IO设备读写数据。 软件管理，就是各种软件的运行，线程、进程调度之类的工作。 为软件提供运行环境 随着硬件的性能提升，以及软件种类的丰富，两种情况变得很常见。  硬件性能过剩。 软件冲突">
 <meta property="og:type" content="article">
-<meta property="og:title" content="According to C#">
-<meta property="og:url" content="http://example.com/2022/08/29/According-to-C/index.html">
+<meta property="og:title" content="Docker Started">
+<meta property="og:url" content="http://example.com/2022/08/30/Docker-Started/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="Async &amp; AwaitC#利用Async和Await关键字实现异步编程。 异步编程：让程序并行运行的一种方式，并行的好处就不多说了。 Async和await是代码标记，它标记代码位置为任务完成后控件应该恢复的位置。 Lambda FunctionLambda函数是foreach以及简单的for循环的替代。会让代码看起来更加整洁漂亮。 首先，你可以使用一个lambda表达式来创建一个匿名">
+<meta property="og:description" content="Docker StartedWhat is Docker?需要从操作系统说起。 操作系统就是管理计算机的硬件软件和资源，并且为软件运行提供通用服务的系统软件。 硬件管理，包括分配CPU时间、内存；从网络、存储设备等IO设备读写数据。 软件管理，就是各种软件的运行，线程、进程调度之类的工作。 为软件提供运行环境 随着硬件的性能提升，以及软件种类的丰富，两种情况变得很常见。  硬件性能过剩。 软件冲突">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-29T12:43:16.000Z">
-<meta property="article:modified_time" content="2022-08-30T12:52:08.598Z">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2a25560-33d2-4826-8a0d-228457e30a6b/%E6%88%AA%E5%B1%8F2022-08-25_9.21.26.png">
+<meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9d11124-f97a-446d-8a57-967b30ee0e3e/%E6%88%AA%E5%B1%8F2022-08-25_9.25.56.png">
+<meta property="article:published_time" content="2022-08-30T12:56:49.000Z">
+<meta property="article:modified_time" content="2022-08-30T12:58:02.196Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Project-C#">
+<meta property="article:tag" content="Development_infra">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2a25560-33d2-4826-8a0d-228457e30a6b/%E6%88%AA%E5%B1%8F2022-08-25_9.21.26.png">
   
   
-  <title>According to C# - WANG Tianchen</title>
+  <title>Docker Started - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +170,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="According to C#">
+            <span class="h2" id="subtitle" title="Docker Started">
               
             </span>
 
@@ -177,8 +180,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-08-29 21:43" pubdate>
-        August 29, 2022 pm
+      <time datetime="2022-08-30 21:56" pubdate>
+        August 30, 2022 pm
       </time>
     </span>
   
@@ -188,7 +191,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k Words
+      2k Words
     </span>
   
 
@@ -197,7 +200,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18 Minutes
+      17 Minutes
     </span>
   
 
@@ -234,7 +237,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">According to C#</h1>
+            <h1 style="display: none">Docker Started</h1>
             
               <p class="note note-info">
                 
@@ -243,51 +246,39 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="Async-amp-Await"><a href="#Async-amp-Await" class="headerlink" title="Async &amp; Await"></a>Async &amp; Await</h2><p>C#利用Async和Await关键字实现异步编程。</p>
-<p>异步编程：让程序并行运行的一种方式，并行的好处就不多说了。</p>
-<p>Async和await是代码标记，它标记代码位置为任务完成后控件应该恢复的位置。</p>
-<h2 id="Lambda-Function"><a href="#Lambda-Function" class="headerlink" title="Lambda Function"></a>Lambda Function</h2><p>Lambda函数是foreach以及简单的for循环的替代。会让代码看起来更加整洁漂亮。</p>
-<p>首先，你可以使用一个lambda表达式来创建一个匿名函数。使用Lambda声明操作符<code>=&gt;</code>来分离Lambda的参数列表和它的主体。一个lambda表达式可以是以下两种形式中的任何一种：</p>
+              <h2 id="Docker-Started"><a href="#Docker-Started" class="headerlink" title="Docker Started"></a>Docker Started</h2><h2 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h2><p>需要从操作系统说起。</p>
+<p>操作系统就是管理计算机的硬件软件和资源，并且为软件运行提供通用服务的系统软件。</p>
+<p>硬件管理，包括分配CPU时间、内存；从网络、存储设备等IO设备读写数据。</p>
+<p>软件管理，就是各种软件的运行，线程、进程调度之类的工作。</p>
+<p>为软件提供运行环境</p>
+<p>随着硬件的性能提升，以及软件种类的丰富，两种情况变得很常见。</p>
 <ol>
-<li>Expression lambda（有一个表达）</li>
+<li>硬件性能过剩。</li>
+<li>软件冲突——业务需要，我们在两个或者多个软件之间，以及一个软件的多个不同版本之间产生冲突。例如早年Web前端的选手，需要测试网页在不同版本的IE上是否能显示，但windows只能装一个版本的IE。</li>
 </ol>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs c#">(input - parameters) =&gt; expression<br></code></pre></td></tr></tbody></table></figure>
+<p>为了解决软件冲突，要么配多台电脑，要么在一台电脑装多个操作系统，都不太好用。</p>
+<h2 id="Hardware-Virtualization"><a href="#Hardware-Virtualization" class="headerlink" title="Hardware Virtualization"></a>Hardware Virtualization</h2><p>硬件虚拟化，就是利用某个软件仿真出一台或者多台计算机的各种硬件。用户可以在这一台虚拟机上安装、运行操作系统和各种应用——&gt;比如VMware（虚拟机的一种）</p>
+<p>但是虚拟机的缺点在于Guest OS通常会占用不少硬件资源。如果运用多台虚拟机，实际上大部分的硬件资源都是重复的。</p>
+<p>能不能所有的应用使用同一个操作系统减少硬件资源的浪费，但是又能避免包括运行库 (Lib) 在内的软件冲突呢？</p>
+<p>操作系统层虚拟化→容器概念的提出，就是为了解决这个问题</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs json">+-----+-----+-----+-----+                                   +-----+-----+-----+-----+<br>|App A|App B|App C|App D|     +-----+-----+-----+-----+     |App A|App B|App C|App D|<br>+-----+-----+-----+-----+     |App A|App B|App C|App D|     +-----+-----+-----+-----+<br>|+---------------------+|     +-----+-----+-----+-----+     |Guest|Guest|Guest|Guest|<br>||   Runtime Library   ||     |Lib A|Lib B|Lib C|Lib D|     | OS0 | OS1 | OS2 | OS3 |<br>|+---------------------+|     +-----+-----+-----+-----+     +-----+-----+-----+-----+<br>||       Kernel        ||     |    Container Engine   |     |        Hypervisor     |<br>|+---------------------+|     +-----------------------+     +-----------------------+<br>|   Operating System    |     |         Host OS       |     |         Host OS       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>|       Hardware        |     |        Hardware       |     |        Hardware       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>    Physical Machine                  Container                 Type II Hypervisor<br></code></pre></td></tr></tbody></table></figure>
 
-<ol start="2">
-<li>Statement lambda（有一个声明的block）</li>
-</ol>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#">(input - parameters) =&gt; {&lt;sequence-of-statements&gt;}<br></code></pre></td></tr></tbody></table></figure>
-
-<h2 id="Get-amp-Set"><a href="#Get-amp-Set" class="headerlink" title="Get &amp; Set"></a>Get &amp; Set</h2><p>有两个类person:</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">person</span><br>{<br>  <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> name;<br>}<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">person</span><br>{<br>  <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name{<span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }<br>}<br></code></pre></td></tr></tbody></table></figure>
-
-<p>第一个类型的name属性为封装。其属性直接通过<code>public</code>关键字暴露给系统中的其他类了。</p>
-<p>第二个类型的Name属性通过get和set进行了封装。get和set分别对应可读和可写。相当于下面的代码</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> name;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name<br>{<br>  <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> name;}<br>  <span class="hljs-keyword">set</span> { name = <span class="hljs-keyword">value</span>;}<br>}<br></code></pre></td></tr></tbody></table></figure>
-
-<p>区别在于：</p>
-<p>当实例化第一个“person”类时，系统在分配内存空间时对name属性直接分配内存。之后对name属性的操作也是直接操作内存中name属性所在的这个块。</p>
-<p>而当实例化第二个”person”类时，系统会先分配一个叫name的private私有的内存空间，之后的读和写都是通过Name这个public的类似于指针的东西来关联name进行，这样就完成了封装。通过get/set关键字也可以控制可读可写。</p>
-<p>第二个例子：一个银行类，既能存钱也能取钱。</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">private</span> Money;<br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title">bank</span>()</span><br>{<br>    <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> Money;}<br>    <span class="hljs-keyword">set</span> { Money=<span class="hljs-keyword">value</span>;}<br>}<br></code></pre></td></tr></tbody></table></figure>
-
-<p>Money就像银行里的自动取款机，你看不见钱，但是你能用set（存钱）get（取钱）。money是一个私有字段，封装在类中的，类之外的程序不能直接访问。在C#的get、set用法中，类的set和get成员是外部程序访问类内部属性的唯一方法。就像去银行取钱，你不能直接去保险柜拿钱，是柜员取钱给你。</p>
-<p>你可以利用属性来限制外界对你字段的存取。如果只想让用户读就get，只想让用户写就set。</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> a;<br><span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> index<br>{<br>    <span class="hljs-keyword">get</span> <br>    { <span class="hljs-keyword">return</span> a; }<br>    <span class="hljs-keyword">set</span><br>    {<br>      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">value</span>&gt;<span class="hljs-number">0</span>)<br>        a = <span class="hljs-keyword">value</span>;<br>      <span class="hljs-keyword">else</span> <br>        a = <span class="hljs-number">0</span>;<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
-
-<p>可以看出，get/set的用法有如下特点</p>
+<p>说白就是不需要重复的每个虚拟机都弄一个操作系统，我们只需要利用容器这个概念隔离出APP以及Lib（运行库）即可。</p>
+<p>Docker把App和Lib的文件打包成一个镜像，可以实现：</p>
 <ol>
-<li>隐藏组建或类内部的真实成员</li>
-<li>建立约束</li>
-<li>响应属性变化事件。</li>
+<li>多个APP可以共用相同的底层镜像</li>
+<li>App运行时的IO操作和镜像文件隔离</li>
 </ol>
-<h2 id="“out”-keyword"><a href="#“out”-keyword" class="headerlink" title="“out” keyword"></a>“out” keyword</h2><p>out 关键字通过引用传递参数。使用这个参数声明方法是返回多个值的经典解决方法。下面的示例使用out返回具有单个方法调用的三个变量。方法可以有选择的返回值。</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params"><span class="hljs-keyword">out</span> <span class="hljs-built_in">int</span> answer, <span class="hljs-keyword">out</span> <span class="hljs-built_in">string</span> message, <span class="hljs-keyword">out</span> <span class="hljs-built_in">string</span> stillNull</span>)</span><br>{<br>    answer = <span class="hljs-number">44</span>;<br>    message = <span class="hljs-string">"I've been returned"</span>;<br>    stillNull = <span class="hljs-literal">null</span>;<br>}<br><br><span class="hljs-built_in">int</span> argNumber;<br><span class="hljs-built_in">string</span> argMessage, argDefault;<br>Method(<span class="hljs-keyword">out</span> argNumber, <span class="hljs-keyword">out</span> argMessage, <span class="hljs-keyword">out</span> argDefault);<br>Console.WriteLine(argNumber);<br>Console.WriteLine(argMessage);<br>Console.WriteLine(argDefault == <span class="hljs-literal">null</span>);<br><br><span class="hljs-comment">// The example displays the following output:</span><br><span class="hljs-comment">//      44</span><br><span class="hljs-comment">//      I've been returned</span><br><span class="hljs-comment">//      True</span><br></code></pre></td></tr></tbody></table></figure>
-
-<h2 id="“throw”-keyword"><a href="#“throw”-keyword" class="headerlink" title="“throw” keyword"></a>“throw” keyword</h2><p>throw 关键字标志着在程序执行过程中发生了一个异常。</p>
-<figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">throw</span> [e]<br></code></pre></td></tr></tbody></table></figure>
-
-<p>e是一个排生自System.Exception 的类的实例。下面的例子使用throw语句来抛出一个IndexOutOfRangeException。如果传递给一个名为GetNumber的方法的参数不对应于一个内部数组的有效索引。</p>
+<h2 id="The-result"><a href="#The-result" class="headerlink" title="The result"></a>The result</h2><p>绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不再需要关心如何搭建环境，如何安装，如何解决不同发行版本的库冲突——并且通常不需要消耗过多的硬件资源。</p>
+<h2 id="The-pros-of-container"><a href="#The-pros-of-container" class="headerlink" title="The pros of container"></a>The pros of container</h2><ol>
+<li>迅速启动：没有虚拟机硬件的初始化，没有Guest OS的启动过程，可以节约很多启动时间。</li>
+<li>占用资源少：没有运行Guest OS所需的内存开销，无需为虚拟机预留运行内存，无需安装，内存占用少。</li>
+</ol>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2a25560-33d2-4826-8a0d-228457e30a6b/%E6%88%AA%E5%B1%8F2022-08-25_9.21.26.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-25 9.21.26.png"></p>
+<h2 id="Image-Definition"><a href="#Image-Definition" class="headerlink" title="Image Definition"></a>Image Definition</h2><p>镜像（Image）就是一堆只读层(read-only layer)的统一视角</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9d11124-f97a-446d-8a57-967b30ee0e3e/%E6%88%AA%E5%B1%8F2022-08-25_9.25.56.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-25 9.25.56.png"></p>
+<p>左边有多个只读层，他们重叠在一起。除了最下面一层，其他层都会有一个指针指向下一层。这些层是Docker内部的实现细节，并且能够在主机（运行docker的机器）的文件系统上访问到。统一文件系统（Union file system）技术能够将不同的层整合成一个文件系统。</p>
+<h2 id="Container-Definition"><a href="#Container-Definition" class="headerlink" title="Container Definition"></a>Container Definition</h2><p>容器(container)的定义和镜像（image）几乎一摸一样，也是一堆层的统一视角。唯一区别在于容器的最上面一层是可读可写的。</p>
 
             </div>
             <hr>
@@ -298,7 +289,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Project-C/">Project-C#</a>
+                      <a class="hover-with-bg" href="/tags/Development-infra/">Development_infra</a>
                     
                   </div>
                 
@@ -309,18 +300,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/30/Docker-Started/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Docker Started</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/31/%E6%96%B0Mac-%E7%AC%91%E6%AD%8C%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/">
-                        <span class="hidden-mobile">Mac 笑歌配置流程</span>
+                      <a href="/2022/08/29/According-to-C/">
+                        <span class="hidden-mobile">According to C#</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

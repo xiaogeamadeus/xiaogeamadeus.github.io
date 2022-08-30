@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Docker Started</title>
+      <link href="/2022/08/30/Docker-Started/"/>
+      <url>/2022/08/30/Docker-Started/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Docker-Started"><a href="#Docker-Started" class="headerlink" title="Docker Started"></a>Docker Started</h2><h2 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h2><p>需要从操作系统说起。</p><p>操作系统就是管理计算机的硬件软件和资源，并且为软件运行提供通用服务的系统软件。</p><p>硬件管理，包括分配CPU时间、内存；从网络、存储设备等IO设备读写数据。</p><p>软件管理，就是各种软件的运行，线程、进程调度之类的工作。</p><p>为软件提供运行环境</p><p>随着硬件的性能提升，以及软件种类的丰富，两种情况变得很常见。</p><ol><li>硬件性能过剩。</li><li>软件冲突——业务需要，我们在两个或者多个软件之间，以及一个软件的多个不同版本之间产生冲突。例如早年Web前端的选手，需要测试网页在不同版本的IE上是否能显示，但windows只能装一个版本的IE。</li></ol><p>为了解决软件冲突，要么配多台电脑，要么在一台电脑装多个操作系统，都不太好用。</p><h2 id="Hardware-Virtualization"><a href="#Hardware-Virtualization" class="headerlink" title="Hardware Virtualization"></a>Hardware Virtualization</h2><p>硬件虚拟化，就是利用某个软件仿真出一台或者多台计算机的各种硬件。用户可以在这一台虚拟机上安装、运行操作系统和各种应用——&gt;比如VMware（虚拟机的一种）</p><p>但是虚拟机的缺点在于Guest OS通常会占用不少硬件资源。如果运用多台虚拟机，实际上大部分的硬件资源都是重复的。</p><p>能不能所有的应用使用同一个操作系统减少硬件资源的浪费，但是又能避免包括运行库 (Lib) 在内的软件冲突呢？</p><p>操作系统层虚拟化→容器概念的提出，就是为了解决这个问题</p><figure class="highlight json"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><pre><code class="hljs json">+-----+-----+-----+-----+                                   +-----+-----+-----+-----+<br>|App A|App B|App C|App D|     +-----+-----+-----+-----+     |App A|App B|App C|App D|<br>+-----+-----+-----+-----+     |App A|App B|App C|App D|     +-----+-----+-----+-----+<br>|+---------------------+|     +-----+-----+-----+-----+     |Guest|Guest|Guest|Guest|<br>||   Runtime Library   ||     |Lib A|Lib B|Lib C|Lib D|     | OS0 | OS1 | OS2 | OS3 |<br>|+---------------------+|     +-----+-----+-----+-----+     +-----+-----+-----+-----+<br>||       Kernel        ||     |    Container Engine   |     |        Hypervisor     |<br>|+---------------------+|     +-----------------------+     +-----------------------+<br>|   Operating System    |     |         Host OS       |     |         Host OS       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>|       Hardware        |     |        Hardware       |     |        Hardware       |<br>+-----------------------+     +-----------------------+     +-----------------------+<br>    Physical Machine                  Container                 Type II Hypervisor<br></code></pre></td></tr></tbody></table></figure><p>说白就是不需要重复的每个虚拟机都弄一个操作系统，我们只需要利用容器这个概念隔离出APP以及Lib（运行库）即可。</p><p>Docker把App和Lib的文件打包成一个镜像，可以实现：</p><ol><li>多个APP可以共用相同的底层镜像</li><li>App运行时的IO操作和镜像文件隔离</li></ol><h2 id="The-result"><a href="#The-result" class="headerlink" title="The result"></a>The result</h2><p>绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不再需要关心如何搭建环境，如何安装，如何解决不同发行版本的库冲突——并且通常不需要消耗过多的硬件资源。</p><h2 id="The-pros-of-container"><a href="#The-pros-of-container" class="headerlink" title="The pros of container"></a>The pros of container</h2><ol><li>迅速启动：没有虚拟机硬件的初始化，没有Guest OS的启动过程，可以节约很多启动时间。</li><li>占用资源少：没有运行Guest OS所需的内存开销，无需为虚拟机预留运行内存，无需安装，内存占用少。</li></ol><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2a25560-33d2-4826-8a0d-228457e30a6b/%E6%88%AA%E5%B1%8F2022-08-25_9.21.26.png" alt="截屏2022-08-25 9.21.26.png"></p><h2 id="Image-Definition"><a href="#Image-Definition" class="headerlink" title="Image Definition"></a>Image Definition</h2><p>镜像（Image）就是一堆只读层(read-only layer)的统一视角</p><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9d11124-f97a-446d-8a57-967b30ee0e3e/%E6%88%AA%E5%B1%8F2022-08-25_9.25.56.png" alt="截屏2022-08-25 9.25.56.png"></p><p>左边有多个只读层，他们重叠在一起。除了最下面一层，其他层都会有一个指针指向下一层。这些层是Docker内部的实现细节，并且能够在主机（运行docker的机器）的文件系统上访问到。统一文件系统（Union file system）技术能够将不同的层整合成一个文件系统。</p><h2 id="Container-Definition"><a href="#Container-Definition" class="headerlink" title="Container Definition"></a>Container Definition</h2><p>容器(container)的定义和镜像（image）几乎一摸一样，也是一堆层的统一视角。唯一区别在于容器的最上面一层是可读可写的。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Development_infra </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>According to C#</title>
       <link href="/2022/08/29/According-to-C/"/>
       <url>/2022/08/29/According-to-C/</url>
