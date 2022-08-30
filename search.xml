@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ふろちゃでぼっと</title>
+      <link href="/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/"/>
+      <url>/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ふろちゃでぼっと-x2F-Flowcha-de-bot"><a href="#ふろちゃでぼっと-x2F-Flowcha-de-bot" class="headerlink" title="ふろちゃでぼっと / Flowcha-de-bot"></a>ふろちゃでぼっと / Flowcha-de-bot</h2><p>コードが書けなくても、フローチャートを組み立てる要領で簡単にLINE Botが作れる、小学生向けのビジュアルプログラミングWebアプリです。</p><p>A visual programming web application for elementary school students that makes it easy to create a LINE Bot by following a flowchart, even if you don’t know how to write code.</p><p>技育祭を参加しました！</p><h4 id="リンク-x2F-Link"><a href="#リンク-x2F-Link" class="headerlink" title="リンク / Link"></a>リンク / Link</h4><p><a href="https://debot.vercel.app/">試してみよう！/ Let’s have a try! </a></p><p><a href="https://docs.google.com/presentation/d/1ppaFRecLssDuJEaxndWJUHQG2cfsEdfi/edit#slide=id.p1">Slide (English/Japanese)</a></p><p><a href="https://github.com/xiaogeamadeus/linebot_backend2">Backend repo</a></p><p><a href="https://github.com/yuta-ike/line-bot-maker-front">Frontend repo</a></p><h4 id="技術スタック-x2F-Technical-Stack"><a href="#技術スタック-x2F-Technical-Stack" class="headerlink" title="技術スタック / Technical Stack"></a>技術スタック / Technical Stack</h4><p><strong>Frontend</strong>: React / TypeScript / Next.js / Tailwind.css / MUI / LIFF / LINE Login</p><p><strong>Backend</strong>: Python / Django / PostgreSQL</p><p><strong>Server/deployment</strong>: docker+Heroku</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Project-Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker Started</title>
       <link href="/2022/08/30/Docker-Started/"/>
       <url>/2022/08/30/Docker-Started/</url>

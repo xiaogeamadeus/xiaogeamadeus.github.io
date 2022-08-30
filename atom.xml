@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-30T12:58:02.196Z</updated>
+  <updated>2022-08-30T13:17:45.389Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ふろちゃでぼっと</title>
+    <link href="http://example.com/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/"/>
+    <id>http://example.com/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/</id>
+    <published>2022-08-30T13:08:20.000Z</published>
+    <updated>2022-08-30T13:17:45.389Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ふろちゃでぼっと-x2F-Flowcha-de-bot"><a href="#ふろちゃでぼっと-x2F-Flowcha-de-bot" class="headerlink" title="ふろちゃでぼっと / Flowcha-de-bot"></a>ふろちゃでぼっと / Flowcha-de-bot</h2><p>コードが書けなくても、フローチャートを組み立てる要領で簡単にLINE Botが作れる、小学生向けのビジュアルプログラミングWebアプリです。</p><p>A visual programming web application for elementary school students that makes it easy to create a LINE Bot by following a flowchart, even if you don’t know how to write code.</p><p>技育祭を参加しました！</p><h4 id="リンク-x2F-Link"><a href="#リンク-x2F-Link" class="headerlink" title="リンク / Link"></a>リンク / Link</h4><p><a href="https://debot.vercel.app/">試してみよう！/ Let’s have a try! </a></p><p><a href="https://docs.google.com/presentation/d/1ppaFRecLssDuJEaxndWJUHQG2cfsEdfi/edit#slide=id.p1">Slide (English/Japanese)</a></p><p><a href="https://github.com/xiaogeamadeus/linebot_backend2">Backend repo</a></p><p><a href="https://github.com/yuta-ike/line-bot-maker-front">Frontend repo</a></p><h4 id="技術スタック-x2F-Technical-Stack"><a href="#技術スタック-x2F-Technical-Stack" class="headerlink" title="技術スタック / Technical Stack"></a>技術スタック / Technical Stack</h4><p><strong>Frontend</strong>: React / TypeScript / Next.js / Tailwind.css / MUI / LIFF / LINE Login</p><p><strong>Backend</strong>: Python / Django / PostgreSQL</p><p><strong>Server/deployment</strong>: docker+Heroku</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;ふろちゃでぼっと-x2F-Flowcha-de-bot&quot;&gt;&lt;a href=&quot;#ふろちゃでぼっと-x2F-Flowcha-de-bot&quot; class=&quot;headerlink&quot; title=&quot;ふろちゃでぼっと / Flowcha-de-bot&quot;&gt;&lt;/a&gt;ふろちゃでぼっ</summary>
+      
+    
+    
+    
+    
+    <category term="Project-Python" scheme="http://example.com/tags/Project-Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker Started</title>
@@ -420,28 +442,6 @@
     <summary type="html">&lt;p&gt;注：本文仅为个人学习笔记，无任何版权。&lt;/p&gt;
 &lt;p&gt;深度优先算法（DFS, Depth first search），是搜索算法的一种。&lt;/p&gt;
 &lt;p&gt;基本思想：沿着树的深度来遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都已被探寻过，搜索讲回溯到发现节点v的那条边</summary>
-      
-    
-    
-    
-    
-    <category term="Programming" scheme="http://example.com/tags/Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scanner &amp; BufferedReader 用法详解</title>
-    <link href="http://example.com/2022/04/06/Scanner-BufferReader-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://example.com/2022/04/06/Scanner-BufferReader-%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</id>
-    <published>2022-04-06T01:29:31.000Z</published>
-    <updated>2022-04-07T14:55:20.250Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Scanner-amp-BufferedReader用法详解"><a href="#Scanner-amp-BufferedReader用法详解" class="headerlink" title="Scanner &amp; BufferedReader用法详解"></a>Scanner &amp; BufferedReader用法详解</h2><p>注：本文仅为个人学习笔记，无任何版权。</p><p>这段时间一直没把java的输入写明白，在该记事里进行一个总结</p><h3 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h3><p>Scanner使用分隔符模式将其输入分解为标记，默认情况下是利用空白进行分割的。之后可以使用不同的<code>next</code>方法将得到的标记转换为不同类型的值。</p><p>Scanner位于<code>java.util</code>包中，Scanner的具体用法为</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-comment">//通过new创建一个Scanner对象</span><br><span class="hljs-comment">//传入一个System.in参数来读取输入</span><br><span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-comment">//输入一个Integer</span><br><span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.nextInt(); <br><span class="hljs-comment">//读取一整行字符串（以Enter结尾进行分界）</span><br><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.nextLine();<br><span class="hljs-comment">//读取一组字符串（以空格/Tab/Enter进行分界，只要遇到其中之一就返回下一个 //输入）</span><br><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> sc.next();<br></code></pre></td></tr></tbody></table></figure><h3 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h3><p>BufferedReader位于<code>java.io</code>包中，读取数据比较固定，这样格式也比较单一。只要记住就这一读取数据的方法。</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.*;<br><br><br><span class="hljs-comment">//BufferedReader的readLine()方法必须处理java.o.IOException异常，所以需要在Public static void main后面补充处理。</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException {<br>  <span class="hljs-comment">//创建BufferReader对象，从键盘读入</span><br>  <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">br1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br>  <span class="hljs-comment">//创建BufferReader对象，从文本文件读入</span><br>  <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">br2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">"test.txt"</span>));<br><br>  <span class="hljs-comment">//读取一行数据并用空格分隔，存入字符串数组</span><br>  String[] temp = br1.readLine().split(<span class="hljs-string">""</span>);<br>}<br><br></code></pre></td></tr></tbody></table></figure><p>BufferedReader readLine()方法可能抛出异常，比如要读的文件不存在的话就会抛异常。会抛异常的方法要么在调用的时候用try catch包围，在调用它的时候就写好处理异常的代码，要么就在当前的函数后面加throw声明可能出现的异常，交给调用当前函数的函数处理异常。</p><p>BufferedReader读取的数据都以字符串的形式存储，如果需要其他形式的数据，需要进行强制转换。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Scanner-amp-BufferedReader用法详解&quot;&gt;&lt;a href=&quot;#Scanner-amp-BufferedReader用法详解&quot; class=&quot;headerlink&quot; title=&quot;Scanner &amp;amp; BufferedReader用法详解</summary>
       
     
     
