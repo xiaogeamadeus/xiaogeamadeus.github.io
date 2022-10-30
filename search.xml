@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Monotonic Stack</title>
+      <link href="/2022/10/30/Monotonic-Stack/"/>
+      <url>/2022/10/30/Monotonic-Stack/</url>
+      
+        <content type="html"><![CDATA[<h1 id="monotonic-stack"><a href="#monotonic-stack" class="headerlink" title="monotonic stack"></a>monotonic stack</h1><p>单调栈，能够解决的问题很单一，就是下一个更大，或者下一个更小之类的</p><p>模版</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nextGreaterElement(<span class="hljs-type">int</span>[] nums) {<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-comment">// 存放答案的数组</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    Stack&lt;Integer&gt; s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;(); <br>    <span class="hljs-comment">// 倒着往栈里放</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {<br>        <span class="hljs-comment">// 判定个子高矮</span><br>        <span class="hljs-keyword">while</span> (!s.isEmpty() &amp;&amp; s.peek() &lt;= nums[i]) {<br>            <span class="hljs-comment">// 矮个起开，反正也被挡着了。。。</span><br>            s.pop();<br>        }<br>        <span class="hljs-comment">// nums[i] 身后的更大元素</span><br>        res[i] = s.isEmpty() ? -<span class="hljs-number">1</span> : s.peek();<br>        s.push(nums[i]);<br>    }<br>    <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure><p>很多东西只要对模版微调就可以解决</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Programming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ふろちゃでぼっと</title>
       <link href="/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/"/>
       <url>/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/</url>
@@ -160,7 +179,7 @@
       <link href="/2022/05/10/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
       <url>/2022/05/10/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</url>
       
-        <content type="html"><![CDATA[<h1 id="栈和队列总结"><a href="#栈和队列总结" class="headerlink" title="栈和队列总结"></a>栈和队列总结</h1><p>栈和队列的原理很清晰，队列先进先出，栈后进先出。</p><p>这两种数据结构底层其实都是数组/链表实现的，只是API限制了他们的特性。</p><h2 id="栈的经典题目"><a href="#栈的经典题目" class="headerlink" title="栈的经典题目"></a>栈的经典题目</h2><p>注：栈内元素在内存中并不是连续分布。</p><p>232 225 是处理学习栈和队列底层实现的好题目。一个是用栈来实现队列，一个是用队列来实现栈。</p><h3 id="栈在系统中的应用"><a href="#栈在系统中的应用" class="headerlink" title="栈在系统中的应用"></a>栈在系统中的应用</h3><ol><li><p>LC20 系统是如何处理括号、花括号的。写代码前分析好有哪几种不匹配的情况。第一种：字符串中左方向的括号多余了，bupipei；第二种，括号没有多余，但类型不匹配；第三种，字符串中右括号多余了，所以不匹配。</p></li><li><p>LC71 linux系统又是如何利用cd进入目录的</p></li></ol><p>初次之外，递归的实现是栈 ：每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中。然后递归返回的时候，从栈顶弹出上一次递归的各项参数。这就是为什么递归可以返回上一层位置的原因。</p><h3 id="字符串去重问题"><a href="#字符串去重问题" class="headerlink" title="字符串去重问题"></a>字符串去重问题</h3><p>LC1047 把字符串顺序放到一个栈中，相同的话栈就弹出，最后栈里剩下的元素就是相邻不相同的了。</p><h3 id="逆波兰表达式问题"><a href="#逆波兰表达式问题" class="headerlink" title="逆波兰表达式问题"></a>逆波兰表达式问题</h3><p>计算的公式，将数字放在前，符号放在后，这样的字符串用对栈计算效率最高。</p><h2 id="队列的经典题目"><a href="#队列的经典题目" class="headerlink" title="队列的经典题目"></a>队列的经典题目</h2><h3 id="滑动窗口最大值问题"><a href="#滑动窗口最大值问题" class="headerlink" title="滑动窗口最大值问题"></a>滑动窗口最大值问题</h3><p>LC239 单调队列</p><p>队列没有必要维护窗口里的所有元素，只要维护有可能成为窗口里最大值的元素就可以了，同时保证队列里的元素数值是由大到小的。</p><p>那么这个维护元素单调递减的队列就叫做单调队列，即单调递减或单调递增的队列。</p><h3 id="求前k个高频元素"><a href="#求前k个高频元素" class="headerlink" title="求前k个高频元素"></a>求前k个高频元素</h3><p>LC347 优先级队列</p><p>什么是优先级队列呢？</p><p>就是一个披着外皮的堆，因为优先级队列的对外接口只是从队头取元素，从队尾添加元素，再无其他取元素的方式，所以看起来就像一个队列。</p><p>优先级队列内部是按照元素的权值排列，权值可以自己定义。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="栈和队列总结"><a href="#栈和队列总结" class="headerlink" title="栈和队列总结"></a>栈和队列总结</h1><p>栈和队列的原理很清晰，队列先进先出，栈后进先出。</p><p>这两种数据结构底层其实都是数组/链表实现的，只是API限制了他们的特性。</p><h2 id="栈的经典题目"><a href="#栈的经典题目" class="headerlink" title="栈的经典题目"></a>栈的经典题目</h2><p>注：栈内元素在内存中并不是连续分布。</p><p>232 225 是处理学习栈和队列底层实现的好题目。一个是用栈来实现队列，一个是用队列来实现栈。</p><h3 id="栈在系统中的应用"><a href="#栈在系统中的应用" class="headerlink" title="栈在系统中的应用"></a>栈在系统中的应用</h3><ol><li><p>LC20 系统是如何处理括号、花括号的。写代码前分析好有哪几种不匹配的情况。第一种：字符串中左方向的括号多余了，bupipei；第二种，括号没有多余，但类型不匹配；第三种，字符串中右括号多余了，所以不匹配。</p></li><li><p>LC71 linux系统又是如何利用cd进入目录的</p></li></ol><p>初次之外，递归的实现是栈 ：每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中。然后递归返回的时候，从栈顶弹出上一次递归的各项参数。这就是为什么递归可以返回上一层位置的原因。</p><h3 id="字符串去重问题"><a href="#字符串去重问题" class="headerlink" title="字符串去重问题"></a>字符串去重问题</h3><p>LC1047 把字符串顺序放到一个栈中，相同的话栈就弹出，最后栈里剩下的元素就是相邻不相同的了。</p><h3 id="逆波兰表达式问题"><a href="#逆波兰表达式问题" class="headerlink" title="逆波兰表达式问题"></a>逆波兰表达式问题</h3><p>计算的公式，将数字放在前，符号放在后，这样的字符串用对栈计算效率最高。</p><h2 id="队列的经典题目"><a href="#队列的经典题目" class="headerlink" title="队列的经典题目"></a>队列的经典题目</h2><h3 id="滑动窗口最大值问题"><a href="#滑动窗口最大值问题" class="headerlink" title="滑动窗口最大值问题"></a>滑动窗口最大值问题</h3><p>LC239 单调队列</p><p>队列没有必要维护窗口里的所有元素，只要维护有可能成为窗口里最大值的元素就可以了，同时保证队列里的元素数值是由大到小的。</p><p>那么这个维护元素单调递减的队列就叫做单调队列，即单调递减或单调递增的队列。</p><h3 id="求前k个高频元素"><a href="#求前k个高频元素" class="headerlink" title="求前k个高频元素"></a>求前k个高频元素</h3><p>LC347 优先级队列</p><p>什么是优先级队列呢？</p><p>就是一个披着外皮的堆，因为优先级队列的对外接口只是从队头取元素，从队尾添加元素，再无其他取元素的方式，所以看起来就像一个队列。</p><p>优先级队列内部是按照元素的权值排列，权值可以自己定义。</p><p><a href="https://www.cainiaojc.com/java/java-priorityqueue.html">https://www.cainiaojc.com/java/java-priorityqueue.html</a></p>]]></content>
       
       
       
