@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="monotonic stack单调栈，能够解决的问题很单一，就是下一个更大，或者下一个更小之类的 模版 123456789101112131415161718int[] nextGreaterElement(int[] nums) {    int n &#x3D; nums.length;    &#x2F;&#x2F; 存放答案的数组    int[] res &#x3D; new int[n];    Stack&lt;Integ">
+    <meta name="description" content="图论基础本质上：图是多叉树的延伸 1234567891011&#x2F;&#x2F; 图的逻辑结构class Vertex {	int id;	Vertex[] neighbors}&#x2F;&#x2F; 多叉树的逻辑结构class TreeNode {  int val;  TreeNode[] children;}  所以：适用于树的DFS&#x2F;BFS遍历算法全部适用于图 图的实现方法一般来说我们很少使用Vertex类来实现图，比较常">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Monotonic Stack">
-<meta property="og:url" content="http://example.com/2022/10/30/Monotonic-Stack/index.html">
+<meta property="og:title" content="Foundations of Graph Theory">
+<meta property="og:url" content="http://example.com/2022/11/08/Foundations-of-Graph-Theory/index.html">
 <meta property="og:site_name" content="WANG Tianchen">
-<meta property="og:description" content="monotonic stack单调栈，能够解决的问题很单一，就是下一个更大，或者下一个更小之类的 模版 123456789101112131415161718int[] nextGreaterElement(int[] nums) {    int n &#x3D; nums.length;    &#x2F;&#x2F; 存放答案的数组    int[] res &#x3D; new int[n];    Stack&lt;Integ">
+<meta property="og:description" content="图论基础本质上：图是多叉树的延伸 1234567891011&#x2F;&#x2F; 图的逻辑结构class Vertex {	int id;	Vertex[] neighbors}&#x2F;&#x2F; 多叉树的逻辑结构class TreeNode {  int val;  TreeNode[] children;}  所以：适用于树的DFS&#x2F;BFS遍历算法全部适用于图 图的实现方法一般来说我们很少使用Vertex类来实现图，比较常">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-30T02:06:20.000Z">
-<meta property="article:modified_time" content="2022-10-30T02:07:34.541Z">
+<meta property="article:published_time" content="2022-11-08T01:37:49.000Z">
+<meta property="article:modified_time" content="2022-11-08T02:08:22.538Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Programming">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Monotonic Stack - WANG Tianchen</title>
+  <title>Foundations of Graph Theory - WANG Tianchen</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Monotonic Stack">
+            <span class="h2" id="subtitle" title="Foundations of Graph Theory">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-10-30 11:06" pubdate>
-        October 30, 2022 am
+      <time datetime="2022-11-08 10:37" pubdate>
+        November 8, 2022 am
       </time>
     </span>
   
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      436 Words
+      1.4k Words
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 Minutes
+      12 Minutes
     </span>
   
 
@@ -234,20 +234,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Monotonic Stack</h1>
+            <h1 style="display: none">Foundations of Graph Theory</h1>
             
               <p class="note note-info">
                 
-                  Last renew: October 30, 2022 am
+                  Last renew: November 8, 2022 am
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="monotonic-stack"><a href="#monotonic-stack" class="headerlink" title="monotonic stack"></a>monotonic stack</h1><p>单调栈，能够解决的问题很单一，就是下一个更大，或者下一个更小之类的</p>
-<p>模版</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nextGreaterElement(<span class="hljs-type">int</span>[] nums) {<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-comment">// 存放答案的数组</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    Stack&lt;Integer&gt; s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;(); <br>    <span class="hljs-comment">// 倒着往栈里放</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {<br>        <span class="hljs-comment">// 判定个子高矮</span><br>        <span class="hljs-keyword">while</span> (!s.isEmpty() &amp;&amp; s.peek() &lt;= nums[i]) {<br>            <span class="hljs-comment">// 矮个起开，反正也被挡着了。。。</span><br>            s.pop();<br>        }<br>        <span class="hljs-comment">// nums[i] 身后的更大元素</span><br>        res[i] = s.isEmpty() ? -<span class="hljs-number">1</span> : s.peek();<br>        s.push(nums[i]);<br>    }<br>    <span class="hljs-keyword">return</span> res;<br>}<br></code></pre></td></tr></tbody></table></figure>
+              <h1 id="图论基础"><a href="#图论基础" class="headerlink" title="图论基础"></a>图论基础</h1><p>本质上：图是多叉树的延伸</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 图的逻辑结构</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Vertex</span> {<br>	<span class="hljs-type">int</span> id;<br>	Vertex[] neighbors<br>}<br><br><span class="hljs-comment">// 多叉树的逻辑结构</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeNode</span> {<br>  <span class="hljs-type">int</span> val;<br>  TreeNode[] children;<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p>很多东西只要对模版微调就可以解决</p>
+<p>所以：适用于树的DFS/BFS遍历算法全部适用于图</p>
+<h2 id="图的实现方法"><a href="#图的实现方法" class="headerlink" title="图的实现方法"></a>图的实现方法</h2><p>一般来说我们很少使用<code>Vertex</code>类来实现图，比较常见的是使用邻接表(Adjacency list)和邻接矩阵(Adjacency matrix)</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Adjacency list</span><br><span class="hljs-comment">// graph[x] store all the adjacent node</span><br>List&lt;Integer&gt;[] graph;<br><br><span class="hljs-comment">// Adjancency matrix</span><br><span class="hljs-comment">// matrix[x][y] record is there any side in x oriented to y</span><br><span class="hljs-type">boolean</span>[][] matrix;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>邻接表是一个很直观的表，我们将每个节点的邻居（对于有向图来说是指向的节点/出度）都存到一个列表中，然后将x和这个列表关联起来。</p>
+<p>邻接矩阵是一个二位布尔数组，如果节点x和y相连，<code>matrix[x][y]</code>设为<code>true</code></p>
+<h3 id="两种方法的优劣"><a href="#两种方法的优劣" class="headerlink" title="两种方法的优劣"></a>两种方法的优劣</h3><p>邻接表：</p>
+<p>​    pros: 占用的空间小</p>
+<p>​    cons: 无法快速判断两个节点是否相邻</p>
+<p>邻接矩阵与上面相反</p>
+<p>使用哪一种要看具体情况。</p>
+<h3 id="度-degree"><a href="#度-degree" class="headerlink" title="度(degree)"></a>度(degree)</h3><p>有向图(Oriented graph)的每个节点被分为入度(indegree)与出度(outdegree)</p>
+<h3 id="有向加权图"><a href="#有向加权图" class="headerlink" title="有向加权图"></a>有向加权图</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Adjancency list</span><br>List&lt;<span class="hljs-type">int</span>[]&gt;[] graph;<br><br><span class="hljs-comment">// Adjancency matrix</span><br><span class="hljs-type">int</span>[][] matrix;<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3><p>很简单，把邻接矩阵中的<code>matrix[x][y]</code>与<code>matrix[y][x]</code>都变成<code>true</code>就可以了，邻接表同理，出度和入度的线全部加入数组即可</p>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>数据结构被发明出来无非就是为了遍历和访问 -&gt; 遍历是所有数据结构的基础</p>
+<p>图的遍历方法？参考多叉树</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 多叉树遍历框架</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">traverse</span><span class="hljs-params">(TreeNode root)</span> {<br>  <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-keyword">for</span> (TreeNode child : root.children) {<br>    traverse(child);<br>  }<br>  <span class="hljs-comment">// post-order</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>但是图可能包含环 (ring)</p>
+<p>所以一定需要一个<code>visited[]</code>辅助</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Record the visited node</span><br><span class="hljs-type">boolean</span>[] visited;<br><span class="hljs-comment">// Record the path from startPoint (Check is there a exited ring)</span><br><span class="hljs-type">boolean</span>[] onPath;<br><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">traverse</span><span class="hljs-params">(Graph graph, <span class="hljs-type">int</span> s)</span> {<br>  <span class="hljs-keyword">if</span>(visited[s]) <span class="hljs-keyword">return</span>;<br>  visited[s] = <span class="hljs-literal">true</span>;<br>  onPath[s] = <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> neighbor : graph.neighbors(s)) {<br>    traverse(graph, neighbor);<br>  }<br>  <span class="hljs-comment">// remove the path before</span><br>  onPath[s] = <span class="hljs-literal">false</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
             <hr>
@@ -269,18 +302,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/08/Foundations-of-Graph-Theory/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Foundations of Graph Theory</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/30/%E3%81%B5%E3%82%8D%E3%81%A1%E3%82%83%E3%81%A7%E3%81%BC%E3%81%A3%E3%81%A8/">
-                        <span class="hidden-mobile">ふろちゃでぼっと</span>
+                      <a href="/2022/10/30/Monotonic-Stack/">
+                        <span class="hidden-mobile">Monotonic Stack</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
